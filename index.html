@@ -1,0 +1,369 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Page metadata, font, and local styles/scripts -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#0a0a0f" />
+    <meta name="description" content="Find your next favorite movie or series with Reelish." />
+    <meta property="og:title" content="Reelish — Your entertainment. Your way." />
+    <meta property="og:description" content="Discover movies and series, explore what’s trending, and enjoy a personalized viewing experience." />
+    <meta property="og:image" content="assets/hero/pxl_9_mcp_12.png" />
+    <meta property="og:type" content="website" />
+    <title>Reelish — Your entertainment. Your way.</title>
+    <link rel="icon" type="image/png" href="assets/icons/reelish_icon.png" />
+    <link rel="apple-touch-icon" href="assets/icons/reelish_icon.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,300..600,0..1,0&icon_names=auto_awesome,download,history,home,menu_book&display=block" rel="stylesheet" />
+    <link rel="stylesheet" href="style/main.css" />
+    <script src="scripts/main.js" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <!-- Brand, desktop navigation, and mobile menu -->
+    <header class="site-header">
+      <nav class="nav shell" aria-label="Main navigation">
+        <a class="brand" href="#home" aria-label="Reelish home">
+          <img src="assets/icons/reelish_icon.png" alt="" width="34" height="34" />
+          <span>Reelish</span>
+        </a>
+
+        <button class="menu-toggle" type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="primary-nav">
+          <span></span><span></span>
+        </button>
+
+        <div class="nav-panel" id="primary-nav">
+          <div class="nav-links">
+            <a class="nav-link is-active" href="#home" aria-current="true"><span class="nav-icon material-symbols-rounded" aria-hidden="true">home</span><span class="nav-label">Home</span></a>
+            <a class="nav-link" href="feature.html"><span class="nav-icon material-symbols-rounded" aria-hidden="true">auto_awesome</span><span class="nav-label">Features</span></a>
+            <a class="nav-link" href="guide.html"><span class="nav-icon material-symbols-rounded" aria-hidden="true">menu_book</span><span class="nav-label">Guides</span></a>
+            <a class="nav-link" href="changelog.html"><span class="nav-icon material-symbols-rounded" aria-hidden="true">history</span><span class="nav-label">Changelog</span></a>
+          </div>
+          <a class="button button-small button-primary download-action" href="https://github.com/frnzeeey/reelish/releases/latest/download/reelish.apk">
+            <span class="nav-icon material-symbols-rounded" aria-hidden="true">download</span>
+            <span class="nav-label">Download</span>
+          </a>
+        </div>
+      </nav>
+    </header>
+
+    <!-- Landing page content -->
+    <main id="main">
+      <!-- Primary hero message and app preview -->
+      <section class="hero shell" id="home" aria-labelledby="hero-title">
+        <div class="hero-copy">
+          <div class="eyebrow"><span class="eyebrow-dot"></span> Introducing Reelish</div>
+          <h1 id="hero-title">Your entertainment. <span>Your way.</span></h1>
+          <p class="hero-description">Discover movies and series, explore what’s trending, and enjoy a personalized viewing experience with Reelish.</p>
+          <div class="hero-actions">
+            <a class="button button-primary button-large download-action" href="https://github.com/frnzeeey/reelish/releases/latest/download/reelish.apk">
+              <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M12 3v12m0 0 4-4m-4 4-4-4M5 16v4h14v-4" /></svg>
+              Download for Android
+            </a>
+            <a class="button button-quiet button-large" href="feature.html">
+              Explore features
+              <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M5 12h14m-6-6 6 6-6 6" /></svg>
+            </a>
+          </div>
+          <div class="hero-meta">
+            <p class="availability">
+              <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M7 9.5h10v7a1.5 1.5 0 0 1-1.5 1.5h-7A1.5 1.5 0 0 1 7 16.5v-7ZM7 8a5 5 0 0 1 10 0M9 4 8 2.5M15 4l1-1.5M9.5 18v3m5-3v3M4.5 10v5m15-5v5" /></svg>
+              Available for Android<span class="version-chip" data-latest-version hidden></span>
+            </p>
+            <ul class="hero-tags" aria-label="Highlights">
+              <li>TMDB-powered</li>
+              <li>Plugin support</li>
+              <li>Custom subtitles</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="hero-art" role="img" aria-label="Preview of the Reelish app on a phone">
+          <div class="art-glow" aria-hidden="true"></div>
+          <div class="orbit orbit-one" aria-hidden="true"></div>
+          <div class="orbit orbit-two" aria-hidden="true"></div>
+          <img class="phone-preview" src="assets/hero/pxl_9_mcp_12.png" alt="" width="4000" height="4000" fetchpriority="high" />
+          <div class="floating-note note-top" aria-hidden="true"><span class="note-icon">✦</span><span><strong>Picked for you</strong><small>Based on your taste</small></span></div>
+          <div class="floating-note note-bottom" aria-hidden="true"><span class="live-dot"></span><span><strong>Tonight’s watch?</strong><small>We have a few ideas.</small></span></div>
+        </div>
+      </section>
+
+      <!-- Interactive carousel of app screen previews -->
+      <section class="section section-raised" id="showcase" aria-labelledby="showcase-title">
+        <div class="container showcase-shell">
+          <header class="section-head">
+            <p class="kicker">App showcase</p>
+            <h2 class="section-title" id="showcase-title">Made for the way you watch.</h2>
+            <p class="section-lead">A beautiful interface that keeps discovery simple and your experience personal.</p>
+          </header>
+
+          <div class="showcase-carousel" role="region" aria-roledescription="carousel" aria-label="Reelish app screens" tabindex="0">
+            <button class="showcase-arrow showcase-previous" type="button" aria-label="Previous app screen">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m14.5 5-7 7 7 7" /></svg>
+            </button>
+            <div class="showcase-stage">
+              <div class="showcase-device">
+                <img class="showcase-screen-image" id="showcase-screen" src="assets/app-showcase/1.png" alt="Reelish Home Screen" width="1424" height="3000" loading="lazy" />
+              </div>
+            </div>
+            <button class="showcase-arrow showcase-next" type="button" aria-label="Next app screen">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9.5 5 7 7-7 7" /></svg>
+            </button>
+          </div>
+
+          <div class="showcase-caption">
+            <p class="showcase-slide-title" aria-live="polite">Home Screen</p>
+            <div class="showcase-dots" role="group" aria-label="Choose an app screen"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Three-step guide to getting started with Reelish -->
+      <section class="section" id="guides" aria-labelledby="how-title">
+        <div class="container">
+          <header class="section-head">
+            <p class="kicker">How it works</p>
+            <h2 class="section-title" id="how-title">Get started in three simple steps.</h2>
+          </header>
+
+          <ol class="steps-grid" role="list">
+            <li class="step-card">
+              <div class="step-top">
+                <span class="step-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3v12m0 0 4-4m-4 4-4-4M5 16v4h14v-4" /></svg></span>
+                <span class="step-number" aria-hidden="true">01</span>
+              </div>
+              <h3>Download Reelish</h3>
+              <p>Get the latest Android APK from the official release source.</p>
+            </li>
+            <li class="step-card">
+              <div class="step-top">
+                <span class="step-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 6h9m4 0h3M4 12h3m4 0h9M4 18h9m4 0h3"/><circle cx="15" cy="6" r="2"/><circle cx="9" cy="12" r="2"/><circle cx="15" cy="18" r="2"/></svg></span>
+                <span class="step-number" aria-hidden="true">02</span>
+              </div>
+              <h3>Set up your experience</h3>
+              <p>Configure your preferences and compatible third-party plugins.</p>
+            </li>
+            <li class="step-card">
+              <div class="step-top">
+                <span class="step-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="m15.5 8.5-2.2 4.8-4.8 2.2 2.2-4.8 4.8-2.2Z"/></svg></span>
+                <span class="step-number" aria-hidden="true">03</span>
+              </div>
+              <h3>Explore</h3>
+              <p>Discover titles and access sources made available through your configured providers.</p>
+            </li>
+          </ol>
+        </div>
+      </section>
+
+            <!-- Feature overview and movie discovery spotlight -->
+      <section class="features-section" id="features" aria-labelledby="features-title">
+        <div class="features-shell">
+          <header class="features-heading">
+            <p class="features-kicker">Features</p>
+            <h1 id="features-title">Every Feature Designed with You in Mind</h1>
+          </header>
+
+          <div class="features-grid">
+            <article class="feature-card">
+              <span class="feature-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="m15.5 8.5-2.2 4.8-4.8 2.2 2.2-4.8 4.8-2.2Z"/></svg></span>
+              <h3>Discover More</h3>
+              <p>Explore movies and TV series with curated recommendations, trending titles, and fresh discoveries.</p>
+            </article>
+            <article class="feature-card">
+              <span class="feature-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="m10 8.5 5.5 3.5-5.5 3.5v-7Z"/></svg></span>
+              <h3>Flexible Playback</h3>
+              <p>Enjoy playback controls designed to give you more flexibility over your viewing experience.</p>
+            </article>
+            <article class="feature-card">
+              <span class="feature-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m8.5 8.5 2-2a2.8 2.8 0 0 1 4 4l-1 1m2 4 2-2a2.8 2.8 0 0 0-4-4l-1 1m-5 5 2-2m4-4-4 4"/><path d="m6 13-2 2a2.8 2.8 0 0 0 4 4l2-2"/></svg></span>
+              <h3>Third-Party Plugins</h3>
+              <p>Connect compatible third-party providers and manage your preferred sources.</p>
+            </article>
+            <article class="feature-card">
+              <span class="feature-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="4" y="5" width="16" height="14" rx="2"/><path d="M8 10h2m4 0h2M8 14h8"/></svg></span>
+              <h3>Subtitle Controls</h3>
+              <p>Customize subtitle appearance and positioning for a more comfortable viewing experience.</p>
+            </article>
+            <article class="feature-card">
+              <span class="feature-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 6h9m4 0h3M4 12h3m4 0h9M4 18h9m4 0h3"/><circle cx="15" cy="6" r="2"/><circle cx="9" cy="12" r="2"/><circle cx="15" cy="18" r="2"/></svg></span>
+              <h3>Personalized Experience</h3>
+              <p>Make Reelish feel yours with thoughtfully designed settings and preferences.</p>
+            </article>
+            <article class="feature-card">
+              <span class="feature-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="6" y="3" width="12" height="18" rx="2"/><path d="M10 6h4m-3 12h2"/></svg></span>
+              <h3>Modern Interface</h3>
+              <p>Navigate through a smooth, responsive, and distraction-free experience.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- Playback preview with controls and feature summary -->
+      <section class="section section-raised" id="playback" aria-labelledby="playback-title">
+        <div class="container playback-layout">
+          <div class="playback-player" id="playback-player" role="group" aria-label="Interactive playback preview">
+            <div class="playback-screen">
+              <img class="playback-frame-image" src="assets/playback/paused.png" alt="" width="1920" height="1000" loading="lazy" />
+              <button class="playback-main-toggle" type="button" aria-label="Play preview" aria-pressed="false">
+                <svg class="icon-play" viewBox="0 0 24 24" aria-hidden="true"><path d="m8 5 12 7-12 7V5Z" /></svg>
+                <svg class="icon-pause" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5h3v14H8zM15 5h3v14h-3z" /></svg>
+              </button>
+              <div class="playback-subtitle" aria-hidden="true">Subtitle text appears here</div>
+            </div>
+
+            <div class="playback-controls">
+              <div class="playback-timeline-row">
+                <input class="playback-timeline" type="range" min="0" max="6720" value="2537" aria-label="Preview playback position" />
+              </div>
+              <div class="playback-toolbar">
+                <div class="playback-actions">
+                  <button class="playback-control playback-skip-back" type="button" aria-label="Back 10 seconds">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5"/></svg>
+                  </button>
+                  <button class="playback-control playback-toggle" type="button" aria-label="Play preview" aria-pressed="false">
+                    <svg class="icon-play" viewBox="0 0 24 24" aria-hidden="true"><path d="m8 5 12 7-12 7V5Z" /></svg>
+                    <svg class="icon-pause" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5h3v14H8zM15 5h3v14h-3z" /></svg>
+                  </button>
+                  <button class="playback-control playback-skip-forward" type="button" aria-label="Forward 10 seconds">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12a9 9 0 1 1-3-6.7L21 8"/><path d="M21 3v5h-5"/></svg>
+                  </button>
+                </div>
+                <span class="playback-time" aria-live="off">42:17 / 1:52:00</span>
+                <div class="playback-options-wrap">
+                  <button class="playback-control playback-captions" type="button" aria-label="Toggle subtitles" aria-pressed="true">CC</button>
+                  <button class="playback-control playback-settings-toggle" type="button" aria-label="Playback settings" aria-expanded="false" aria-controls="playback-options">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1Z"/></svg>
+                  </button>
+                  <div class="playback-options" id="playback-options" hidden>
+                    <span>Video scaling</span>
+                    <button type="button" data-scale="Fit" class="is-selected" aria-pressed="true">Fit</button>
+                    <button type="button" data-scale="Fill" aria-pressed="false">Fill</button>
+                  </div>
+                  <button class="playback-control playback-fullscreen" type="button" aria-label="Toggle fullscreen">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 4H4v4m12-4h4v4M4 16v4h4m12-4v4h-4"/></svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="playback-copy">
+            <p class="kicker">Playback</p>
+            <h2 class="section-title" id="playback-title">More control. Better viewing.</h2>
+            <p class="section-lead">Fine-tune playback, subtitles, and viewing preferences through an interface built around simplicity.</p>
+            <ul class="check-list">
+              <li>Playback controls</li>
+              <li>Subtitle customization</li>
+              <li>Video scaling options</li>
+              <li>Stream source selection</li>
+            </ul>
+            <a class="button button-quiet" href="feature.html">
+              Explore all features
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6"/></svg>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Latest release information and GitHub fallback -->
+      <section class="section" id="changelog" aria-labelledby="release-title">
+        <div class="container">
+          <header class="section-head">
+            <p class="kicker">Latest release</p>
+            <h2 class="section-title" id="release-title">Always getting better.</h2>
+            <p class="section-lead">Reelish is continuously updated with new features, improvements, and fixes.</p>
+          </header>
+
+          <div class="release-card" id="latest-release" aria-live="polite">
+            <span class="release-status" aria-hidden="true">
+              <svg class="release-status-icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" /><path d="M12 8v5m0 3h.01" /></svg>
+            </span>
+            <p>Release information is not currently available.</p>
+            <a class="text-link" href="https://github.com/frnzeeey/reelish/releases" target="_blank" rel="noopener noreferrer">
+              View all releases on GitHub
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Final download prompt -->
+      <section class="final-cta" aria-labelledby="final-cta-title">
+        <div class="container">
+          <div class="final-cta-panel">
+            <div class="final-cta-content">
+              <h2 id="final-cta-title">Ready to experience Reelish?</h2>
+              <p>Discover a new way to explore your favorite entertainment.</p>
+              <div class="final-cta-actions">
+                <a class="button button-primary button-large download-action" href="https://github.com/frnzeeey/reelish/releases/latest/download/reelish.apk">
+                  <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M12 3v12m0 0 4-4m-4 4-4-4M5 16v4h14v-4" /></svg>
+                  Download Reelish
+                </a>
+                <a class="button button-quiet button-large" href="changelog.html">See what’s new</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Site footer with navigation, resources, and attribution -->
+    <footer class="site-footer">
+      <div class="container">
+        <div class="footer-main">
+          <div class="footer-brand-column">
+            <a class="footer-brand" href="#home" aria-label="Reelish home">
+              <img src="assets/icons/reelish_icon.png" alt="" width="30" height="30" loading="lazy" />
+              <span>Reelish</span>
+            </a>
+            <p>Discover movies and series, explore what’s trending, and enjoy a personalized viewing experience.</p>
+            <a class="footer-github" href="https://github.com/frnzeeey/reelish" target="_blank" rel="noopener noreferrer">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 19c-4.3 1.4-4.3-2.5-6-3m12 5v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6 0 0 0-1.3-3.2 4.2 4.2 0 0 0-.1-3.2s-1.1-.3-3.5 1.3a12.3 12.3 0 0 0-6.2 0C6.5 2.8 5.4 3.1 5.4 3.1a4.2 4.2 0 0 0-.1 3.2A4.6 4.6 0 0 0 4 9.5c0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2V21"/></svg>
+              View on GitHub
+            </a>
+          </div>
+
+          <nav class="footer-column" aria-label="Explore">
+            <h2>Explore</h2>
+            <a href="#home">Home</a>
+            <a href="feature.html">Features</a>
+            <a class="footer-link download-action" href="https://github.com/frnzeeey/reelish/releases/latest/download/reelish.apk">Download</a>
+            <a href="changelog.html">Changelog</a>
+          </nav>
+
+          <nav class="footer-column" aria-label="Resources">
+            <h2>Resources</h2>
+            <a href="guide.html">Guides</a>
+            <button class="footer-link" type="button" data-coming-soon="Support">Support</button>
+            <button class="footer-link" type="button" data-coming-soon="FAQs">FAQs</button>
+            <button class="footer-link" type="button" data-coming-soon="About">About</button>
+          </nav>
+
+          <nav class="footer-column" aria-label="Legal">
+            <h2>Legal</h2>
+            <button class="footer-link" type="button" data-coming-soon="Privacy policy">Privacy Policy</button>
+            <button class="footer-link" type="button" data-coming-soon="Terms of use">Terms of Use</button>
+            <button class="footer-link" type="button" data-coming-soon="Content disclaimer">Content Disclaimer</button>
+            <a href="https://www.themoviedb.org/" target="_blank" rel="noopener noreferrer">TMDB Attribution</a>
+            <button class="footer-link" type="button" data-coming-soon="Third-party licenses">Third-Party Licenses</button>
+          </nav>
+        </div>
+
+        <div class="footer-bottom">
+          <div>
+            <p>© 2026 Reelish. All rights reserved.</p>
+            <p>This product uses the TMDB API but is not endorsed or certified by TMDB.</p>
+            <p>Playback preview: <a href="https://peach.blender.org/" target="_blank" rel="noopener noreferrer">Big Buck Bunny</a> © Blender Foundation, <a href="https://creativecommons.org/licenses/by/3.0/" target="_blank" rel="noopener noreferrer">CC BY 3.0</a>.</p>
+          </div>
+          <p>Reelish does not host, store, or distribute any media content. Third-party plugins are independently operated.</p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Live feedback messages for button and navigation actions -->
+    <div class="toast" role="status" aria-live="polite"></div>
+  </body>
+</html>

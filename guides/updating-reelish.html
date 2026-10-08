@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Guide article metadata and shared site assets -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#0b0b10" />
+    <meta name="description" content="Keep Reelish up to date with the latest release." />
+    <title>Updating Reelish — Reelish Guides</title>
+    <link rel="icon" type="image/png" href="../assets/icons/reelish_icon.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,300..600,0..1,0&icon_names=auto_awesome,download,history,home,menu_book&display=block" rel="stylesheet" />
+    <link rel="stylesheet" href="../style/main.css" />
+    <script src="../scripts/main.js" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <!-- Shared site navigation with Guides marked as active -->
+    <header class="site-header">
+      <nav class="nav shell" aria-label="Main navigation">
+        <a class="brand" href="../index.html#home" aria-label="Reelish home">
+          <img src="../assets/icons/reelish_icon.png" alt="" />
+          <span>Reelish</span>
+        </a>
+
+        <button class="menu-toggle" type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="primary-nav">
+          <span></span><span></span>
+        </button>
+
+        <div class="nav-panel" id="primary-nav">
+          <div class="nav-links">
+            <a class="nav-link" href="../index.html#home"><span class="nav-icon material-symbols-rounded" aria-hidden="true">home</span><span class="nav-label">Home</span></a>
+            <a class="nav-link" href="../feature.html"><span class="nav-icon material-symbols-rounded" aria-hidden="true">auto_awesome</span><span class="nav-label">Features</span></a>
+            <a class="nav-link is-active" href="../guide.html"><span class="nav-icon material-symbols-rounded" aria-hidden="true">menu_book</span><span class="nav-label">Guides</span></a>
+            <a class="nav-link" href="../changelog.html"><span class="nav-icon material-symbols-rounded" aria-hidden="true">history</span><span class="nav-label">Changelog</span></a>
+          </div>
+          <a class="button button-small button-primary download-action" href="https://github.com/frnzeeey/reelish/releases/latest/download/reelish.apk">
+            <span class="nav-icon material-symbols-rounded" aria-hidden="true">download</span>
+            <span class="nav-label">Download</span>
+          </a>
+        </div>
+      </nav>
+    </header>
+
+    <main id="main">
+      <!-- Guide article with table of contents and related guides -->
+      <article class="guide-article" aria-labelledby="guide-title">
+        <div class="container guide-article-layout">
+          <div class="guide-article-main">
+            <nav class="guide-breadcrumb" aria-label="Breadcrumb">
+              <ol>
+                <li><a href="../guide.html">Guides</a></li>
+                <li><a href="../guide.html#group-installation">Installation</a></li>
+                <li aria-current="page">Updating Reelish</li>
+              </ol>
+            </nav>
+
+            <header class="guide-article-head">
+              <span class="guide-article-category"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M12 3v12m0 0 4-4m-4 4-4-4M5 16v4h14v-4" /></svg> Installation</span>
+              <h1 id="guide-title">Updating Reelish</h1>
+              <p class="guide-article-lead">Keep Reelish up to date with the latest release.</p>
+              <p class="guide-article-meta">1 min read</p>
+            </header>
+
+            <div class="guide-prose">
+              <p>Reelish can check GitHub for newer stable releases and install them for you. You can also update manually at any time by installing a newer APK over the current one.</p>
+
+      <h2 id="updating-inside-the-app">Updating inside the app</h2>
+      <ol class="guide-steps">
+        <li>When a new version is available, Reelish shows <span class="ui">New Reelish update available</span> with the release notes.</li>
+        <li>Tap <span class="ui">Update now</span> (or <span class="ui">Later</span> to be reminded another time).</li>
+        <li>Keep Reelish open until the download finishes.</li>
+        <li>Android’s package installer opens. Confirm the update.</li>
+      </ol>
+      <p>To check yourself, open <span class="ui">Settings → About Reelish</span> and tap <span class="ui">Check for updates</span>. If you’re current, you’ll see <span class="ui">Reelish is up to date.</span></p>
+
+      <h2 id="allowing-reelish-to-install-updates">Allowing Reelish to install updates</h2>
+      <p>The first time you update from inside the app, Android asks for permission. When you see <span class="ui">Allow Reelish to install updates</span>:</p>
+      <ol class="guide-steps">
+        <li>Tap <span class="ui">Open settings</span>.</li>
+        <li>Turn on <span class="ui">Allow from this source</span> for Reelish.</li>
+        <li>Go back to Reelish and try the update again.</li>
+      </ol>
+
+      <h2 id="how-updates-are-verified">How updates are verified</h2>
+      <p>Before opening Android’s installer, Reelish checks that the downloaded file is a genuine Reelish release: its SHA-256 checksum, package name, version (it must match the release tag and must not be lower than what you have installed) and signing key. A file that fails any check is refused with an explanation.</p>
+
+      <h2 id="updating-manually">Updating manually</h2>
+      <p>Download the latest <code>reelish.apk</code> and install it over your current version, following <a href="installing-on-android.html">Installing on Android</a>. Your library, settings and providers are kept.</p>
+      <div class="guide-callout guide-callout-warning">
+        <strong>Coming from v1.5.0 or earlier?</strong>
+        <p>Those versions use an old app ID and can’t update in place. Install the current APK as a new app, then uninstall the old one.</p>
+      </div>
+            </div>
+
+            <aside class="guide-help" aria-label="Need more help?">
+              <div>
+                <h2>Still need help?</h2>
+                <p>Report a bug or ask a question on GitHub, or browse the rest of the guides.</p>
+              </div>
+              <div class="guide-help-actions">
+                <a class="button button-primary" href="https://github.com/frnzeeey/reelish/issues" target="_blank" rel="noopener noreferrer">Open an issue <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M7 17 17 7M8 7h9v9" /></svg></a>
+                <a class="button button-quiet" href="../guide.html">All guides</a>
+              </div>
+            </aside>
+
+            <nav class="guide-pager" aria-label="More guides">
+              <a class="guide-pager-link guide-pager-prev" href="installing-on-android.html">
+              <span><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M19 12H5m6-6-6 6 6 6" /></svg> Previous</span>
+              <strong>Installing on Android</strong>
+            </a>
+              <a class="guide-pager-link guide-pager-next" href="understanding-third-party-plugins.html">
+              <span>Next <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M5 12h14m-6-6 6 6-6 6" /></svg></span>
+              <strong>Understanding Third-Party Plugins</strong>
+            </a>
+            </nav>
+          </div>
+
+          <aside class="guide-article-aside">
+            <nav class="aside-card guide-toc" aria-label="On this page">
+              <h2>On this page</h2>
+              <ol>
+                <li><a href="#updating-inside-the-app">Updating inside the app</a></li>
+                <li><a href="#allowing-reelish-to-install-updates">Allowing Reelish to install updates</a></li>
+                <li><a href="#how-updates-are-verified">How updates are verified</a></li>
+                <li><a href="#updating-manually">Updating manually</a></li>
+              </ol>
+            </nav>
+            <nav class="aside-card guide-related" aria-label="Installation guides">
+              <h2><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M12 3v12m0 0 4-4m-4 4-4-4M5 16v4h14v-4" /></svg> Installation</h2>
+              <ul>
+                <li><a href="downloading-the-apk.html">Downloading the APK</a></li>
+                <li><a href="installing-on-android.html">Installing on Android</a></li>
+                <li><a href="updating-reelish.html" aria-current="page">Updating Reelish</a></li>
+              </ul>
+            </nav>
+          </aside>
+        </div>
+      </article>
+    </main>
+
+    <!-- Site footer with navigation, resources, and attribution -->
+    <footer class="site-footer">
+      <div class="container">
+        <div class="footer-main">
+          <div class="footer-brand-column">
+            <a class="footer-brand" href="../index.html#home" aria-label="Reelish home">
+              <img src="../assets/icons/reelish_icon.png" alt="" width="30" height="30" loading="lazy" />
+              <span>Reelish</span>
+            </a>
+            <p>Discover movies and series, explore what’s trending, and enjoy a personalized viewing experience.</p>
+            <a class="footer-github" href="https://github.com/frnzeeey/reelish" target="_blank" rel="noopener noreferrer">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 19c-4.3 1.4-4.3-2.5-6-3m12 5v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6 0 0 0-1.3-3.2 4.2 4.2 0 0 0-.1-3.2s-1.1-.3-3.5 1.3a12.3 12.3 0 0 0-6.2 0C6.5 2.8 5.4 3.1 5.4 3.1a4.2 4.2 0 0 0-.1 3.2A4.6 4.6 0 0 0 4 9.5c0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2V21"/></svg>
+              View on GitHub
+            </a>
+          </div>
+
+          <nav class="footer-column" aria-label="Explore">
+            <h2>Explore</h2>
+            <a href="../index.html#home">Home</a>
+            <a href="../feature.html">Features</a>
+            <a class="footer-link download-action" href="https://github.com/frnzeeey/reelish/releases/latest/download/reelish.apk">Download</a>
+            <a href="../changelog.html">Changelog</a>
+          </nav>
+
+          <nav class="footer-column" aria-label="Resources">
+            <h2>Resources</h2>
+            <a href="../guide.html">Guides</a>
+            <button class="footer-link" type="button" data-coming-soon="Support">Support</button>
+            <button class="footer-link" type="button" data-coming-soon="FAQs">FAQs</button>
+            <button class="footer-link" type="button" data-coming-soon="About">About</button>
+          </nav>
+
+          <nav class="footer-column" aria-label="Legal">
+            <h2>Legal</h2>
+            <button class="footer-link" type="button" data-coming-soon="Privacy policy">Privacy Policy</button>
+            <button class="footer-link" type="button" data-coming-soon="Terms of use">Terms of Use</button>
+            <button class="footer-link" type="button" data-coming-soon="Content disclaimer">Content Disclaimer</button>
+            <a href="https://www.themoviedb.org/" target="_blank" rel="noopener noreferrer">TMDB Attribution</a>
+            <button class="footer-link" type="button" data-coming-soon="Third-party licenses">Third-Party Licenses</button>
+          </nav>
+        </div>
+
+        <div class="footer-bottom">
+          <div>
+            <p>© 2026 Reelish. All rights reserved.</p>
+            <p>This product uses the TMDB API but is not endorsed or certified by TMDB.</p>
+          </div>
+          <p>Reelish does not host, store, or distribute any media content. Third-party plugins are independently operated.</p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Live feedback messages for button and navigation actions -->
+    <div class="toast" role="status" aria-live="polite"></div>
+  </body>
+</html>
