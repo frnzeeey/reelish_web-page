@@ -1139,6 +1139,56 @@ h1 span {
   margin: 16px 0 28px;
 }
 
+/* ==========================================================================
+   Android TV
+   ========================================================================== */
+.tv-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+  align-items: center;
+  gap: clamp(40px, 6vw, 80px);
+}
+
+.tv-copy {
+  max-width: 480px;
+}
+
+.tv-copy .section-lead {
+  margin: 16px 0 28px;
+}
+
+.tv-visual {
+  position: relative;
+  min-width: 0;
+}
+
+.tv-glow {
+  position: absolute;
+  inset: 10% 8% 20%;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 65, 105, 0.22), transparent 70%);
+  filter: blur(40px);
+  pointer-events: none;
+}
+
+.tv-preview {
+  position: relative;
+  width: 100%;
+  height: auto;
+  filter: drop-shadow(0 28px 40px rgba(0, 0, 0, 0.5));
+}
+
+/* Feature page: TV still fills the spotlight panel width. */
+.discovery-visual-tv {
+  padding: clamp(24px, 3vw, 36px);
+}
+
+.spotlight-tv {
+  width: 100%;
+  height: auto;
+  filter: drop-shadow(0 24px 36px rgba(0, 0, 0, 0.45));
+}
+
 .check-list,
 .discovery-list {
   display: grid;
@@ -3310,11 +3360,13 @@ h1 span {
     height: clamp(580px, 105vw, 790px);
   }
 
-  .playback-layout {
+  .playback-layout,
+  .tv-layout {
     grid-template-columns: 1fr;
   }
 
-  .playback-copy {
+  .playback-copy,
+  .tv-copy {
     max-width: 640px;
   }
 
