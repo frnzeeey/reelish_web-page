@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Resources page metadata and shared site assets -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#0b0b10" />
+    <meta name="description" content="Quick answers about what Reelish is, how it works, and how your data is handled." />
+    <title>Frequently Asked Questions — Reelish</title>
+    <link rel="icon" type="image/png" href="assets/icons/reelish_icon.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,300..600,0..1,0&icon_names=auto_awesome,download,history,home,menu_book&display=block" rel="stylesheet" />
+    <link rel="stylesheet" href="style/main.css" />
+    <script src="scripts/main.js" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <!-- Shared site navigation -->
+    <header class="site-header">
+      <nav class="nav shell" aria-label="Main navigation">
+        <a class="brand" href="index.html#home" aria-label="Reelish home">
+          <img src="assets/icons/reelish_icon.png" alt="" />
+          <span>Reelish</span>
+        </a>
+
+        <button class="menu-toggle" type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="primary-nav">
+          <span></span><span></span>
+        </button>
+
+        <div class="nav-panel" id="primary-nav">
+          <div class="nav-links">
+            <a class="nav-link" href="index.html#home"><span class="nav-icon material-symbols-rounded" aria-hidden="true">home</span><span class="nav-label">Home</span></a>
+            <a class="nav-link" href="feature.html"><span class="nav-icon material-symbols-rounded" aria-hidden="true">auto_awesome</span><span class="nav-label">Features</span></a>
+            <a class="nav-link" href="guide.html"><span class="nav-icon material-symbols-rounded" aria-hidden="true">menu_book</span><span class="nav-label">Guides</span></a>
+            <a class="nav-link" href="changelog.html"><span class="nav-icon material-symbols-rounded" aria-hidden="true">history</span><span class="nav-label">Changelog</span></a>
+          </div>
+          <a class="button button-small button-primary download-action" href="https://github.com/frnzeeey/reelish/releases/latest/download/reelish.apk">
+            <span class="nav-icon material-symbols-rounded" aria-hidden="true">download</span>
+            <span class="nav-label">Download</span>
+          </a>
+        </div>
+      </nav>
+    </header>
+
+    <main id="main">
+      <!-- Resources article with table of contents and related pages -->
+      <article class="guide-article" aria-labelledby="page-title">
+        <div class="container guide-article-layout">
+          <div class="guide-article-main">
+            <nav class="guide-breadcrumb" aria-label="Breadcrumb">
+              <ol>
+                <li><a href="index.html#home">Home</a></li>
+                <li>Resources</li>
+                <li aria-current="page">Frequently Asked Questions</li>
+              </ol>
+            </nav>
+
+            <header class="guide-article-head">
+              <span class="guide-article-category"><svg aria-hidden="true" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" /><path d="M9.5 9a2.5 2.5 0 0 1 4.9.8c0 1.7-2.4 2.2-2.4 3.7M12 17h.01" /></svg> Resources</span>
+              <h1 id="page-title">Frequently Asked Questions</h1>
+              <p class="guide-article-lead">Quick answers about what Reelish is, how it works, and how your data is handled.</p>
+              
+            </header>
+
+            <div class="guide-prose">
+              <h2 id="general">General</h2>
+      <p><strong>What is Reelish?</strong><br />An open-source Android app for discovering movies and TV series and watching them through providers you choose. It combines a TMDB-powered catalog, a personal library and a built-in video player.</p>
+      <p><strong>Is Reelish free?</strong><br />Yes. Reelish is free and open source, with no account, subscription, or in-app purchases.</p>
+      <p><strong>Does Reelish host movies or shows?</strong><br />No. Reelish doesn’t host, store, upload or distribute any media. Streams come from independent third-party providers you choose to install. See the <a href="disclaimer.html">content disclaimer</a>.</p>
+      <p><strong>Which devices are supported?</strong><br />Reelish is distributed as an Android APK for phones and tablets.</p>
+
+      <h2 id="installing-and-updating">Installing and updating</h2>
+      <p><strong>Where do I download Reelish?</strong><br />Only from the project’s <a href="https://github.com/frnzeeey/reelish/releases" target="_blank" rel="noopener noreferrer">GitHub Releases</a> page, or from any Download button on this site, which points there. APKs from other sites may be outdated or modified. See <a href="guides/downloading-the-apk.html">Downloading the APK</a>.</p>
+      <p><strong>Why does Android warn me when I install it?</strong><br />Android asks for confirmation for apps installed outside an app store, and Play Protect may show a warning. That’s expected for APKs. Only continue if you downloaded from GitHub Releases. See <a href="guides/installing-on-android.html">Installing on Android</a>.</p>
+      <p><strong>How do I update?</strong><br />Reelish checks GitHub for new releases and offers to download the update. You confirm the install in Android’s package installer. See <a href="guides/updating-reelish.html">Updating Reelish</a>.</p>
+
+      <h2 id="plugins-and-playback">Plugins and playback</h2>
+      <p><strong>Why can I browse titles but not play them?</strong><br />Reelish ships without any streaming sources. Add a provider repository from the <span class="ui">Plugins</span> tab first. See <a href="guides/adding-plugin-repositories.html">Adding Plugin Repositories</a>.</p>
+      <p><strong>Are plugins safe?</strong><br />Providers are third-party code. They run in a constrained JavaScript runtime, and new or changed provider code is paused until you approve it. Community listings aren’t verified or endorsed by Reelish, so install only repositories from publishers you trust. See <a href="guides/understanding-third-party-plugins.html">Understanding Third-Party Plugins</a>.</p>
+      <p><strong>Does Reelish support subtitles?</strong><br />Yes. The player supports external SRT and WebVTT subtitles, can search OpenSubtitles, and lets you customize subtitle appearance and languages. See <a href="guides/subtitle-customization.html">Subtitle Customization</a>.</p>
+      <p><strong>What about torrent sources?</strong><br />On Android, compatible providers can return torrent sources for P2P playback once <span class="ui">P2P streaming</span> is turned on in <span class="ui">Settings → Playback</span>. P2P playback may share your network address with other peers and may upload pieces of a file.</p>
+
+      <h2 id="privacy-and-data">Privacy and data</h2>
+      <p><strong>Do I need an account?</strong><br />No. Reelish has no accounts and no developer-operated account service.</p>
+      <p><strong>What data does Reelish collect?</strong><br />Your favorites, history, playback progress, settings and provider choices stay on your device. The app doesn’t include its own advertising or analytics. Services you use, such as TMDB, providers, stream hosts and subtitle services, receive the requests needed for the features you use. See the <a href="privacy.html">privacy policy</a>.</p>
+      <p><strong>How do I delete my data?</strong><br />Remove favorites and history in <span class="ui">Library</span>, remove add-ons in <span class="ui">Plugins</span>, or uninstall the app to erase all app data.</p>
+            </div>
+
+            <aside class="guide-help" aria-label="Questions?">
+              <div>
+                <h2>Questions?</h2>
+                <p>Ask on GitHub, or see the support page for other ways to get help.</p>
+              </div>
+              <div class="guide-help-actions">
+                <a class="button button-primary" href="https://github.com/frnzeeey/reelish/issues" target="_blank" rel="noopener noreferrer">Open an issue <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M7 17 17 7M8 7h9v9" /></svg></a>
+                <a class="button button-quiet" href="support.html">Support</a>
+              </div>
+            </aside>
+          </div>
+
+          <aside class="guide-article-aside">
+            <nav class="aside-card guide-toc" aria-label="On this page">
+              <h2>On this page</h2>
+              <ol>
+                <li><a href="#general">General</a></li>
+                <li><a href="#installing-and-updating">Installing and updating</a></li>
+                <li><a href="#plugins-and-playback">Plugins and playback</a></li>
+                <li><a href="#privacy-and-data">Privacy and data</a></li>
+              </ol>
+            </nav>
+            <nav class="aside-card guide-related" aria-label="Resources">
+              <h2><svg aria-hidden="true" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" /><path d="M9.5 9a2.5 2.5 0 0 1 4.9.8c0 1.7-2.4 2.2-2.4 3.7M12 17h.01" /></svg> Resources</h2>
+              <ul>
+                <li><a href="guide.html">Guides</a></li>
+                <li><a href="support.html">Support</a></li>
+                <li><a href="faq.html" aria-current="page">Frequently Asked Questions</a></li>
+                <li><a href="about.html">About Reelish</a></li>
+              </ul>
+            </nav>
+          </aside>
+        </div>
+      </article>
+    </main>
+
+    <!-- Site footer with navigation, resources, and attribution -->
+    <footer class="site-footer">
+      <div class="container">
+        <div class="footer-main">
+          <div class="footer-brand-column">
+            <a class="footer-brand" href="index.html#home" aria-label="Reelish home">
+              <img src="assets/icons/reelish_icon.png" alt="" width="30" height="30" loading="lazy" />
+              <span>Reelish</span>
+            </a>
+            <p>Discover movies and series, explore what’s trending, and enjoy a personalized viewing experience.</p>
+            <a class="footer-github" href="https://github.com/frnzeeey/reelish" target="_blank" rel="noopener noreferrer">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 19c-4.3 1.4-4.3-2.5-6-3m12 5v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6 0 0 0-1.3-3.2 4.2 4.2 0 0 0-.1-3.2s-1.1-.3-3.5 1.3a12.3 12.3 0 0 0-6.2 0C6.5 2.8 5.4 3.1 5.4 3.1a4.2 4.2 0 0 0-.1 3.2A4.6 4.6 0 0 0 4 9.5c0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2V21"/></svg>
+              View on GitHub
+            </a>
+          </div>
+
+          <nav class="footer-column" aria-label="Explore">
+            <h2>Explore</h2>
+            <a href="index.html#home">Home</a>
+            <a href="feature.html">Features</a>
+            <a class="footer-link download-action" href="https://github.com/frnzeeey/reelish/releases/latest/download/reelish.apk">Download</a>
+            <a href="changelog.html">Changelog</a>
+          </nav>
+
+          <nav class="footer-column" aria-label="Resources">
+            <h2>Resources</h2>
+            <a href="guide.html">Guides</a>
+            <a href="support.html">Support</a>
+            <a href="faq.html">FAQs</a>
+            <a href="about.html">About</a>
+          </nav>
+
+          <nav class="footer-column" aria-label="Legal">
+            <h2>Legal</h2>
+            <a href="privacy.html">Privacy Policy</a>
+            <a href="terms.html">Terms of Use</a>
+            <a href="disclaimer.html">Content Disclaimer</a>
+            <a href="attribution.html">TMDB Attribution</a>
+            <a href="licenses.html">Third-Party Licenses</a>
+          </nav>
+        </div>
+
+        <div class="footer-bottom">
+          <div>
+            <p>© 2026 Reelish. All rights reserved.</p>
+            <p>This product uses the TMDB API but is not endorsed or certified by TMDB.</p>
+          </div>
+          <div class="footer-bottom-end">
+            <div class="footer-creator">
+              <img class="footer-creator-avatar" src="assets/profile/Asset%201.png" alt="" width="28" height="28" loading="lazy" />
+              <span>Built by <strong>Franze Kenneth Lobos</strong></span>
+              <span class="footer-creator-sep" aria-hidden="true">·</span>
+              <a class="footer-coffee" href="https://buymeacoffee.com/frnzegl" target="_blank" rel="noopener noreferrer">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17 8h1a4 4 0 0 1 0 8h-1"/><path d="M3 8h14v9a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4Z"/><path d="M6 2v2M10 2v2M14 2v2"/></svg>
+                Buy me a coffee
+              </a>
+            </div>
+            <p>Reelish does not host, store, or distribute any media content. Third-party plugins are independently operated.</p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Live feedback messages for button and navigation actions -->
+    <div class="toast" role="status" aria-live="polite"></div>
+  </body>
+</html>

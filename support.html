@@ -1,0 +1,209 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Resources page metadata and shared site assets -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#0b0b10" />
+    <meta name="description" content="Where to get help with Reelish, report a bug, or send a legal notice." />
+    <title>Support — Reelish</title>
+    <link rel="icon" type="image/png" href="assets/icons/reelish_icon.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,300..600,0..1,0&icon_names=auto_awesome,download,history,home,menu_book&display=block" rel="stylesheet" />
+    <link rel="stylesheet" href="style/main.css" />
+    <script src="scripts/main.js" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <!-- Shared site navigation -->
+    <header class="site-header">
+      <nav class="nav shell" aria-label="Main navigation">
+        <a class="brand" href="index.html#home" aria-label="Reelish home">
+          <img src="assets/icons/reelish_icon.png" alt="" />
+          <span>Reelish</span>
+        </a>
+
+        <button class="menu-toggle" type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="primary-nav">
+          <span></span><span></span>
+        </button>
+
+        <div class="nav-panel" id="primary-nav">
+          <div class="nav-links">
+            <a class="nav-link" href="index.html#home"><span class="nav-icon material-symbols-rounded" aria-hidden="true">home</span><span class="nav-label">Home</span></a>
+            <a class="nav-link" href="feature.html"><span class="nav-icon material-symbols-rounded" aria-hidden="true">auto_awesome</span><span class="nav-label">Features</span></a>
+            <a class="nav-link" href="guide.html"><span class="nav-icon material-symbols-rounded" aria-hidden="true">menu_book</span><span class="nav-label">Guides</span></a>
+            <a class="nav-link" href="changelog.html"><span class="nav-icon material-symbols-rounded" aria-hidden="true">history</span><span class="nav-label">Changelog</span></a>
+          </div>
+          <a class="button button-small button-primary download-action" href="https://github.com/frnzeeey/reelish/releases/latest/download/reelish.apk">
+            <span class="nav-icon material-symbols-rounded" aria-hidden="true">download</span>
+            <span class="nav-label">Download</span>
+          </a>
+        </div>
+      </nav>
+    </header>
+
+    <main id="main">
+      <!-- Resources article with table of contents and related pages -->
+      <article class="guide-article" aria-labelledby="page-title">
+        <div class="container guide-article-layout">
+          <div class="guide-article-main">
+            <nav class="guide-breadcrumb" aria-label="Breadcrumb">
+              <ol>
+                <li><a href="index.html#home">Home</a></li>
+                <li>Resources</li>
+                <li aria-current="page">Support</li>
+              </ol>
+            </nav>
+
+            <header class="guide-article-head">
+              <span class="guide-article-category"><svg aria-hidden="true" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" /><path d="M9.5 9a2.5 2.5 0 0 1 4.9.8c0 1.7-2.4 2.2-2.4 3.7M12 17h.01" /></svg> Resources</span>
+              <h1 id="page-title">Support</h1>
+              <p class="guide-article-lead">Where to get help with Reelish, report a bug, or send a legal notice.</p>
+              
+            </header>
+
+            <div class="guide-prose">
+              <p>Reelish is an independent, open-source project. Support happens in the open on GitHub, and most questions are already answered in the guides.</p>
+
+      <h2 id="check-the-guides-first">Check the guides first</h2>
+      <p>The <a href="guide.html">guides</a> cover installation, plugins, playback and the most common errors. Good places to start:</p>
+      <ul>
+        <li><a href="guides/common-errors.html">Common Errors</a>: what each error message means and how to fix it.</li>
+        <li><a href="guides/playback-failures.html">Playback Failures</a>: when a stream won’t start or plays incorrectly.</li>
+        <li><a href="guides/troubleshooting-plugins.html">Troubleshooting Plugins</a>: when providers return no streams.</li>
+        <li><a href="guides/installation-issues.html">Installation Issues</a>: when Android blocks or rejects the APK.</li>
+      </ul>
+
+      <h2 id="report-a-bug-or-ask-a-question">Report a bug or ask a question</h2>
+      <p>Open an issue on the <a href="https://github.com/frnzeeey/reelish/issues" target="_blank" rel="noopener noreferrer">GitHub issue tracker</a>. To help get it fixed quickly, include:</p>
+      <ol class="guide-steps">
+        <li>Your Reelish version, from <span class="ui">Settings → About Reelish</span>.</li>
+        <li>Your device model and Android version.</li>
+        <li>What you did, what you expected, and what happened instead, including the exact error message.</li>
+      </ol>
+      <div class="guide-callout guide-callout-warning">
+        <strong>Keep personal information out of public issues</strong>
+        <p>Issues are public. Don’t post personal information, account details, or private links.</p>
+      </div>
+
+      <h2 id="contact-by-email">Contact by email</h2>
+      <p>For anything that shouldn’t be public, such as privacy requests or legal notices, email <a href="mailto:frnzgularez@gmail.com">frnzgularez@gmail.com</a>. For bugs and questions, GitHub issues are the fastest way to get an answer.</p>
+
+      <h2 id="problems-with-a-provider">Problems with a provider</h2>
+      <p>Providers are built and maintained by independent authors, not by Reelish. If a specific provider is broken or returns the wrong content, contact the repository’s author. Reelish can only help with problems in the app itself.</p>
+
+      <h2 id="copyright-and-legal-notices">Copyright and legal notices</h2>
+      <p>Reelish doesn’t host any media; see the <a href="disclaimer.html">content disclaimer</a>. For a copyright or other legal notice, email the developer at <a href="mailto:frnzgularez@gmail.com">frnzgularez@gmail.com</a> and include enough information to identify the material and the right asserted. Don’t include sensitive personal information in a public issue.</p>
+
+      <h2 id="support-the-project">Support the project</h2>
+      <p>Reelish is free and built in spare time. If it’s useful to you, you can <a href="https://buymeacoffee.com/frnzegl" target="_blank" rel="noopener noreferrer">buy the developer a coffee</a>, star the <a href="https://github.com/frnzeeey/reelish" target="_blank" rel="noopener noreferrer">repository</a>, or report bugs you find.</p>
+            </div>
+
+            <aside class="guide-help" aria-label="Questions?">
+              <div>
+                <h2>Questions?</h2>
+                <p>Ask on GitHub, or see the support page for other ways to get help.</p>
+              </div>
+              <div class="guide-help-actions">
+                <a class="button button-primary" href="https://github.com/frnzeeey/reelish/issues" target="_blank" rel="noopener noreferrer">Open an issue <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M7 17 17 7M8 7h9v9" /></svg></a>
+                <a class="button button-quiet" href="support.html">Support</a>
+              </div>
+            </aside>
+          </div>
+
+          <aside class="guide-article-aside">
+            <nav class="aside-card guide-toc" aria-label="On this page">
+              <h2>On this page</h2>
+              <ol>
+                <li><a href="#check-the-guides-first">Check the guides first</a></li>
+                <li><a href="#report-a-bug-or-ask-a-question">Report a bug or ask a question</a></li>
+                <li><a href="#contact-by-email">Contact by email</a></li>
+                <li><a href="#problems-with-a-provider">Problems with a provider</a></li>
+                <li><a href="#copyright-and-legal-notices">Copyright and legal notices</a></li>
+                <li><a href="#support-the-project">Support the project</a></li>
+              </ol>
+            </nav>
+            <nav class="aside-card guide-related" aria-label="Resources">
+              <h2><svg aria-hidden="true" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" /><path d="M9.5 9a2.5 2.5 0 0 1 4.9.8c0 1.7-2.4 2.2-2.4 3.7M12 17h.01" /></svg> Resources</h2>
+              <ul>
+                <li><a href="guide.html">Guides</a></li>
+                <li><a href="support.html" aria-current="page">Support</a></li>
+                <li><a href="faq.html">Frequently Asked Questions</a></li>
+                <li><a href="about.html">About Reelish</a></li>
+              </ul>
+            </nav>
+          </aside>
+        </div>
+      </article>
+    </main>
+
+    <!-- Site footer with navigation, resources, and attribution -->
+    <footer class="site-footer">
+      <div class="container">
+        <div class="footer-main">
+          <div class="footer-brand-column">
+            <a class="footer-brand" href="index.html#home" aria-label="Reelish home">
+              <img src="assets/icons/reelish_icon.png" alt="" width="30" height="30" loading="lazy" />
+              <span>Reelish</span>
+            </a>
+            <p>Discover movies and series, explore what’s trending, and enjoy a personalized viewing experience.</p>
+            <a class="footer-github" href="https://github.com/frnzeeey/reelish" target="_blank" rel="noopener noreferrer">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 19c-4.3 1.4-4.3-2.5-6-3m12 5v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6 0 0 0-1.3-3.2 4.2 4.2 0 0 0-.1-3.2s-1.1-.3-3.5 1.3a12.3 12.3 0 0 0-6.2 0C6.5 2.8 5.4 3.1 5.4 3.1a4.2 4.2 0 0 0-.1 3.2A4.6 4.6 0 0 0 4 9.5c0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2V21"/></svg>
+              View on GitHub
+            </a>
+          </div>
+
+          <nav class="footer-column" aria-label="Explore">
+            <h2>Explore</h2>
+            <a href="index.html#home">Home</a>
+            <a href="feature.html">Features</a>
+            <a class="footer-link download-action" href="https://github.com/frnzeeey/reelish/releases/latest/download/reelish.apk">Download</a>
+            <a href="changelog.html">Changelog</a>
+          </nav>
+
+          <nav class="footer-column" aria-label="Resources">
+            <h2>Resources</h2>
+            <a href="guide.html">Guides</a>
+            <a href="support.html">Support</a>
+            <a href="faq.html">FAQs</a>
+            <a href="about.html">About</a>
+          </nav>
+
+          <nav class="footer-column" aria-label="Legal">
+            <h2>Legal</h2>
+            <a href="privacy.html">Privacy Policy</a>
+            <a href="terms.html">Terms of Use</a>
+            <a href="disclaimer.html">Content Disclaimer</a>
+            <a href="attribution.html">TMDB Attribution</a>
+            <a href="licenses.html">Third-Party Licenses</a>
+          </nav>
+        </div>
+
+        <div class="footer-bottom">
+          <div>
+            <p>© 2026 Reelish. All rights reserved.</p>
+            <p>This product uses the TMDB API but is not endorsed or certified by TMDB.</p>
+          </div>
+          <div class="footer-bottom-end">
+            <div class="footer-creator">
+              <img class="footer-creator-avatar" src="assets/profile/Asset%201.png" alt="" width="28" height="28" loading="lazy" />
+              <span>Built by <strong>Franze Kenneth Lobos</strong></span>
+              <span class="footer-creator-sep" aria-hidden="true">·</span>
+              <a class="footer-coffee" href="https://buymeacoffee.com/frnzegl" target="_blank" rel="noopener noreferrer">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17 8h1a4 4 0 0 1 0 8h-1"/><path d="M3 8h14v9a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4Z"/><path d="M6 2v2M10 2v2M14 2v2"/></svg>
+                Buy me a coffee
+              </a>
+            </div>
+            <p>Reelish does not host, store, or distribute any media content. Third-party plugins are independently operated.</p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Live feedback messages for button and navigation actions -->
+    <div class="toast" role="status" aria-live="polite"></div>
+  </body>
+</html>

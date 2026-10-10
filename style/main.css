@@ -122,6 +122,7 @@ p {
 .playback-control svg,
 .release-status-icon,
 .footer-github svg,
+.footer-coffee svg,
 .feature-icon svg,
 .discovery-icon svg,
 .step-icon svg {
@@ -1445,9 +1446,159 @@ h1 span {
   line-height: 1.7;
 }
 
-.footer-bottom > p {
+.footer-bottom-end {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 10px;
+}
+
+.footer-bottom-end > p {
   max-width: 400px;
   text-align: right;
+}
+
+/* One-line creator credit in the footer's bottom bar */
+.footer-creator {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  color: var(--text-3);
+  font-size: 13px;
+}
+
+.footer-creator strong {
+  color: var(--text-2);
+  font-weight: 600;
+}
+
+.footer-creator-avatar {
+  flex: none;
+  width: 28px;
+  height: 28px;
+  border: 1px solid var(--border-strong);
+  border-radius: 50%;
+  object-fit: cover;
+  /* Crop out the frame baked into the source photo */
+  object-view-box: inset(4%);
+}
+
+.footer-creator-sep {
+  color: var(--border-strong);
+}
+
+.footer-bottom .footer-coffee {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--text-2);
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.footer-bottom .footer-coffee:hover {
+  color: #ffdd00;
+}
+
+.footer-coffee svg {
+  width: 15px;
+  height: 15px;
+  color: #ffdd00;
+}
+
+/* Creator card on the About page */
+.guide-prose .about-creator {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  margin-top: 20px;
+  padding: 24px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  background: var(--surface);
+}
+
+.about-creator-avatar {
+  flex: none;
+  width: 96px;
+  height: 96px;
+  border: 2px solid var(--accent-line);
+  border-radius: 50%;
+  object-fit: cover;
+  object-view-box: inset(4%);
+}
+
+.about-creator-body {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.about-creator-body > strong {
+  font-size: 18px;
+  line-height: 1.3;
+}
+
+.about-creator-body > span {
+  color: var(--text-3);
+  font-size: 14px;
+}
+
+.guide-prose .about-creator-body > p {
+  margin-top: 10px;
+  font-size: 15px;
+}
+
+.about-creator-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px 18px;
+  margin-top: 14px;
+}
+
+.guide-prose .about-coffee {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 16px;
+  border-radius: var(--radius-sm);
+  color: #1a1206;
+  background: #ffdd00;
+  font-size: 14px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: background 0.2s;
+}
+
+.guide-prose .about-coffee:hover {
+  background: #ffe433;
+}
+
+.about-coffee svg {
+  width: 16px;
+  height: 16px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.guide-prose .about-github {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+@media (max-width: 560px) {
+  .guide-prose .about-creator {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 20px;
+  }
 }
 
 /* ==========================================================================
@@ -3318,7 +3469,11 @@ h1 span {
     gap: 12px;
   }
 
-  .footer-bottom > p {
+  .footer-bottom-end {
+    align-items: flex-start;
+  }
+
+  .footer-bottom-end > p {
     text-align: left;
   }
 }

@@ -65,13 +65,6 @@ document.querySelectorAll(".download-action").forEach((link) => {
   link.addEventListener("click", () => showToast("Downloading the latest Reelish APK…"));
 });
 
-// Explain footer destinations that do not have pages yet.
-document.querySelectorAll("[data-coming-soon]").forEach((button) => {
-  button.addEventListener("click", () => {
-    showToast(`${button.dataset.comingSoon} information is coming soon.`);
-  });
-});
-
 // Display a temporary status message.
 function showToast(message) {
   toast.textContent = message;

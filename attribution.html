@@ -1,12 +1,12 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <!-- Changelog page metadata and shared site assets -->
+    <!-- Legal page metadata and shared site assets -->
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#0b0b10" />
-    <meta name="description" content="Reelish release history: new features, improvements, and fixes." />
-    <title>Changelog — Reelish</title>
+    <meta name="description" content="Credits for the catalog data, services and community catalog behind Reelish." />
+    <title>TMDB Attribution — Reelish</title>
     <link rel="icon" type="image/png" href="assets/icons/reelish_icon.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -18,7 +18,7 @@
   <body>
     <a class="skip-link" href="#main">Skip to content</a>
 
-    <!-- Shared site navigation with Changelog marked as active -->
+    <!-- Shared site navigation -->
     <header class="site-header">
       <nav class="nav shell" aria-label="Main navigation">
         <a class="brand" href="index.html#home" aria-label="Reelish home">
@@ -35,7 +35,7 @@
             <a class="nav-link" href="index.html#home"><span class="nav-icon material-symbols-rounded" aria-hidden="true">home</span><span class="nav-label">Home</span></a>
             <a class="nav-link" href="feature.html"><span class="nav-icon material-symbols-rounded" aria-hidden="true">auto_awesome</span><span class="nav-label">Features</span></a>
             <a class="nav-link" href="guide.html"><span class="nav-icon material-symbols-rounded" aria-hidden="true">menu_book</span><span class="nav-label">Guides</span></a>
-            <a class="nav-link is-active" href="changelog.html" aria-current="page"><span class="nav-icon material-symbols-rounded" aria-hidden="true">history</span><span class="nav-label">Changelog</span></a>
+            <a class="nav-link" href="changelog.html"><span class="nav-icon material-symbols-rounded" aria-hidden="true">history</span><span class="nav-label">Changelog</span></a>
           </div>
           <a class="button button-small button-primary download-action" href="https://github.com/frnzeeey/reelish/releases/latest/download/reelish.apk">
             <span class="nav-icon material-symbols-rounded" aria-hidden="true">download</span>
@@ -46,88 +46,79 @@
     </header>
 
     <main id="main">
-      <!-- Page intro -->
-      <section class="changelog-hero" aria-labelledby="changelog-title">
-        <div class="container changelog-hero-inner">
-          <div class="eyebrow"><span class="eyebrow-dot"></span> Releases</div>
-          <h1 id="changelog-title">What’s new in <span>Reelish.</span></h1>
-          <p>A chronological history of every Reelish release, sourced directly from GitHub.</p>
-          <ul class="changelog-meta" aria-label="About this changelog">
-            <li>
-              <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M9 19c-4.3 1.4-4.3-2.5-6-3m12 5v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6 0 0 0-1.3-3.2 4.2 4.2 0 0 0-.1-3.2s-1.1-.3-3.5 1.3a12.3 12.3 0 0 0-6.2 0C6.5 2.8 5.4 3.1 5.4 3.1a4.2 4.2 0 0 0-.1 3.2A4.6 4.6 0 0 0 4 9.5c0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2V21" /></svg>
-              GitHub Releases
-            </li>
-            <li>
-              <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M21 12a9 9 0 1 1-3-6.7L21 8" /><path d="M21 3v5h-5" /></svg>
-              Updated automatically
-            </li>
-            <li id="changelog-latest" hidden>
-              <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M12 2 3 7v10l9 5 9-5V7Z" /><path d="m3 7 9 5 9-5M12 12v10" /></svg>
-              Latest: <strong></strong>
-            </li>
-          </ul>
-        </div>
-      </section>
-
-      <!-- Release timeline with a sidebar; falls back to an empty state -->
-      <section class="changelog-body" aria-label="Release history">
-        <div class="container changelog-layout">
-          <aside class="changelog-aside">
-            <div class="aside-card">
-              <h2>Release types</h2>
-              <ul class="release-legend">
-                <li><span class="release-tag release-tag-new">New</span> Features added</li>
-                <li><span class="release-tag release-tag-improved">Improved</span> Changes and polish</li>
-                <li><span class="release-tag release-tag-fixed">Fixed</span> Bugs resolved</li>
-              </ul>
-            </div>
-
-            <nav class="aside-card" id="release-index" aria-label="Jump to a version" hidden>
-              <h2>Versions</h2>
-              <ol class="release-index-list"></ol>
+      <!-- Legal article with table of contents and related pages -->
+      <article class="guide-article" aria-labelledby="page-title">
+        <div class="container guide-article-layout">
+          <div class="guide-article-main">
+            <nav class="guide-breadcrumb" aria-label="Breadcrumb">
+              <ol>
+                <li><a href="index.html#home">Home</a></li>
+                <li>Legal</li>
+                <li aria-current="page">TMDB Attribution</li>
+              </ol>
             </nav>
 
-            <div class="aside-card aside-card-accent">
-              <h2>Never miss an update</h2>
-              <p>Watch the repository on GitHub to get notified the moment a new version ships.</p>
-              <a class="text-link changelog-repo-link" href="https://github.com/frnzeeey/reelish/releases" target="_blank" rel="noopener noreferrer">
-                Watch on GitHub
-                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9" /></svg>
-              </a>
+            <header class="guide-article-head">
+              <span class="guide-article-category"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M12 3 4 6v6c0 4.5 3.4 8.3 8 9 4.6-.7 8-4.5 8-9V6Z" /><path d="m9 12 2 2 4-4" /></svg> Legal</span>
+              <h1 id="page-title">TMDB Attribution</h1>
+              <p class="guide-article-lead">Credits for the catalog data, services and community catalog behind Reelish.</p>
+              <p class="guide-article-meta">Last updated October 8, 2026</p>
+            </header>
+
+            <div class="guide-prose">
+              <h2 id="the-movie-database-tmdb">The Movie Database (TMDB)</h2>
+      <p><strong>This product uses the TMDB API but is not endorsed or certified by TMDB.</strong></p>
+      <p>Movie and TV show information, including titles, descriptions, artwork, ratings, and related metadata, may be provided by <a href="https://www.themoviedb.org/" target="_blank" rel="noopener noreferrer">The Movie Database (TMDB)</a>.</p>
+      <p>TMDB trademarks and content remain with their respective owners; see TMDB’s terms and attribution requirements before redistributing any material.</p>
+
+      <h2 id="third-party-services">Third-party services</h2>
+      <ul>
+        <li><strong>OpenSubtitles v3</strong>: preinstalled Stremio subtitle addon used to search for subtitles. Reelish is not affiliated with OpenSubtitles.</li>
+        <li><strong>GitHub</strong>: hosts Reelish releases for update checks and the plugin library catalog.</li>
+      </ul>
+
+      <h2 id="plugin-library">Plugin library</h2>
+      <p>The plugin library lists provider repositories from a community-maintained catalog curated by wolf knight. Repository names, descriptions, logos and manifests belong to their authors, who build and maintain each provider independently of Reelish. A listing is not an endorsement or a verification of a provider.</p>
+
+      <h2 id="website-media">Website media</h2>
+      <p>The playback preview on this site uses <a href="https://peach.blender.org/" target="_blank" rel="noopener noreferrer">Big Buck Bunny</a> © Blender Foundation, licensed under <a href="https://creativecommons.org/licenses/by/3.0/" target="_blank" rel="noopener noreferrer">CC BY 3.0</a>.</p>
             </div>
-          </aside>
 
-          <div class="changelog-feed">
-            <ol class="release-timeline" id="release-timeline" aria-live="polite"></ol>
-
-            <div class="changelog-empty" id="changelog-empty">
-              <div class="release-skeleton" aria-hidden="true">
-                <div class="skeleton-entry"><span></span><span></span><span></span><span></span></div>
-                <div class="skeleton-entry"><span></span><span></span><span></span></div>
-                <div class="skeleton-entry"><span></span><span></span><span></span><span></span></div>
+            <aside class="guide-help" aria-label="Questions?">
+              <div>
+                <h2>Questions?</h2>
+                <p>Ask on GitHub, or see the support page for other ways to get help.</p>
               </div>
-
-              <div class="changelog-empty-card" role="status">
-                <span class="changelog-empty-icon" aria-hidden="true">
-                  <svg viewBox="0 0 24 24"><path d="M12 2 3 7v10l9 5 9-5V7Z" /><path d="m3 7 9 5 9-5M12 12v10" /></svg>
-                </span>
-                <h2>No releases to show yet</h2>
-                <p>Release history is not currently available. Check GitHub for the latest builds and release notes.</p>
-                <div class="changelog-empty-actions">
-                  <a class="button button-primary changelog-repo-link" href="https://github.com/frnzeeey/reelish/releases" target="_blank" rel="noopener noreferrer">
-                    View releases on GitHub
-                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9" /></svg>
-                  </a>
-                  <a class="button button-quiet download-action" href="https://github.com/frnzeeey/reelish/releases/latest/download/reelish.apk">
-                    <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M12 3v12m0 0 4-4m-4 4-4-4M5 16v4h14v-4" /></svg>
-                    Download
-                  </a>
-                </div>
+              <div class="guide-help-actions">
+                <a class="button button-primary" href="https://github.com/frnzeeey/reelish/issues" target="_blank" rel="noopener noreferrer">Open an issue <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M7 17 17 7M8 7h9v9" /></svg></a>
+                <a class="button button-quiet" href="support.html">Support</a>
               </div>
-            </div>
+            </aside>
           </div>
+
+          <aside class="guide-article-aside">
+            <nav class="aside-card guide-toc" aria-label="On this page">
+              <h2>On this page</h2>
+              <ol>
+                <li><a href="#the-movie-database-tmdb">The Movie Database (TMDB)</a></li>
+                <li><a href="#third-party-services">Third-party services</a></li>
+                <li><a href="#plugin-library">Plugin library</a></li>
+                <li><a href="#website-media">Website media</a></li>
+              </ol>
+            </nav>
+            <nav class="aside-card guide-related" aria-label="Legal">
+              <h2><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M12 3 4 6v6c0 4.5 3.4 8.3 8 9 4.6-.7 8-4.5 8-9V6Z" /><path d="m9 12 2 2 4-4" /></svg> Legal</h2>
+              <ul>
+                <li><a href="privacy.html">Privacy Policy</a></li>
+                <li><a href="terms.html">Terms of Use</a></li>
+                <li><a href="disclaimer.html">Content Disclaimer</a></li>
+                <li><a href="attribution.html" aria-current="page">TMDB Attribution</a></li>
+                <li><a href="licenses.html">Third-Party Licenses</a></li>
+              </ul>
+            </nav>
+          </aside>
         </div>
-      </section>
+      </article>
     </main>
 
     <!-- Site footer with navigation, resources, and attribution -->
