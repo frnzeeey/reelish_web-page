@@ -1,0 +1,21 @@
+{
+  "name": "reelish-web",
+  "private": true,
+  "description": "Static marketing and documentation site for the Reelish Android app.",
+  "scripts": {
+    "build": "node tools/build-dist.js",
+    "build:readable": "node tools/build-dist.js --no-obfuscate",
+    "verify": "node tools/verify-dist.js",
+    "test": "npm run build && npm run verify && node tools/smoke-test.js",
+    "serve": "node tools/serve-dist.js"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "devDependencies": {
+    "javascript-obfuscator": "5.9.0",
+    "lightningcss": "1.33.0",
+    "playwright-core": "1.64.0",
+    "terser": "5.51.2"
+  }
+}

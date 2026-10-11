@@ -1,0 +1,8 @@
+# Netlify builds the site into dist/ and publishes only that folder.
+# A failed build or verification stops the deploy.
+[build]
+  command = "npm run build && npm run verify"
+  publish = "dist"
+
+[build.environment]
+  NODE_VERSION = "22"
