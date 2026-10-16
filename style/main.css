@@ -1239,6 +1239,412 @@ h1 span {
 }
 
 /* ==========================================================================
+   Platforms
+   ========================================================================== */
+.platform-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.platform-card {
+  position: relative;
+  padding: 28px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  background: var(--surface);
+  transition:
+    border-color 0.25s,
+    transform 0.25s var(--ease);
+}
+
+.platform-card:hover {
+  border-color: var(--border-strong);
+  transform: translateY(-2px);
+}
+
+.platform-card-new {
+  border-color: var(--accent-line);
+  background:
+    radial-gradient(ellipse 80% 70% at 100% 0%, rgba(255, 65, 105, 0.12), transparent 70%),
+    var(--surface);
+}
+
+.platform-icon {
+  width: 48px;
+  height: 48px;
+  display: grid;
+  place-items: center;
+  margin-bottom: 20px;
+  border-radius: 14px;
+  color: var(--accent);
+  background: var(--accent-soft);
+}
+
+.platform-icon svg {
+  width: 24px;
+  height: 24px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.platform-card h3 {
+  margin-bottom: 12px;
+  font-size: 19px;
+  letter-spacing: -0.02em;
+}
+
+.platform-badge {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  padding: 3px 10px;
+  border: 1px solid var(--accent-line);
+  border-radius: 999px;
+  color: #ff7090;
+  background: var(--accent-soft);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.platform-points {
+  display: grid;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  color: var(--text-2);
+  font-size: 15px;
+}
+
+.platform-points li {
+  display: flex;
+  gap: 10px;
+}
+
+.platform-points li::before {
+  flex: none;
+  content: "✓";
+  color: var(--accent);
+  font-weight: 800;
+}
+
+/* Windows announcement: same layout as the TV section, screenshot first. */
+.windows-layout {
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.8fr);
+}
+
+.windows-layout .tv-visual {
+  order: -1;
+}
+
+.windows-preview {
+  position: relative;
+  width: 100%;
+  height: auto;
+  border: 1px solid var(--border-strong);
+  border-radius: 12px;
+  box-shadow: var(--shadow-lg);
+}
+
+.windows-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.windows-note {
+  margin-top: 18px;
+  color: var(--text-3);
+  font-size: 13px;
+  line-height: 1.65;
+}
+
+.windows-note a {
+  color: var(--text-2);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.windows-note a:hover {
+  color: var(--text);
+}
+
+.windows-note code {
+  font-size: 12px;
+}
+
+.eyebrow-link {
+  transition:
+    border-color 0.2s,
+    background 0.2s;
+}
+
+.eyebrow-link:hover {
+  border-color: rgba(255, 65, 105, 0.5);
+  background: rgba(255, 65, 105, 0.16);
+}
+
+@media (max-width: 960px) {
+  .platform-grid {
+    grid-template-columns: 1fr;
+    max-width: 560px;
+    margin-inline: auto;
+  }
+
+  .windows-layout .tv-visual {
+    order: 0;
+  }
+}
+
+/* ==========================================================================
+   Download menu
+   A [data-download-menu] link becomes a button plus a platform menu
+   (see main.js). Without JavaScript the link stays a plain APK download.
+   ========================================================================== */
+.download-menu {
+  position: relative;
+  display: inline-flex;
+}
+
+.button .download-menu-chevron {
+  width: 16px;
+  height: 16px;
+  margin-left: -2px;
+  transition: transform 0.25s var(--ease);
+}
+
+.download-menu.is-open .download-menu-chevron {
+  transform: rotate(180deg);
+}
+
+.download-menu-panel {
+  position: absolute;
+  z-index: 25;
+  top: calc(100% + 8px);
+  left: 0;
+  width: min(360px, calc(100vw - 32px));
+  padding: 8px;
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-md);
+  background: #16141d;
+  box-shadow: var(--shadow-lg);
+  text-align: left;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-6px) scale(0.98);
+  transform-origin: top left;
+  transition:
+    opacity 0.18s var(--ease),
+    transform 0.24s var(--ease),
+    visibility 0s linear 0.24s;
+}
+
+.download-menu.is-open .download-menu-panel {
+  opacity: 1;
+  visibility: visible;
+  transform: none;
+  transition:
+    opacity 0.2s var(--ease),
+    transform 0.28s var(--ease),
+    visibility 0s;
+}
+
+/* Header and centered calls to action open the menu to the right / center. */
+.nav-panel .download-menu-panel {
+  right: 0;
+  left: auto;
+  transform-origin: top right;
+}
+
+.final-cta-actions .download-menu-panel,
+.changelog-empty-actions .download-menu-panel {
+  left: 50%;
+  margin-left: calc(min(360px, 100vw - 32px) / -2);
+  transform-origin: top center;
+}
+
+.download-menu-panel .download-menu-title {
+  margin: 0;
+  padding: 6px 10px 8px;
+  line-height: 1.5;
+  color: var(--text-3);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.download-menu-list {
+  display: grid;
+  gap: 2px;
+}
+
+.download-option {
+  min-height: 56px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px;
+  border-radius: 10px;
+  color: var(--text);
+  transition: background 0.15s;
+}
+
+.download-option:hover,
+.download-option:focus-visible {
+  background: rgba(255, 65, 105, 0.14);
+}
+
+.download-option:focus-visible {
+  outline-offset: -2px;
+}
+
+.download-option-icon {
+  width: 36px;
+  height: 36px;
+  flex: none;
+  display: grid;
+  place-items: center;
+  border-radius: 10px;
+  color: var(--accent);
+  background: var(--accent-soft);
+}
+
+.download-option-svg {
+  width: 20px;
+  height: 20px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.download-option-text {
+  min-width: 0;
+  flex: 1;
+  display: grid;
+  gap: 1px;
+}
+
+.download-option-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0 10px;
+}
+
+.download-option-text strong {
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.download-option-text > span {
+  color: var(--text-2);
+  font-size: 12.5px;
+  font-weight: 500;
+}
+
+.download-option-note {
+  color: var(--text-3);
+}
+
+.download-option-meta {
+  color: var(--text-3);
+  font-size: 11.5px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.download-option-meta:empty {
+  display: none;
+}
+
+.download-option[data-unavailable] .download-option-icon {
+  color: var(--text-3);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.download-menu-panel .download-menu-status {
+  margin: 6px 4px 2px;
+  padding: 10px;
+  border-radius: 10px;
+  color: var(--text-2);
+  background: rgba(255, 255, 255, 0.04);
+  font-size: 12.5px;
+  line-height: 1.5;
+}
+
+.download-menu-status[hidden] {
+  display: none;
+}
+
+.download-menu-status a {
+  color: var(--accent);
+  font-weight: 700;
+}
+
+@media (max-width: 480px) {
+  .hero-actions .download-menu,
+  .hero-actions .download-menu .button {
+    width: 100%;
+  }
+
+  .download-option-note {
+    display: none;
+  }
+
+  .download-option-text strong {
+    font-size: 13.5px;
+  }
+}
+
+@media (max-width: 960px) {
+  /* Inside the mobile menu panel the platform list expands in place. */
+  .nav-panel .download-menu {
+    display: grid;
+    width: 100%;
+  }
+
+  .nav-panel .download-menu-panel {
+    position: static;
+    width: auto;
+    max-height: 0;
+    padding: 0 4px;
+    border: 0;
+    background: none;
+    box-shadow: none;
+    overflow: hidden;
+    transform: none;
+    transition:
+      opacity 0.2s var(--ease),
+      max-height 0.3s var(--ease),
+      padding 0.3s var(--ease),
+      visibility 0s linear 0.3s;
+  }
+
+  .nav-panel .download-menu.is-open .download-menu-panel {
+    max-height: 420px;
+    padding: 6px 4px 0;
+    transition:
+      opacity 0.2s var(--ease),
+      max-height 0.3s var(--ease),
+      padding 0.3s var(--ease),
+      visibility 0s;
+  }
+}
+
+/* ==========================================================================
    Latest release
    ========================================================================== */
 .release-card {
@@ -1341,9 +1747,10 @@ h1 span {
   padding-block: 0 var(--section-y);
 }
 
+/* Not clipped, so the download menu can extend past the panel; the grid
+   layer below keeps the rounded corners itself. */
 .final-cta-panel {
   position: relative;
-  overflow: hidden;
   padding: clamp(56px, 8vw, 96px) 24px;
   border: 1px solid var(--accent-line);
   border-radius: var(--radius-xl);
@@ -1356,6 +1763,7 @@ h1 span {
 .final-cta-panel::before {
   position: absolute;
   inset: 0;
+  border-radius: inherit;
   content: "";
   pointer-events: none;
   background-image:

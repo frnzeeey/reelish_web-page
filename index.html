@@ -5,12 +5,31 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#0a0a0f" />
-    <meta name="description" content="Find your next favorite movie or series with Reelish." />
-    <meta property="og:title" content="Reelish — Your entertainment. Your way." />
-    <meta property="og:description" content="Discover movies and series, explore what’s trending, and enjoy a personalized viewing experience." />
-    <meta property="og:image" content="assets/hero/pxl_9_mcp_12.png" />
+    <meta name="description" content="Discover movies and series with Reelish, available for Android, Android TV, Google TV and Windows." />
+    <link rel="canonical" href="https://reelishofficial.netlify.app/" />
+    <meta property="og:title" content="Reelish — Discover more. Stream your way." />
+    <meta property="og:description" content="Discover movies and series with Reelish, now available for Android, Android TV, Google TV and Windows." />
+    <meta property="og:url" content="https://reelishofficial.netlify.app/" />
+    <meta property="og:image" content="https://reelishofficial.netlify.app/assets/hero/pxl_9_mcp_12.png" />
     <meta property="og:type" content="website" />
-    <title>Reelish — Your entertainment. Your way.</title>
+    <meta property="og:site_name" content="Reelish" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Reelish — Discover more. Stream your way." />
+    <meta name="twitter:description" content="Discover movies and series with Reelish, now available for Android, Android TV, Google TV and Windows." />
+    <meta name="twitter:image" content="https://reelishofficial.netlify.app/assets/hero/pxl_9_mcp_12.png" />
+    <title>Reelish — Discover more. Stream your way.</title>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "Reelish",
+        "url": "https://reelishofficial.netlify.app/",
+        "applicationCategory": "EntertainmentApplication",
+        "operatingSystem": "Android, Android TV, Google TV, Windows 10, Windows 11",
+        "downloadUrl": "https://github.com/frnzeeey/reelish/releases/latest",
+        "image": "https://reelishofficial.netlify.app/assets/icons/reelish_icon.png"
+      }
+    </script>
     <link rel="icon" type="image/png" href="assets/icons/reelish_icon.png" />
     <link rel="apple-touch-icon" href="assets/icons/reelish_icon.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -42,7 +61,7 @@
             <a class="nav-link" href="guide.html"><span class="nav-icon material-symbols-rounded" aria-hidden="true">menu_book</span><span class="nav-label">Guides</span></a>
             <a class="nav-link" href="changelog.html"><span class="nav-icon material-symbols-rounded" aria-hidden="true">history</span><span class="nav-label">Changelog</span></a>
           </div>
-          <a class="button button-small button-primary download-action" href="https://github.com/frnzeeey/reelish/releases/latest/download/reelish.apk">
+          <a class="button button-small button-primary download-action" data-download-menu href="https://github.com/frnzeeey/reelish/releases/latest/download/reelish.apk">
             <span class="nav-icon material-symbols-rounded" aria-hidden="true">download</span>
             <span class="nav-label">Download</span>
           </a>
@@ -55,13 +74,13 @@
       <!-- Primary hero message and app preview -->
       <section class="hero shell" id="home" aria-labelledby="hero-title">
         <div class="hero-copy">
-          <div class="eyebrow"><span class="eyebrow-dot"></span> Introducing Reelish</div>
-          <h1 id="hero-title">Your entertainment. <span>Your way.</span></h1>
-          <p class="hero-description">Discover movies and series, explore what’s trending, and enjoy a personalized viewing experience with Reelish.</p>
-          <div class="hero-actions">
-            <a class="button button-primary button-large download-action" href="https://github.com/frnzeeey/reelish/releases/latest/download/reelish.apk">
+          <a class="eyebrow eyebrow-link" href="#windows"><span class="eyebrow-dot"></span> New: Reelish is now on Windows</a>
+          <h1 id="hero-title">Discover more. <span>Stream your way.</span></h1>
+          <p class="hero-description">Discover movies and series with Reelish, now available for Android, Android TV, Google TV, and Windows.</p>
+          <div class="hero-actions" id="download">
+            <a class="button button-primary button-large download-action" data-download-menu href="https://github.com/frnzeeey/reelish/releases/latest/download/reelish.apk">
               <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M12 3v12m0 0 4-4m-4 4-4-4M5 16v4h14v-4" /></svg>
-              Download for Android
+              Download Reelish
             </a>
             <a class="button button-quiet button-large" href="feature.html">
               Explore features
@@ -71,7 +90,7 @@
           <div class="hero-meta">
             <p class="availability">
               <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M7 9.5h10v7a1.5 1.5 0 0 1-1.5 1.5h-7A1.5 1.5 0 0 1 7 16.5v-7ZM7 8a5 5 0 0 1 10 0M9 4 8 2.5M15 4l1-1.5M9.5 18v3m5-3v3M4.5 10v5m15-5v5" /></svg>
-              Available for Android, Android TV &amp; Google TV<span class="version-chip" data-latest-version hidden></span>
+              Available for Android, Android TV, Google TV &amp; Windows<span class="version-chip" data-latest-version hidden></span>
             </p>
             <ul class="hero-tags" aria-label="Highlights">
               <li>TMDB-powered</li>
@@ -122,6 +141,46 @@
         </div>
       </section>
 
+      <!-- Supported platforms -->
+      <section class="section" id="platforms" aria-labelledby="platforms-title">
+        <div class="container">
+          <header class="section-head">
+            <p class="kicker">Platforms</p>
+            <h2 class="section-title" id="platforms-title">One app for every screen.</h2>
+            <p class="section-lead">The same library, plugins and settings, with an interface suited to each device.</p>
+          </header>
+
+          <ul class="platform-grid" role="list">
+            <li class="platform-card">
+              <span class="platform-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 9.5h10v7a1.5 1.5 0 0 1-1.5 1.5h-7A1.5 1.5 0 0 1 7 16.5v-7ZM7 8a5 5 0 0 1 10 0M9 4 8 2.5M15 4l1-1.5M9.5 18v3m5-3v3M4.5 10v5m15-5v5" /></svg></span>
+              <h3>Android</h3>
+              <ul class="platform-points">
+                <li>Designed for smartphones and tablets</li>
+                <li>Touch-friendly navigation</li>
+              </ul>
+            </li>
+            <li class="platform-card">
+              <span class="platform-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="12" rx="2" /><path d="M8 21h8m-4-4v4" /></svg></span>
+              <h3>Android TV &amp; Google TV</h3>
+              <ul class="platform-points">
+                <li>Optimized for larger screens</li>
+                <li>Remote-friendly navigation</li>
+              </ul>
+            </li>
+            <li class="platform-card platform-card-new">
+              <span class="platform-badge">New</span>
+              <span class="platform-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 5.5 11 4.5v7H4zM13 4.2l7-1v8.3h-7zM4 12.5h7v7l-7-1zM13 12.5h7v8.3l-7-1z" /></svg></span>
+              <h3>Windows</h3>
+              <ul class="platform-points">
+                <li>Desktop viewing experience</li>
+                <li>Mouse and keyboard support</li>
+                <li>Windowed and fullscreen playback</li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </section>
+
       <!-- Android TV big-screen preview -->
       <section class="section" id="android-tv" aria-labelledby="tv-title">
         <div class="container tv-layout">
@@ -148,6 +207,34 @@
         </div>
       </section>
 
+      <!-- Windows desktop announcement -->
+      <section class="section section-raised" id="windows" aria-labelledby="windows-title">
+        <div class="container tv-layout windows-layout">
+          <div class="tv-copy">
+            <p class="kicker">Windows</p>
+            <h2 class="section-title" id="windows-title">Reelish is now on Windows.</h2>
+            <p class="section-lead">Enjoy Reelish on your desktop with an experience adapted for larger screens.</p>
+            <ul class="check-list">
+              <li>Mouse and keyboard navigation</li>
+              <li>Resizable window and fullscreen playback</li>
+              <li>Same plugins, subtitles and settings</li>
+            </ul>
+            <div class="windows-actions">
+              <a class="button button-primary" data-download="windows" href="https://github.com/frnzeeey/reelish/releases/latest/download/Reelish-Windows-x64.zip">
+                <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M12 3v12m0 0 4-4m-4 4-4-4M5 16v4h14v-4" /></svg>
+                Download for Windows
+              </a>
+            </div>
+            <p class="windows-note">Windows 10 or 11, 64-bit. Extract the ZIP and run <code>Reelish.exe</code>. The app isn’t code-signed yet, so SmartScreen may ask you to confirm the first time. If Windows reports a missing <code>MSVCP140.dll</code>, install the <a href="https://aka.ms/vs/17/release/vc_redist.x64.exe">Microsoft Visual C++ Redistributable (x64)</a>.</p>
+          </div>
+
+          <div class="tv-visual">
+            <div class="tv-glow" aria-hidden="true"></div>
+            <img class="windows-preview" src="assets/windows/windows.jpg" alt="Reelish running in a window on Windows, showing a featured series, the side rail, and a row of new movies" width="1484" height="852" loading="lazy" />
+          </div>
+        </div>
+      </section>
+
       <!-- Three-step guide to getting started with Reelish -->
       <section class="section" id="guides" aria-labelledby="how-title">
         <div class="container">
@@ -163,7 +250,7 @@
                 <span class="step-number" aria-hidden="true">01</span>
               </div>
               <h3>Download Reelish</h3>
-              <p>Get the latest Android APK from the official release source.</p>
+              <p>Get the Android APK or the Windows app from the official GitHub releases.</p>
             </li>
             <li class="step-card">
               <div class="step-top">
@@ -325,7 +412,7 @@
               <h2 id="final-cta-title">Ready to experience Reelish?</h2>
               <p>Discover a new way to explore your favorite entertainment.</p>
               <div class="final-cta-actions">
-                <a class="button button-primary button-large download-action" href="https://github.com/frnzeeey/reelish/releases/latest/download/reelish.apk">
+                <a class="button button-primary button-large download-action" data-download-menu href="https://github.com/frnzeeey/reelish/releases/latest/download/reelish.apk">
                   <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M12 3v12m0 0 4-4m-4 4-4-4M5 16v4h14v-4" /></svg>
                   Download Reelish
                 </a>
@@ -357,7 +444,7 @@
             <h2>Explore</h2>
             <a href="#home">Home</a>
             <a href="feature.html">Features</a>
-            <a class="footer-link download-action" href="https://github.com/frnzeeey/reelish/releases/latest/download/reelish.apk">Download</a>
+            <a class="footer-link" href="#download">Download</a>
             <a href="changelog.html">Changelog</a>
           </nav>
 

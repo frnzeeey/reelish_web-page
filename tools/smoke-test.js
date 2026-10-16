@@ -85,6 +85,61 @@ const interactions = {
     await option.click();
     check(problems, (await page.locator("#playback-player").getAttribute("data-scale")) === scale, "scale option not applied");
 
+    // Platform download menu in the hero.
+    const heroMenu = page.locator(".hero-actions .download-menu");
+    const heroToggle = heroMenu.locator(".download-menu-toggle");
+    check(problems, (await page.locator(".download-menu").count()) === 3, "expected 3 download menus (nav, hero, final CTA)");
+    check(problems, (await heroToggle.getAttribute("aria-haspopup")) === "menu", "download toggle lacks aria-haspopup");
+    await heroToggle.click();
+    check(problems, (await heroToggle.getAttribute("aria-expanded")) === "true", "download menu did not open on click");
+    const options = heroMenu.locator('[role="menuitem"]');
+    check(problems, (await options.count()) === 3, "download menu does not list 3 platforms");
+    await page.waitForFunction(() => !document.querySelector(".download-option-meta")?.textContent.includes("Checking"), null, { timeout: 8000 }).catch(() => {});
+    const allowed = /^https:\/\/github\.com\/frnzeeey\/reelish\/releases(\/latest\/download\/|\/download\/v\d+\.\d+\.\d+\/|$)/;
+    const targets = {};
+    for (const option of await options.all()) {
+      const platform = await option.getAttribute("data-download");
+      targets[platform] = await option.getAttribute("href");
+      check(problems, allowed.test(targets[platform]), `untrusted ${platform} download URL: ${targets[platform]}`);
+    }
+    check(problems, /\/reelish\.apk$/.test(targets.android || ""), `Android option is not the APK: ${targets.android}`);
+    check(problems, targets.tv === targets.android, "Android TV option is not the same APK as Android");
+    check(problems, /\/Reelish-Windows-x64\.zip$/.test(targets.windows || ""), `Windows option is not the ZIP: ${targets.windows}`);
+    const windowsCta = await page.locator('#windows [data-download="windows"]').getAttribute("href");
+    check(problems, windowsCta === targets.windows, "Windows section CTA and menu point at different files");
+    if (await page.locator(".download-menu-status:not([hidden])").count()) {
+      warnings.push("index.html: download menu kept its latest-release fallback links (GitHub API not available)");
+    }
+    await heroToggle.click();
+    check(problems, (await heroToggle.getAttribute("aria-expanded")) === "false", "download menu did not close on second click");
+    await heroToggle.focus();
+    await page.keyboard.press("ArrowDown");
+    check(problems, (await page.evaluate(() => document.activeElement.dataset.download)) === "android", "ArrowDown did not focus the first platform");
+    await page.keyboard.press("ArrowDown");
+    check(problems, (await page.evaluate(() => document.activeElement.dataset.download)) === "tv", "ArrowDown did not move to the next platform");
+    await page.keyboard.press("End");
+    check(problems, (await page.evaluate(() => document.activeElement.dataset.download)) === "windows", "End did not focus the last platform");
+    await page.keyboard.press("Escape");
+    check(problems, (await heroToggle.getAttribute("aria-expanded")) === "false", "Escape did not close the download menu");
+    check(problems, await heroToggle.evaluate((el) => el === document.activeElement), "Escape did not return focus to the toggle");
+    await heroToggle.click();
+    await page.mouse.click(5, 600);
+    check(problems, (await heroToggle.getAttribute("aria-expanded")) === "false", "outside click did not close the download menu");
+
+    // Layout: no sideways scroll, and an open menu stays inside the viewport.
+    for (const width of [320, 375, 480, 768, 1024, 1440, 1920]) {
+      await page.setViewportSize({ width, height: 900 });
+      await page.locator("#home").scrollIntoViewIfNeeded();
+      const overflow = await page.evaluate(() => document.documentElement.scrollWidth - window.innerWidth);
+      check(problems, overflow <= 0, `horizontal overflow of ${overflow}px at ${width}px`);
+      await heroToggle.click();
+      await page.waitForTimeout(350);
+      const box = await heroMenu.locator(".download-menu-panel").boundingBox();
+      check(problems, box && box.x >= 0 && box.x + box.width <= width, `download menu clipped at ${width}px`);
+      await page.keyboard.press("Escape");
+    }
+    await page.setViewportSize({ width: 1280, height: 900 });
+
     if (await page.locator("#latest-release.is-loaded").count()) {
       check(problems, await page.locator("[data-latest-version]:not([hidden])").count(), "latest version chip not shown");
     } else {
@@ -94,6 +149,12 @@ const interactions = {
     await page.setViewportSize({ width: 390, height: 800 });
     await page.click(".menu-toggle");
     check(problems, await page.locator(".nav-panel.is-open").count(), "mobile menu did not open");
+    // The header download menu expands inside the mobile panel.
+    const navToggle = page.locator(".nav-panel .download-menu-toggle");
+    await navToggle.click();
+    await page.waitForTimeout(350);
+    check(problems, await page.locator('.nav-panel [data-download="windows"]').isVisible(), "Windows option not visible in the mobile menu");
+    await page.keyboard.press("Escape");
     await page.keyboard.press("Escape");
     check(problems, !(await page.locator(".nav-panel.is-open").count()), "Escape did not close the mobile menu");
   },

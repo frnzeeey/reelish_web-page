@@ -8,16 +8,131 @@ let toastTimeout;
 // GitHub repository that publishes Reelish builds and release notes.
 const REELISH_REPO = "frnzeeey/reelish";
 const REELISH_RELEASES_URL = `https://github.com/${REELISH_REPO}/releases`;
+const RELEASES_CACHE_KEY = "reelish-releases-v1";
+const RELEASES_CACHE_MS = 10 * 60 * 1000;
 let releasesRequest;
 
-// Fetch published releases once per page, newest first.
+// Keep only the fields the site uses, so the session cache stays small.
+const trimRelease = (release) => ({
+  tag_name: release.tag_name,
+  name: release.name,
+  body: release.body,
+  html_url: release.html_url,
+  published_at: release.published_at,
+  assets: release.assets.map(({ name, size, state, browser_download_url }) => ({ name, size, state, browser_download_url })),
+});
+
+function readCachedReleases() {
+  try {
+    const cached = JSON.parse(sessionStorage.getItem(RELEASES_CACHE_KEY));
+    if (cached && Date.now() - cached.time < RELEASES_CACHE_MS && Array.isArray(cached.releases)) return cached.releases;
+  } catch {
+    // Storage blocked or unreadable: fetch instead.
+  }
+  return null;
+}
+
+// Fetch published releases once per page, newest first. Pages opened in the
+// same session reuse the result for 10 minutes to stay well inside GitHub's
+// unauthenticated rate limit.
 function getReleases() {
+  const cached = readCachedReleases();
+  if (cached) return Promise.resolve(cached);
   releasesRequest ??= fetch(`https://api.github.com/repos/${REELISH_REPO}/releases?per_page=30`, {
     headers: { Accept: "application/vnd.github+json" },
   })
     .then((response) => (response.ok ? response.json() : Promise.reject(response.status)))
-    .then((releases) => releases.filter((release) => !release.draft && !release.prerelease));
+    .then((releases) => {
+      const published = releases.filter((release) => !release.draft && !release.prerelease).map(trimRelease);
+      try {
+        sessionStorage.setItem(RELEASES_CACHE_KEY, JSON.stringify({ time: Date.now(), releases: published }));
+      } catch {
+        // Not cached; the next page fetches again.
+      }
+      return published;
+    });
   return releasesRequest;
+}
+
+// Download targets. Each platform maps to one release asset published by the
+// app's release workflows. Android TV / Google TV use the same APK as Android.
+// Until GitHub answers, links use GitHub's "latest release" redirect.
+const DOWNLOAD_PLATFORMS = {
+  android: { label: "Android", action: "Download APK", note: "Phones and tablets", asset: "reelish.apk", kind: "APK" },
+  tv: { label: "Android TV / Google TV", action: "Download APK", note: "Same APK as Android", asset: "reelish.apk", kind: "APK" },
+  windows: { label: "Windows", action: "Download for Windows", note: "Windows 10 and 11, 64-bit ZIP", asset: "Reelish-Windows-x64.zip", kind: "Windows ZIP" },
+};
+const TRUSTED_DOWNLOAD_PREFIX = `https://github.com/${REELISH_REPO}/releases/download/`;
+const fallbackDownloadUrl = (platform) => `${REELISH_RELEASES_URL}/latest/download/${DOWNLOAD_PLATFORMS[platform].asset}`;
+const formatSize = (bytes) => `${(bytes / 1024 / 1024).toFixed(1)} MB`;
+
+// The newest release that carries a platform's asset, or null. A release can
+// briefly lack the Windows ZIP (it is attached by a separate workflow), so
+// older releases are checked too and the version is always shown. Only fully
+// uploaded assets on this repository's download path are accepted.
+function findDownload(releases, platform) {
+  const { asset: assetName } = DOWNLOAD_PLATFORMS[platform];
+  for (const release of releases) {
+    const asset = release.assets.find((item) => item.name === assetName);
+    if (asset && asset.state === "uploaded" && asset.browser_download_url.startsWith(TRUSTED_DOWNLOAD_PREFIX)) {
+      return { url: asset.browser_download_url, size: asset.size, version: release.tag_name, isLatest: release === releases[0] };
+    }
+  }
+  return null;
+}
+
+let downloadsRequest;
+// Resolves to { android, tv, windows } download info, or rejects when GitHub
+// can't be reached (links then keep their "latest release" fallback).
+function getDownloads() {
+  downloadsRequest ??= getReleases().then((releases) =>
+    Object.fromEntries(Object.keys(DOWNLOAD_PLATFORMS).map((platform) => [platform, findDownload(releases, platform)])),
+  );
+  return downloadsRequest;
+}
+
+// Point every [data-download] link (menus and standalone buttons) at the
+// resolved asset. A platform with no published asset links to the releases
+// page instead and says so.
+function applyDownloads(downloads) {
+  document.querySelectorAll("[data-download]").forEach((link) => {
+    const platform = link.dataset.download;
+    const info = downloads[platform];
+    const meta = link.querySelector(".download-option-meta");
+    link.href = info ? info.url : REELISH_RELEASES_URL;
+    link.dataset.version = info ? info.version : "";
+    link.toggleAttribute("data-unavailable", !info);
+    if (meta) meta.textContent = info ? `${info.version} · ${formatSize(info.size)}` : "Not available right now";
+  });
+}
+
+function showDownloadError() {
+  document.querySelectorAll(".download-option-meta").forEach((meta) => {
+    meta.textContent = "";
+  });
+  document.querySelectorAll(".download-menu-status").forEach((status) => {
+    status.hidden = false;
+  });
+}
+
+let downloadsResolved = false;
+function resolveDownloads() {
+  if (downloadsResolved) return;
+  downloadsResolved = true;
+  getDownloads().then(applyDownloads, showDownloadError);
+}
+
+// Confirm which download was started. The browser handles the download itself,
+// so the message describes the request rather than claiming it finished.
+function announceDownload(link) {
+  const platform = DOWNLOAD_PLATFORMS[link.dataset.download];
+  if (!platform) return;
+  if (link.hasAttribute("data-unavailable")) {
+    showToast(`No ${platform.label} build is published right now. Opening GitHub Releases…`);
+    return;
+  }
+  const version = link.dataset.version ? ` ${link.dataset.version}` : "";
+  showToast(`Starting the Reelish${version} ${platform.kind} download from GitHub…`);
 }
 
 const escapeHtml = (text) =>
@@ -60,10 +175,130 @@ navLinks.forEach((link) => {
   });
 });
 
-// Download links point at the latest APK on GitHub; confirm that it started.
-document.querySelectorAll(".download-action").forEach((link) => {
-  link.addEventListener("click", () => showToast("Downloading the latest Reelish APK…"));
+// Platform download menus. Each [data-download-menu] link (a plain APK link
+// without JavaScript) becomes a menu button that lists every platform.
+const downloadIcons = {
+  chevron: '<path d="m6 9 6 6 6-6" />',
+  android: '<path d="M7 9.5h10v7a1.5 1.5 0 0 1-1.5 1.5h-7A1.5 1.5 0 0 1 7 16.5v-7ZM7 8a5 5 0 0 1 10 0M9 4 8 2.5M15 4l1-1.5M9.5 18v3m5-3v3M4.5 10v5m15-5v5" />',
+  tv: '<rect x="3" y="5" width="18" height="12" rx="2" /><path d="M8 21h8m-4-4v4" />',
+  windows: '<path d="M4 5.5 11 4.5v7H4zM13 4.2l7-1v8.3h-7zM4 12.5h7v7l-7-1zM13 12.5h7v8.3l-7-1z" />',
+};
+const svgIcon = (name, className) => `<svg class="${className}" viewBox="0 0 24 24" aria-hidden="true">${downloadIcons[name]}</svg>`;
+
+let downloadMenuCount = 0;
+const openDownloadMenus = new Set();
+
+function createDownloadMenu(link) {
+  downloadMenuCount += 1;
+  const menuId = `download-menu-${downloadMenuCount}`;
+  const wrapper = document.createElement("div");
+  wrapper.className = "download-menu";
+
+  const toggle = document.createElement("button");
+  toggle.type = "button";
+  toggle.className = `${link.className} download-menu-toggle`;
+  toggle.setAttribute("aria-haspopup", "menu");
+  toggle.setAttribute("aria-expanded", "false");
+  toggle.setAttribute("aria-controls", menuId);
+  toggle.append(...link.childNodes);
+  toggle.insertAdjacentHTML("beforeend", svgIcon("chevron", "download-menu-chevron"));
+
+  const panel = document.createElement("div");
+  panel.className = "download-menu-panel";
+  panel.innerHTML = `
+    <p class="download-menu-title" id="${menuId}-title">Choose your platform</p>
+    <div class="download-menu-list" id="${menuId}" role="menu" aria-labelledby="${menuId}-title">
+      ${Object.entries(DOWNLOAD_PLATFORMS)
+        .map(
+          ([platform, info]) => `
+        <a class="download-option" role="menuitem" tabindex="-1" data-download="${platform}" href="${fallbackDownloadUrl(platform)}">
+          <span class="download-option-icon">${svgIcon(platform, "download-option-svg")}</span>
+          <span class="download-option-text">
+            <span class="download-option-head">
+              <strong>${info.label}</strong>
+              <span class="download-option-meta">${downloadsResolved ? "" : "Checking…"}</span>
+            </span>
+            <span>${info.action} <span class="download-option-note">· ${info.note}</span></span>
+          </span>
+        </a>`,
+        )
+        .join("")}
+    </div>
+    <p class="download-menu-status" hidden>Couldn’t reach GitHub, so these links open the latest release. <a href="${REELISH_RELEASES_URL}" target="_blank" rel="noopener noreferrer">All releases</a></p>`;
+
+  wrapper.append(toggle, panel);
+  link.replaceWith(wrapper);
+
+  const items = () => [...panel.querySelectorAll('[role="menuitem"]')];
+  const setOpen = (isOpen, focus) => {
+    if (isOpen) {
+      openDownloadMenus.forEach((close) => close());
+      resolveDownloads();
+      openDownloadMenus.add(close);
+    } else {
+      openDownloadMenus.delete(close);
+    }
+    toggle.setAttribute("aria-expanded", String(isOpen));
+    wrapper.classList.toggle("is-open", isOpen);
+    if (isOpen && focus) items()[focus === "last" ? items().length - 1 : 0].focus();
+  };
+  const close = () => setOpen(false);
+
+  toggle.addEventListener("click", () => setOpen(toggle.getAttribute("aria-expanded") !== "true"));
+  toggle.addEventListener("keydown", (event) => {
+    if (event.key === "ArrowDown" || event.key === "ArrowUp") {
+      event.preventDefault();
+      setOpen(true, event.key === "ArrowUp" ? "last" : "first");
+    }
+  });
+  // Hovering or focusing the button warms up the release lookup.
+  toggle.addEventListener("pointerenter", resolveDownloads, { once: true });
+  toggle.addEventListener("focus", resolveDownloads, { once: true });
+
+  panel.addEventListener("keydown", (event) => {
+    const list = items();
+    const index = list.indexOf(document.activeElement);
+    const moves = { ArrowDown: index + 1, ArrowUp: index - 1, Home: 0, End: list.length - 1 };
+    if (event.key in moves && index > -1) {
+      event.preventDefault();
+      list[(moves[event.key] + list.length) % list.length].focus();
+    } else if (event.key === "Escape") {
+      event.stopPropagation();
+      setOpen(false);
+      toggle.focus();
+    } else if (event.key === "Tab") {
+      setOpen(false);
+    } else if (event.key === " " && index > -1) {
+      event.preventDefault();
+      list[index].click();
+    }
+  });
+
+  panel.querySelectorAll("[data-download]").forEach((item) => {
+    item.addEventListener("click", () => {
+      announceDownload(item);
+      setOpen(false);
+    });
+  });
+
+  document.addEventListener("click", (event) => {
+    if (!wrapper.contains(event.target)) setOpen(false);
+  });
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape" && wrapper.classList.contains("is-open")) {
+      setOpen(false);
+      toggle.focus();
+    }
+  });
+}
+
+document.querySelectorAll("[data-download-menu]").forEach(createDownloadMenu);
+
+// Standalone platform buttons (outside a menu) use the same resolved targets.
+document.querySelectorAll("[data-download]:not(.download-option)").forEach((link) => {
+  link.addEventListener("click", () => announceDownload(link));
 });
+if (document.querySelector("[data-download]:not(.download-option)")) resolveDownloads();
 
 // Display a temporary status message.
 function showToast(message) {
@@ -385,10 +620,8 @@ if (guideTocLinks.length && "IntersectionObserver" in window) {
 const latestReleaseCard = document.querySelector("#latest-release");
 const latestVersionChips = document.querySelectorAll("[data-latest-version]");
 if (latestReleaseCard || latestVersionChips.length) {
-  const formatSize = (bytes) => `${(bytes / 1024 / 1024).toFixed(1)} MB`;
-
-  getReleases()
-    .then((releases) => {
+  Promise.all([getReleases(), getDownloads()])
+    .then(([releases, downloads]) => {
       const latest = releases[0];
       if (!latest) return;
 
@@ -398,8 +631,13 @@ if (latestReleaseCard || latestVersionChips.length) {
       });
 
       if (!latestReleaseCard) return;
-      const apk = latest.assets.find((asset) => asset.name.endsWith(".apk"));
-      const apkUrl = apk ? apk.browser_download_url : `${REELISH_RELEASES_URL}/latest`;
+      // One button per distinct file: Android and Android TV share the APK.
+      const files = ["android", "windows"]
+        .map((platform) => ({ platform, info: downloads[platform] }))
+        .filter(({ info }) => info);
+      const summary = files
+        .map(({ platform, info }) => `${DOWNLOAD_PLATFORMS[platform].kind} ${info.isLatest ? "" : `${escapeHtml(info.version)} `}· ${formatSize(info.size)}`)
+        .join(" &nbsp;|&nbsp; ");
 
       latestReleaseCard.classList.add("is-loaded");
       latestReleaseCard.innerHTML = `
@@ -409,20 +647,25 @@ if (latestReleaseCard || latestVersionChips.length) {
           <time datetime="${latest.published_at}">${releaseDateFormat.format(new Date(latest.published_at))}</time>
         </div>
         <h3>${escapeHtml(latest.name || latest.tag_name)}</h3>
-        <p>Android APK${apk ? ` · ${formatSize(apk.size)}` : ""}</p>
+        <p>${summary || "No downloads are attached to this release yet."}</p>
         <div class="latest-release-actions">
-          <a class="button button-primary download-action" href="${apkUrl}">
-            <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M12 3v12m0 0 4-4m-4 4-4-4M5 16v4h14v-4" /></svg>
-            Download ${escapeHtml(latest.tag_name)}
-          </a>
+          ${files
+            .map(
+              ({ platform, info }, index) => `
+          <a class="button ${index === 0 ? "button-primary" : "button-quiet"}" data-download="${platform}" data-version="${escapeHtml(info.version)}" href="${info.url}">
+            <svg aria-hidden="true" viewBox="0 0 24 24">${downloadIcons[platform]}</svg>
+            ${platform === "windows" ? "Windows" : "Android"}
+          </a>`,
+            )
+            .join("")}
           <a class="button button-quiet" href="changelog.html">
             Release notes
             <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M5 12h14m-6-6 6 6-6 6" /></svg>
           </a>
         </div>`;
-      latestReleaseCard
-        .querySelector(".download-action")
-        .addEventListener("click", () => showToast(`Downloading Reelish ${latest.tag_name}…`));
+      latestReleaseCard.querySelectorAll("[data-download]").forEach((link) => {
+        link.addEventListener("click", () => announceDownload(link));
+      });
     })
     .catch(() => {
       // Keep the static fallback card when GitHub can't be reached.
