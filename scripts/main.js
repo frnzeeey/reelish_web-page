@@ -60,14 +60,14 @@ function getReleases() {
 const DOWNLOAD_PLATFORMS = {
   android: { label: "Android", action: "Download APK", note: "Phones and tablets", asset: "reelish.apk", kind: "APK" },
   tv: { label: "Android TV / Google TV", action: "Download APK", note: "Same APK as Android", asset: "reelish.apk", kind: "APK" },
-  windows: { label: "Windows", action: "Download for Windows", note: "Windows 10 and 11, 64-bit ZIP", asset: "Reelish-Windows-x64.zip", kind: "Windows ZIP" },
+  windows: { label: "Windows", action: "Download for Windows", note: "Windows 10 and 11, 64-bit installer", asset: "Reelish-Setup-x64.exe", kind: "Windows installer" },
 };
 const TRUSTED_DOWNLOAD_PREFIX = `https://github.com/${REELISH_REPO}/releases/download/`;
 const fallbackDownloadUrl = (platform) => `${REELISH_RELEASES_URL}/latest/download/${DOWNLOAD_PLATFORMS[platform].asset}`;
 const formatSize = (bytes) => `${(bytes / 1024 / 1024).toFixed(1)} MB`;
 
 // The newest release that carries a platform's asset, or null. A release can
-// briefly lack the Windows ZIP (it is attached by a separate workflow), so
+// briefly lack the Windows installer (attached by a separate workflow), so
 // older releases are checked too and the version is always shown. Only fully
 // uploaded assets on this repository's download path are accepted.
 function findDownload(releases, platform) {

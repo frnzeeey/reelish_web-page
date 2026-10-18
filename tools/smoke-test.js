@@ -104,7 +104,7 @@ const interactions = {
     }
     check(problems, /\/reelish\.apk$/.test(targets.android || ""), `Android option is not the APK: ${targets.android}`);
     check(problems, targets.tv === targets.android, "Android TV option is not the same APK as Android");
-    check(problems, /\/Reelish-Windows-x64\.zip$/.test(targets.windows || ""), `Windows option is not the ZIP: ${targets.windows}`);
+    check(problems, /\/Reelish-Setup-x64\.exe$/.test(targets.windows || ""), `Windows option is not the installer: ${targets.windows}`);
     const windowsCta = await page.locator('#windows [data-download="windows"]').getAttribute("href");
     check(problems, windowsCta === targets.windows, "Windows section CTA and menu point at different files");
     if (await page.locator(".download-menu-status:not([hidden])").count()) {
