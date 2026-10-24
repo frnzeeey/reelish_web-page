@@ -1,10 +1,10 @@
 {
   "name": "reelish-web",
   "private": true,
-  "description": "Static marketing and documentation site for the Reelish Android app.",
+  "description": "Static marketing and documentation site for the Reelish Android, Android TV and Windows app.",
   "scripts": {
-    "build": "node tools/build-dist.js",
-    "build:readable": "node tools/build-dist.js --no-obfuscate",
+    "build": "node tools/build-reviews.js && node tools/build-dist.js",
+    "build:readable": "node tools/build-reviews.js && node tools/build-dist.js --no-obfuscate",
     "verify": "node tools/verify-dist.js",
     "test": "npm run build && npm run verify && node tools/smoke-test.js",
     "serve": "node tools/serve-dist.js"

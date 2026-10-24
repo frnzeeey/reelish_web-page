@@ -8,7 +8,7 @@ let toastTimeout;
 // GitHub repository that publishes Reelish builds and release notes.
 const REELISH_REPO = "frnzeeey/reelish";
 const REELISH_RELEASES_URL = `https://github.com/${REELISH_REPO}/releases`;
-const RELEASES_CACHE_KEY = "reelish-releases-v1";
+const RELEASES_CACHE_KEY = "reelish-releases-v2";
 const RELEASES_CACHE_MS = 10 * 60 * 1000;
 let releasesRequest;
 
@@ -19,7 +19,13 @@ const trimRelease = (release) => ({
   body: release.body,
   html_url: release.html_url,
   published_at: release.published_at,
-  assets: release.assets.map(({ name, size, state, browser_download_url }) => ({ name, size, state, browser_download_url })),
+  assets: release.assets.map(({ name, size, state, download_count, browser_download_url }) => ({
+    name,
+    size,
+    state,
+    download_count,
+    browser_download_url,
+  })),
 });
 
 function readCachedReleases() {
@@ -38,7 +44,9 @@ function readCachedReleases() {
 function getReleases() {
   const cached = readCachedReleases();
   if (cached) return Promise.resolve(cached);
-  releasesRequest ??= fetch(`https://api.github.com/repos/${REELISH_REPO}/releases?per_page=30`, {
+  // 100 is GitHub's page maximum, so one request covers the whole history
+  // (and the download total) until there are more than 100 releases.
+  releasesRequest ??= fetch(`https://api.github.com/repos/${REELISH_REPO}/releases?per_page=100`, {
     headers: { Accept: "application/vnd.github+json" },
   })
     .then((response) => (response.ok ? response.json() : Promise.reject(response.status)))
@@ -65,6 +73,64 @@ const DOWNLOAD_PLATFORMS = {
 const TRUSTED_DOWNLOAD_PREFIX = `https://github.com/${REELISH_REPO}/releases/download/`;
 const fallbackDownloadUrl = (platform) => `${REELISH_RELEASES_URL}/latest/download/${DOWNLOAD_PLATFORMS[platform].asset}`;
 const formatSize = (bytes) => `${(bytes / 1024 / 1024).toFixed(1)} MB`;
+
+// Total downloads of the app files (APK, Windows installer and ZIP) across
+// every published release, as counted by GitHub. Checksums and any other
+// attachments are left out. GitHub counts every download, including the
+// in-app updater's, so the figure is downloads, not people.
+const APP_ASSET_PATTERN = /\.(apk|exe|zip)$/i;
+const countDownloads = (releases) =>
+  releases.reduce(
+    (total, release) =>
+      total +
+      release.assets
+        .filter((asset) => APP_ASSET_PATTERN.test(asset.name) && asset.state === "uploaded")
+        .reduce((sum, asset) => sum + (Number(asset.download_count) || 0), 0),
+    0,
+  );
+
+// Review form (submitted to Netlify Forms as a normal POST): live character
+// count, and no double submissions.
+const reviewForm = document.querySelector(".review-form");
+if (reviewForm) {
+  const reviewText = reviewForm.querySelector("textarea[name='review']");
+  const reviewLength = reviewForm.querySelector(".review-length");
+  const updateLength = () => {
+    const count = reviewText.value.length;
+    reviewLength.textContent = count ? `${count} / ${reviewText.maxLength} characters` : `${reviewText.minLength} to ${reviewText.maxLength} characters`;
+    reviewLength.classList.toggle("is-short", count > 0 && count < reviewText.minLength);
+  };
+  reviewText.addEventListener("input", updateLength);
+  const submit = reviewForm.querySelector("[type='submit']");
+  reviewForm.addEventListener("submit", () => {
+    submit.disabled = true;
+    submit.textContent = "Sending…";
+  });
+  // Going back to the page (back/forward cache) re-enables the button.
+  window.addEventListener("pageshow", () => {
+    submit.disabled = false;
+    submit.textContent = "Submit review";
+  });
+}
+
+// Fill in [data-download-count] elements; they stay hidden if GitHub can't be
+// reached, so no made-up number is ever shown.
+const downloadCountTargets = document.querySelectorAll("[data-download-count]");
+if (downloadCountTargets.length) {
+  getReleases()
+    .then((releases) => {
+      const total = countDownloads(releases);
+      if (!total) return;
+      const formatted = new Intl.NumberFormat().format(total);
+      downloadCountTargets.forEach((target) => {
+        target.querySelector("[data-download-count-value]").textContent = formatted;
+        target.hidden = false;
+      });
+    })
+    .catch(() => {
+      // Keep the count hidden.
+    });
+}
 
 // The newest release that carries a platform's asset, or null. A release can
 // briefly lack the Windows installer (attached by a separate workflow), so

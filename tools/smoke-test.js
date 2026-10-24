@@ -140,6 +140,36 @@ const interactions = {
     }
     await page.setViewportSize({ width: 1280, height: 900 });
 
+    // Download count: a GitHub-reported number, or hidden.
+    const count = page.locator("[data-download-count]");
+    if (await count.isVisible()) {
+      const value = await count.locator("[data-download-count-value]").textContent();
+      check(problems, /^\d{1,3}([,.\s  ]\d{3})*$/.test(value), `download count is not a number: "${value}"`);
+    } else {
+      warnings.push("index.html: download count hidden (GitHub API not available)");
+    }
+
+    // Review form: Netlify attributes, spam trap, and browser validation.
+    // It is never submitted here; only Netlify accepts the POST.
+    const form = page.locator("form.review-form");
+    check(problems, (await form.getAttribute("data-netlify")) === "true", "review form lacks data-netlify");
+    check(problems, (await form.getAttribute("name")) === "review", "review form is not named 'review'");
+    check(problems, (await form.getAttribute("netlify-honeypot")) === "bot-field", "review form lacks the honeypot attribute");
+    check(problems, (await form.getAttribute("action")) === "/review-thanks.html", "review form does not go to the thank-you page");
+    check(problems, !(await form.locator("[name='bot-field']").isVisible()), "honeypot field is visible");
+    check(problems, !(await form.evaluate((el) => el.checkValidity())), "empty review form passes validation");
+    await form.locator("label[for='rating-4']").click();
+    check(problems, await form.locator("#rating-4").isChecked(), "clicking the 4th star did not select rating 4");
+    await form.locator("[name='name']").fill("Smoke test");
+    await form.locator("[name='platform']").selectOption("windows");
+    await form.locator("[name='review']").fill("Short");
+    check(problems, /5 \/ 600/.test(await form.locator(".review-length").textContent()), "review character count not updated");
+    check(problems, !(await form.evaluate((el) => el.checkValidity())), "too-short review passes validation");
+    await form.locator("[name='review']").fill("A review long enough to pass the minimum length.");
+    check(problems, !(await form.evaluate((el) => el.checkValidity())), "review without consent passes validation");
+    await form.locator("[name='consent']").check();
+    check(problems, await form.evaluate((el) => el.checkValidity()), "complete review form fails validation");
+
     if (await page.locator("#latest-release.is-loaded").count()) {
       check(problems, await page.locator("[data-latest-version]:not([hidden])").count(), "latest version chip not shown");
     } else {

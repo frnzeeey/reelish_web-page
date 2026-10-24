@@ -143,7 +143,7 @@ const pages = [
     group: "legal",
     title: "Privacy Policy",
     description: "What information stays on your device and what is shared with the services you use.",
-    updated: LEGAL_UPDATED,
+    updated: "October 24, 2026", // review form added to "This website"
     body: `
       <p>This is the same privacy policy shown in the Reelish app before first use. A section on this website is added at the end.</p>
 
@@ -171,7 +171,8 @@ const pages = [
       <p>The app is not designed as a service for children. A parent or guardian who believes a child has provided personal information to a third-party service should contact that service and the app publisher. This policy may change when app features or legal requirements change; the updated version and date will appear here.</p>
 
       <h2>This website</h2>
-      <p>This website doesn’t use cookies, analytics or advertising, and doesn’t ask for any personal information. To show the page, your browser loads fonts from Google Fonts, and the changelog loads release information from the GitHub API. Those services, and the host serving this site, can receive your IP address and standard request data under their own policies. Download links take you to GitHub Releases.</p>
+      <p>This website doesn’t use cookies, analytics or advertising. To show the page, your browser loads fonts from Google Fonts, and the home page and changelog load release information, including download counts, from the GitHub API. Those services, and the host serving this site, can receive your IP address and standard request data under their own policies. Download links take you to GitHub Releases.</p>
+      <p><strong>Reviews.</strong> The review form on the home page is optional. It sends your rating, display name, platform and review text to Netlify, which hosts this website and stores form submissions; Netlify also records the submission time and your IP address and may check submissions for spam. The developer reads each submission and may publish the rating, display name, platform, date and text on this website if you agreed to that. Not every review is published. To have your review removed from the website or deleted from Netlify, email ${emailLink} with your display name and roughly when you submitted it.</p>
 
       <h2>Contact</h2>
       <p>For privacy requests, email the developer at ${emailLink}. Do not post personal information in public issue trackers.</p>

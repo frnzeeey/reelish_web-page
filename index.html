@@ -92,6 +92,10 @@
               <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M7 9.5h10v7a1.5 1.5 0 0 1-1.5 1.5h-7A1.5 1.5 0 0 1 7 16.5v-7ZM7 8a5 5 0 0 1 10 0M9 4 8 2.5M15 4l1-1.5M9.5 18v3m5-3v3M4.5 10v5m15-5v5" /></svg>
               Available for Android, Android TV, Google TV &amp; Windows<span class="version-chip" data-latest-version hidden></span>
             </p>
+            <p class="download-count" data-download-count hidden>
+              <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M12 3v12m0 0 4-4m-4 4-4-4M5 16v4h14v-4" /></svg>
+              <span><strong data-download-count-value></strong> downloads from GitHub</span>
+            </p>
             <ul class="hero-tags" aria-label="Highlights">
               <li>TMDB-powered</li>
               <li>TV support</li>
@@ -378,6 +382,77 @@
               Explore all features
               <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6"/></svg>
             </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Reviews: approved Netlify form submissions (tools/reviews-content.js, built by tools/build-reviews.js) -->
+      <section class="section section-raised" id="reviews" aria-labelledby="reviews-title">
+        <div class="container">
+          <header class="section-head">
+            <p class="kicker">Reviews</p>
+            <h2 class="section-title" id="reviews-title">What viewers are saying.</h2>
+            <p class="section-lead">Reviews from people who use Reelish. Each one is read before it’s published.</p>
+          </header>
+
+          <!-- reviews:start -->
+          <div class="reviews-empty">
+            <p>No reviews have been published yet. Be the first to share yours below.</p>
+          </div>
+          <!-- reviews:end -->
+
+          <div class="review-form-card">
+            <div class="review-form-intro">
+              <h3>Share your review</h3>
+              <p>Tell others what you think of Reelish. Reviews appear here after approval, with the display name you choose. Please don’t include personal information or links.</p>
+            </div>
+
+            <form class="review-form" name="review" method="POST" action="/review-thanks.html" data-netlify="true" netlify-honeypot="bot-field">
+              <input type="hidden" name="form-name" value="review" />
+              <p class="review-honeypot" hidden>
+                <label>Leave this field empty <input name="bot-field" tabindex="-1" autocomplete="off" /></label>
+              </p>
+
+              <fieldset class="review-rating">
+                <legend>Your rating</legend>
+                <div class="rating-stars">
+                  <input type="radio" id="rating-5" name="rating" value="5" required /><label for="rating-5"><span class="sr-only">5 stars</span><span aria-hidden="true">★</span></label>
+                  <input type="radio" id="rating-4" name="rating" value="4" /><label for="rating-4"><span class="sr-only">4 stars</span><span aria-hidden="true">★</span></label>
+                  <input type="radio" id="rating-3" name="rating" value="3" /><label for="rating-3"><span class="sr-only">3 stars</span><span aria-hidden="true">★</span></label>
+                  <input type="radio" id="rating-2" name="rating" value="2" /><label for="rating-2"><span class="sr-only">2 stars</span><span aria-hidden="true">★</span></label>
+                  <input type="radio" id="rating-1" name="rating" value="1" /><label for="rating-1"><span class="sr-only">1 star</span><span aria-hidden="true">★</span></label>
+                </div>
+              </fieldset>
+
+              <div class="review-fields">
+                <label class="review-field">
+                  <span>Display name</span>
+                  <input type="text" name="name" required maxlength="40" autocomplete="nickname" placeholder="e.g. Sam" />
+                </label>
+                <label class="review-field">
+                  <span>Platform</span>
+                  <select name="platform" required>
+                    <option value="" disabled selected>Choose a platform</option>
+                    <option value="android">Android</option>
+                    <option value="tv">Android TV / Google TV</option>
+                    <option value="windows">Windows</option>
+                  </select>
+                </label>
+              </div>
+
+              <label class="review-field">
+                <span>Your review</span>
+                <textarea name="review" required minlength="20" maxlength="600" rows="5" placeholder="What do you like? What could be better?" aria-describedby="review-length"></textarea>
+                <small id="review-length" class="review-length">20 to 600 characters</small>
+              </label>
+
+              <label class="review-consent">
+                <input type="checkbox" name="consent" value="yes" required />
+                <span>I agree that this review and my display name may be published on this website. See the <a href="privacy.html#this-website">privacy policy</a>.</span>
+              </label>
+
+              <button class="button button-primary review-submit" type="submit">Submit review</button>
+            </form>
           </div>
         </div>
       </section>
