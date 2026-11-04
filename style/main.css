@@ -4438,7 +4438,9 @@ h1 span {
 
   /* Items drift in one after another as the panel opens. */
   .nav-panel .nav-link,
-  .nav-panel .download-action {
+  .nav-panel .download-action,
+  .nav-panel .discord-action,
+  .nav-panel .support-action {
     opacity: 0;
     transform: translateY(-6px);
     transition:
@@ -4449,7 +4451,9 @@ h1 span {
   }
 
   .nav-panel.is-open .nav-link,
-  .nav-panel.is-open .download-action {
+  .nav-panel.is-open .download-action,
+  .nav-panel.is-open .discord-action,
+  .nav-panel.is-open .support-action {
     opacity: 1;
     transform: none;
   }
@@ -4459,6 +4463,8 @@ h1 span {
   .nav-panel.is-open .nav-link:nth-child(3) { transition-delay: 0.12s; }
   .nav-panel.is-open .nav-link:nth-child(4) { transition-delay: 0.16s; }
   .nav-panel.is-open .download-action { transition-delay: 0.2s; }
+  .nav-panel.is-open .discord-action { transition-delay: 0.24s; }
+  .nav-panel.is-open .support-action { transition-delay: 0.28s; }
 
   /* Color and background respond immediately on hover once open. */
   .nav-panel.is-open .nav-link:hover {
