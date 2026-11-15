@@ -318,6 +318,65 @@ p {
   font-size: 20px;
 }
 
+/* Community links (Discord, Buy me a coffee): compact icon buttons on
+   desktop that pick up their brand color on hover. */
+.nav-social {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-right: -12px;
+}
+
+.nav-social-link {
+  width: 40px;
+  height: 40px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  color: var(--text-2);
+  background: rgba(255, 255, 255, 0.025);
+  font-size: 14px;
+  font-weight: 700;
+  white-space: nowrap;
+  transition:
+    color 0.2s,
+    background 0.2s,
+    border-color 0.2s;
+}
+
+.nav-social-link svg {
+  flex: none;
+  width: 19px;
+  height: 19px;
+}
+
+.support-action svg {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.9;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.nav-social-link .nav-label {
+  display: none;
+}
+
+.discord-action:hover {
+  border-color: rgba(88, 101, 242, 0.45);
+  color: #a3abff;
+  background: rgba(88, 101, 242, 0.14);
+}
+
+.support-action:hover {
+  border-color: rgba(255, 221, 0, 0.4);
+  color: #ffdd00;
+  background: rgba(255, 221, 0, 0.1);
+}
+
 /* ==========================================================================
    Buttons & links
    ========================================================================== */
@@ -4471,6 +4530,34 @@ h1 span {
     min-height: 48px;
   }
 
+  /* Community links sit under Download as a labelled two-column row. */
+  .nav-social {
+    order: 1;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 10px;
+    margin: 0;
+  }
+
+  .nav-social-link {
+    width: auto;
+    height: 48px;
+    padding: 0 12px;
+    color: var(--text);
+  }
+
+  .nav-social-link .nav-label {
+    display: inline;
+  }
+
+  .discord-action svg {
+    color: #8b95ff;
+  }
+
+  .support-action svg {
+    color: #ffdd00;
+  }
+
   /* Items drift in one after another as the panel opens. */
   .nav-panel .nav-link,
   .nav-panel .download-action,
@@ -4482,7 +4569,8 @@ h1 span {
       opacity 0.2s var(--ease),
       transform 0.25s var(--ease),
       color 0.2s,
-      background 0.2s;
+      background 0.2s,
+      border-color 0.2s;
   }
 
   .nav-panel.is-open .nav-link,
@@ -4502,7 +4590,8 @@ h1 span {
   .nav-panel.is-open .support-action { transition-delay: 0.28s; }
 
   /* Color and background respond immediately on hover once open. */
-  .nav-panel.is-open .nav-link:hover {
+  .nav-panel.is-open .nav-link:hover,
+  .nav-panel.is-open .nav-social-link:hover {
     transition-delay: 0s;
   }
 }
