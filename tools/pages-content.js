@@ -103,8 +103,62 @@ const pages = [
     body: `
       <p>Reelish brings discovering, tracking and watching movies and TV series into one dark, cinematic app. Browse a TMDB-powered catalog, open a title, ask the providers you’ve chosen for streams, and keep watching where you left off.</p>
 
-      <h2>Why Reelish exists</h2>
-      <p>Finding something to watch is usually fragmented. You discover a film in one place, look up the details in another, check several sources for something playable, then switch apps again to watch it. Series make this harder, with seasons, episodes, subtitles and progress to keep track of. Reelish puts that whole journey in one place.</p>
+      <h2>The story behind Reelish</h2>
+      <div class="founder-story">
+        <p class="founder-story-tagline">Sometimes, the person you’ve been waiting for is you.</p>
+
+        <p>Let me introduce myself first.</p>
+        <p>I’m a software engineer by profession, specializing in web development. So, building software isn’t something I just discovered yesterday. I’ve spent years learning, experimenting, creating, and occasionally breaking things along the way.</p>
+        <p>But this story isn’t really about my profession. It’s about an idea, an experience, and a realization that eventually led to the creation of Reelish.</p>
+        <p>It all started with something pretty ordinary: watching movies and TV shows.</p>
+        <p>I used to subscribe to a streaming platform. At first glance, ₱149 per month seemed affordable. Nothing too expensive, right? But when I started thinking about how much I was spending over the years, I realized that those small monthly payments eventually added up.</p>
+        <p>Call me cheap if you want. Haha!</p>
+        <p>So, I decided to cancel my subscription and look for an alternative.</p>
+        <p>And I found one.</p>
+        <p>It was great. It gave me the experience I was looking for, and I enjoyed using it for a couple of years. But one day, without much warning, the app simply stopped working.</p>
+        <p>And just like that, I was back to square one.</p>
+        <p>I started looking for alternatives again. Technically, they worked. They could play movies and shows, and they served their purpose. But something was missing.</p>
+        <p>The experience.</p>
+        <p>The interfaces felt generic. The overall experience wasn’t quite what I had in mind. I knew what I wanted, but I couldn’t seem to find something that captured it.</p>
+        <p>So I waited.</p>
+        <p>Months went by, and I kept hoping that someone would eventually build what I was looking for. Someone with the resources, the team, and the engineering talent to create that kind of experience.</p>
+        <p>I kept waiting for someone else to make it happen.</p>
+        <p>Until one day, something finally occurred to me.</p>
+        <p class="founder-story-quote">What if the person I’ve been waiting for is me?</p>
+        <p>That thought changed everything.</p>
+        <p>I started imagining what the experience could look like. What if I could build an app that brought everything together in a way that felt natural, enjoyable, and personal? Something that I would genuinely love using, not just because it worked, but because of how it felt to use it.</p>
+        <p>And so, I started building.</p>
+        <p>Day after day. Night after night.</p>
+        <p>What initially started as a simple idea slowly became something much bigger. Every interface refinement, every feature implemented, every bug fixed, and every little improvement made the vision clearer.</p>
+        <p>I didn’t have every detail figured out from the beginning. In fact, I would argue that I couldn’t have.</p>
+        <p>Ideas don’t always arrive fully formed. Sometimes, you only discover what they are supposed to become by actually working on them.</p>
+        <p>And somewhere along that journey, Reelish was born.</p>
+        <p>Looking back, I realize that my story probably isn’t unique.</p>
+        <p>Maybe some of you have experienced the same thing. You’ve had an idea so clear in your mind that you became convinced someone, somewhere, would eventually build it.</p>
+        <p>You keep waiting. You keep looking. You keep hoping that someone will finally bring that idea to life.</p>
+        <p>But here’s something I’ve learned:</p>
+        <p class="founder-story-quote">Sometimes, the person you’ve been waiting for is you.</p>
+        <p>And before you say, “But I don’t know how to build an app,” or “I don’t even know where to start,” let me tell you something.</p>
+        <p>Nobody knows everything when they begin.</p>
+        <p>I didn’t have the complete picture of Reelish when I started. I learned along the way. I made mistakes, encountered problems, changed directions, and discovered better ways to approach things.</p>
+        <p>If I had waited until I knew everything, Reelish probably wouldn’t exist today.</p>
+        <p>Because the truth is, you don’t need to have everything figured out before taking the first step.</p>
+        <p>You just need to be willing to take it.</p>
+        <p class="founder-story-quote">If we want to succeed, we must first allow ourselves to fail.</p>
+        <p>What started as a personal project, something I initially wanted to build for myself, has grown into something much bigger than I originally imagined.</p>
+        <p>And I know Reelish is still young.</p>
+        <p>We’re not yet on the level of the biggest names in the industry. We don’t have their resources, their massive engineering teams, or their years of experience behind us.</p>
+        <p>But every established platform had a beginning.</p>
+        <p>Somewhere, someone had to believe in an idea before anyone else did.</p>
+        <p>For me, that belief is what keeps me going.</p>
+        <p>I’m not building Reelish just to have another app out there. I’m building it because I believe in the experience it can offer, the community it can bring together, and the possibilities it can grow into.</p>
+        <p>There is still so much to improve, so much to learn, and so much more to build.</p>
+        <p>And I intend to keep going.</p>
+        <p>To everyone who has tried Reelish, supported the project, shared feedback, or simply taken the time to see what we’re building: thank you. You’re now part of a journey that started with one person’s frustration and a simple idea.</p>
+        <p>This is only the beginning.</p>
+        <p class="founder-story-closing"><strong>Welcome to Reelish.</strong></p>
+        <p class="founder-story-signature">— Franze Kenneth Lobos, founder of Reelish</p>
+      </div>
 
       <h2>How it’s built</h2>
       <ul>

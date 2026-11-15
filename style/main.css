@@ -2333,6 +2333,41 @@ h1 span {
   color: #ffdd00;
 }
 
+/* Founder story on the About page */
+.founder-story > * + * {
+  margin-top: 16px;
+}
+
+.guide-prose .founder-story-tagline {
+  color: var(--text);
+  font-size: 1.15rem;
+  font-style: italic;
+  font-weight: 500;
+  line-height: 1.5;
+}
+
+.guide-prose .founder-story-quote {
+  margin: 28px 0;
+  padding: 4px 0 4px 20px;
+  border-left: 3px solid var(--accent);
+  color: var(--text);
+  font-size: clamp(1.1rem, 2vw, 1.25rem);
+  font-weight: 700;
+  line-height: 1.45;
+  letter-spacing: -0.01em;
+}
+
+.guide-prose .founder-story-closing {
+  margin-top: 28px;
+  font-size: 1.1rem;
+}
+
+.guide-prose .founder-story-signature {
+  color: var(--text-3);
+  font-size: 14px;
+  font-weight: 600;
+}
+
 /* Creator card on the About page */
 .guide-prose .about-creator {
   display: flex;
