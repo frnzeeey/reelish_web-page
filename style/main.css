@@ -114,6 +114,47 @@ p {
   border-radius: 6px;
 }
 
+/* ==========================================================================
+   Page transitions
+   Cross-document View Transitions: the old page fades out and the new one
+   fades in on same-site navigation. The header is its own layer, so it holds
+   still while the content changes. Browsers without support (and visitors
+   who prefer reduced motion) navigate instantly as before.
+   ========================================================================== */
+@media (prefers-reduced-motion: no-preference) {
+  @view-transition {
+    navigation: auto;
+  }
+
+  .site-header {
+    view-transition-name: site-header;
+  }
+
+  ::view-transition-old(root) {
+    animation: page-fade-out 0.18s var(--ease) both;
+  }
+
+  ::view-transition-new(root) {
+    animation: page-fade-in 0.32s var(--ease) 0.1s both;
+  }
+
+  ::view-transition-group(site-header) {
+    animation-duration: 0.25s;
+  }
+}
+
+@keyframes page-fade-out {
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes page-fade-in {
+  from {
+    opacity: 0;
+  }
+}
+
 .icon,
 .button svg,
 .text-link svg,
