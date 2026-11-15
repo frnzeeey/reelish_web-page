@@ -83,25 +83,25 @@
       <h2 id="providers-and-repositories">Providers and repositories</h2>
       <ul>
         <li>A <strong>provider</strong> is a script that, given a movie or episode, returns stream links for it. Reelish asks your enabled providers for sources each time you press play.</li>
-        <li>A <strong>repository</strong> is a collection of providers described by a <code>manifest.json</code> file. You install a repository once, then turn its individual providers on or off.</li>
+        <li>A <strong>collection</strong> (also called a repository) is a set of providers described by a <code>manifest.json</code> file. You install a collection once, then turn its individual providers on or off.</li>
       </ul>
       <p>Providers don’t change the catalog. Titles, artwork and details always come from TMDB; providers only answer “where can this be played?”.</p>
 
       <h2 id="how-providers-run">How providers run</h2>
-      <p>Provider scripts run on your device in a constrained JavaScript runtime and can make network requests to their sources. Repositories and your enabled-provider choices are saved locally.</p>
+      <p>Provider scripts run on your device in a constrained JavaScript runtime and can make network requests to their sources. Collections and your enabled-provider choices are saved locally.</p>
       <div class="guide-callout guide-callout-warning">
         <strong>Only install what you trust</strong>
-        <p>Providers are third-party code and services. Reelish doesn’t supply or host streams, and community listings are not verified or endorsed by Reelish. Install repositories only from publishers you trust.</p>
+        <p>Providers are third-party code and services. Reelish doesn’t supply or host streams, and community listings are not verified or endorsed by Reelish. Install collections only from publishers you trust.</p>
       </div>
 
       <h2 id="code-updates-need-your-approval">Code updates need your approval</h2>
-      <p>If a repository adds a provider or changes a provider’s code, that provider is paused and marked <span class="ui">Needs attention</span> until you review it in <span class="ui">Plugins</span> and tap <span class="ui">Allow update</span>. This way, new code never runs without your say-so.</p>
+      <p>Updates are downloaded and held for your review before anything changes. If a collection adds a provider or changes a provider’s code, that provider is paused and marked <span class="ui">Needs attention</span> until you review it in <span class="ui">Plugins</span> and tap <span class="ui">Allow update</span>. This way, new code never runs without your say-so.</p>
 
       <h2 id="the-community-library">The community library</h2>
-      <p><span class="ui">Reelish Plugins</span> is a built-in library of community provider repositories, curated by a community-maintained catalog. You can search it, filter by language and content type, and install a repository from its details page. The catalog is refreshed at most every six hours (or when you pull to refresh), and a copy is bundled with each release for offline use.</p>
+      <p><span class="ui">Reelish Plugins</span> is a built-in library of community plugin collections, from a community-maintained catalog. Filter it by <span class="ui">All</span>, <span class="ui">Not installed</span> or <span class="ui">Installed</span>, choose a language and sort order, and install a plugin straight from its card. Each card shows the plugin’s version and when it was last updated. The catalog is refreshed at most every six hours (or when you pull to refresh), and a copy is bundled with each release for offline use.</p>
 
       <h2 id="torrent-sources">Torrent sources</h2>
-      <p>On Android, compatible providers can return torrent sources for P2P playback. This only works when <span class="ui">P2P streaming</span> is turned on in <span class="ui">Settings → Playback</span>, and availability depends on each provider.</p>
+      <p>On Android and Windows, compatible providers can return torrent sources for P2P playback. This only works when <span class="ui">P2P streaming</span> is turned on in <span class="ui">Settings → Playback</span>, and availability depends on each provider.</p>
             </div>
 
             <aside class="guide-help" aria-label="Need more help?">
@@ -122,7 +122,7 @@
             </a>
               <a class="guide-pager-link guide-pager-next" href="adding-plugin-repositories.html">
               <span>Next <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M5 12h14m-6-6 6 6-6 6" /></svg></span>
-              <strong>Adding Plugin Repositories</strong>
+              <strong>Adding Plugin Collections</strong>
             </a>
             </nav>
           </div>
@@ -142,7 +142,7 @@
               <h2><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M19.4 7.9c0 .3.1.6.3.9l1.6 1.6a2.4 2.4 0 0 1 0 3.4l-1.6 1.6a1 1 0 0 1-.8.3c-.5-.1-.8-.5-1-.9a2.5 2.5 0 1 0-3.2 3.2c.4.2.9.5.9 1a1 1 0 0 1-.3.8l-1.6 1.6a2.4 2.4 0 0 1-3.4 0l-1.6-1.6a1 1 0 0 0-.9-.3c-.5.1-.8.5-1 1a2.5 2.5 0 1 1-3.2-3.3c.5-.2.9-.5 1-1a1 1 0 0 0-.3-.9l-1.6-1.6a2.4 2.4 0 0 1 0-3.4l1.5-1.5c.2-.2.6-.4.9-.3.5.1.9.5 1.1 1a2.5 2.5 0 1 0 3.3-3.3c-.5-.2-.9-.6-1-1.1 0-.3 0-.7.3-.9l1.5-1.5a2.4 2.4 0 0 1 3.4 0l1.6 1.6c.2.2.6.3.9.3.5-.1.8-.5 1-1a2.5 2.5 0 1 1 3.2 3.2c-.4.2-.9.5-.9 1Z" /></svg> Plugins</h2>
               <ul>
                 <li><a href="understanding-third-party-plugins.html" aria-current="page">Understanding Third-Party Plugins</a></li>
-                <li><a href="adding-plugin-repositories.html">Adding Plugin Repositories</a></li>
+                <li><a href="adding-plugin-repositories.html">Adding Plugin Collections</a></li>
                 <li><a href="managing-providers.html">Managing Providers</a></li>
                 <li><a href="troubleshooting-plugins.html">Troubleshooting Plugins</a></li>
               </ul>

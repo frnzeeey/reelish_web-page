@@ -74,11 +74,11 @@
               <span class="guide-article-category"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M12 3 4 6v6c0 4.5 3.4 8.3 8 9 4.6-.7 8-4.5 8-9V6Z" /><path d="m9 12 2 2 4-4" /></svg> Legal</span>
               <h1 id="page-title">Third-Party Licenses</h1>
               <p class="guide-article-lead">Open-source software and fonts used in Reelish, and the licenses they’re used under.</p>
-              <p class="guide-article-meta">Last updated October 8, 2026</p>
+              <p class="guide-article-meta">Last updated November 15, 2026</p>
             </header>
 
             <div class="guide-prose">
-              <p>Reelish is built with Flutter and open-source packages. Each component remains subject to its own license. The full license text for every package and font is available in the app under <span class="ui">Settings → Credits → Open-source licenses</span>.</p>
+              <p>Reelish is built with Flutter and open-source packages. Each component remains subject to its own license. The full license text for every package and font is available in the app under <span class="ui">Settings → Help &amp; Support → About Reelish → Credits &amp; attribution → Open-source licenses</span>.</p>
 
       <h2 id="framework">Framework</h2>
       <table class="guide-table">
@@ -95,16 +95,20 @@
           <tr><td>http</td><td>Network requests</td><td>BSD&nbsp;3&#8209;Clause</td></tr>
           <tr><td>crypto</td><td>Checksums and hashing</td><td>BSD&nbsp;3&#8209;Clause</td></tr>
           <tr><td>shared_preferences</td><td>On-device library and settings</td><td>BSD&nbsp;3&#8209;Clause</td></tr>
-          <tr><td>path_provider</td><td>App storage and cache paths</td><td>BSD&nbsp;3&#8209;Clause</td></tr>
+          <tr><td>path_provider, path_provider_windows</td><td>App storage, cache and Pictures folder paths</td><td>BSD&nbsp;3&#8209;Clause</td></tr>
+          <tr><td>flutter_secure_storage</td><td>Keeping your sign-in session in secure storage</td><td>BSD&nbsp;3&#8209;Clause</td></tr>
+          <tr><td>image_picker</td><td>Choosing a profile photo</td><td>BSD&nbsp;3&#8209;Clause</td></tr>
+          <tr><td>flutter_local_notifications</td><td>Notifications</td><td>BSD&nbsp;3&#8209;Clause</td></tr>
+          <tr><td>workmanager</td><td>Background checks for new episodes on Android</td><td>MIT</td></tr>
+          <tr><td>flutter_cache_manager</td><td>Keeping artwork on your device</td><td>MIT</td></tr>
           <tr><td>url_launcher</td><td>Opening external links</td><td>BSD&nbsp;3&#8209;Clause</td></tr>
           <tr><td>package_info_plus</td><td>App version information</td><td>BSD&nbsp;3&#8209;Clause</td></tr>
           <tr><td>video_player, video_player_android</td><td>Video playback</td><td>BSD&nbsp;3&#8209;Clause</td></tr>
-          <tr><td>media_kit, media_kit_video, media_kit_libs_android_video</td><td>Playback engine</td><td>MIT</td></tr>
+          <tr><td>media_kit, media_kit_video, media_kit_libs_android_video, media_kit_libs_windows_video</td><td>Playback engine on Android and Windows</td><td>MIT</td></tr>
           <tr><td>video_player_media_kit</td><td>Playback engine adapter</td><td>MIT</td></tr>
           <tr><td>flutter_js</td><td>Running provider scripts (QuickJS)</td><td>MIT</td></tr>
-          <tr><td>flutter_go_torrent_streamer</td><td>Torrent/P2P playback on Android</td><td>MIT</td></tr>
+          <tr><td>flutter_go_torrent_streamer</td><td>Torrent/P2P playback</td><td>MIT</td></tr>
           <tr><td>anacrolix/torrent</td><td>BitTorrent engine used by the torrent streamer</td><td>MPL 2.0</td></tr>
-          <tr><td>material_symbols_icons</td><td>Icons</td><td>Apache 2.0</td></tr>
         </tbody>
       </table>
       <div class="guide-callout guide-callout-note">
@@ -117,6 +121,7 @@
         <thead><tr><th>Component</th><th>Used for</th><th>License</th></tr></thead>
         <tbody>
           <tr><td>Montserrat</td><td>App and website typeface</td><td>SIL Open Font License 1.1</td></tr>
+          <tr><td>Bebas Neue</td><td>App display typeface</td><td>SIL Open Font License 1.1</td></tr>
           <tr><td>Material Symbols</td><td>Website icons</td><td>Apache 2.0</td></tr>
         </tbody>
       </table>

@@ -10,6 +10,7 @@
 
 const categories = {
   "getting-started": { label: "Getting Started", icon: "book" },
+  account: { label: "Account & Social", icon: "people" },
   installation: { label: "Installation", icon: "download" },
   plugins: { label: "Plugins", icon: "puzzle" },
   playback: { label: "Playback", icon: "play" },
@@ -24,32 +25,34 @@ const guides = [
     title: "Introduction to Reelish",
     description: "An overview of what Reelish is and how it works.",
     body: `
-      <p>Reelish is an open-source Android app for discovering movies and TV series and watching them with the providers you choose. It combines a polished catalog, a personal library and a built-in video player in one place.</p>
+      <p>Reelish is an open-source app for discovering movies and TV series and watching them with the providers you choose. It runs on Android phones and tablets, Android TV, Google TV and Windows, and combines a polished catalog, a personal library that follows you across your devices, a built-in video player and ways to watch with friends.</p>
 
       <h2>How Reelish works</h2>
       <p>Reelish splits the job of “finding something to watch” and “playing it” into separate pieces:</p>
       <ul>
-        <li><strong>The catalog comes from TMDB.</strong> Titles, artwork, synopses, genres, cast and recommendations are loaded from The Movie Database.</li>
-        <li><strong>Streams come from providers you install.</strong> When you press play, Reelish asks your enabled providers for playable sources for that title. Providers don’t add titles to the catalog — they only answer “where can this be played?”.</li>
-        <li><strong>Playback happens in the built-in player.</strong> It supports direct HTTP(S) streams, external subtitles, playback speed, aspect ratio and more. On Android, compatible providers can also return torrent sources for P2P playback.</li>
+        <li><strong>The catalog comes from TMDB.</strong> Titles, artwork, synopses, genres, cast and people are loaded from The Movie Database through the Reelish service.</li>
+        <li><strong>Your account comes from Trakt.</strong> You sign in with a free Trakt account, and your viewing progress, collections and favorite genres stay the same on every device you use.</li>
+        <li><strong>Streams come from providers you install.</strong> When you press play, Reelish asks your enabled providers for playable sources for that title. Providers don’t add titles to the catalog; they only answer “where can this be played?”.</li>
+        <li><strong>Playback happens in the built-in player.</strong> It supports direct HTTP(S) streams, external subtitles, audio languages, intro skipping and more. On Android and Windows, compatible providers can also return torrent sources for P2P playback.</li>
       </ul>
 
       <h2>What Reelish doesn’t do</h2>
-      <p>Reelish does not host, store or distribute any media. Providers are third-party code published by independent authors, and the sources they return are operated by others. Install repositories only from publishers you trust.</p>
+      <p>Reelish does not host, store or distribute any media, and video never passes through the Reelish service. Providers are third-party code published by independent authors, and the sources they return are operated by others. Install plugin collections only from publishers you trust.</p>
       <div class="guide-callout guide-callout-note">
-        <strong>Your data stays on your device</strong>
-        <p>Favorites, watch history, playback progress, settings and provider choices are stored locally. TMDB, provider publishers, stream hosts and subtitle services only receive the requests needed for the features you use.</p>
+        <strong>What leaves your device</strong>
+        <p>Your viewing progress, collections and genre choices are stored with your account so they sync. Favorites, settings and provider choices stay on the device, and nothing about the providers or streams you use is sent. See the <a href="../privacy.html">privacy policy</a> for the details.</p>
       </div>
 
       <h2>What you need</h2>
       <ul>
-        <li>An Android phone or tablet.</li>
-        <li>The latest <code>reelish.apk</code> from GitHub Releases.</li>
-        <li>At least one provider repository, added from the <span class="ui">Plugins</span> tab.</li>
+        <li>An Android phone, tablet, Android TV or Google TV device, or a Windows 10 or 11 PC (64-bit).</li>
+        <li>The latest release from GitHub Releases.</li>
+        <li>A free <a href="https://trakt.tv/" target="_blank" rel="noopener noreferrer">Trakt</a> account to sign in.</li>
+        <li>At least one plugin collection, added from the <span class="ui">Plugins</span> tab.</li>
       </ul>
 
       <h2>Where to go next</h2>
-      <p>Start with <a href="downloading-the-apk.html">Downloading the APK</a> and <a href="installing-on-android.html">Installing on Android</a>, then read <a href="understanding-third-party-plugins.html">Understanding Third-Party Plugins</a> before you add your first provider.</p>
+      <p>Start with <a href="downloading-the-apk.html">Downloading the APK</a> and <a href="installing-on-android.html">Installing on Android</a>, then <a href="signing-in-and-syncing.html">Signing In and Syncing</a>. Read <a href="understanding-third-party-plugins.html">Understanding Third-Party Plugins</a> before you add your first provider.</p>
     `,
   },
   {
@@ -58,40 +61,294 @@ const guides = [
     title: "Navigating the App",
     description: "Learn how to find your way around the Reelish interface.",
     body: `
-      <p>Reelish is organized around four tabs in the floating dock at the bottom of the screen: <span class="ui">Home</span>, <span class="ui">Plugins</span>, <span class="ui">Library</span> and <span class="ui">Settings</span>.</p>
+      <p>On phones and tablets, Reelish is organized around four tabs in the dock at the bottom of the screen: <span class="ui">Home</span>, <span class="ui">Library</span>, <span class="ui">Plugins</span> and <span class="ui">Settings</span>. Your <span class="ui">Profile</span> opens from your avatar at the top right of Home. On Android TV and Google TV the same places are in the side menu, and on Windows in the sidebar; both also have <span class="ui">Movies</span>, <span class="ui">Series</span> and <span class="ui">Search</span>.</p>
 
       <h2>Home</h2>
       <p>Home is where discovery happens.</p>
       <ul>
-        <li><strong>Reelish Spotlight</strong> — a rotating, full-width feature at the top. Tap <span class="ui">Details</span> to open the title or <span class="ui">My list</span> to save it.</li>
-        <li><strong>Category chips</strong> — switch between <span class="ui">For you</span>, <span class="ui">Movies</span>, <span class="ui">Series</span> and the other categories to change what the rows below show.</li>
-        <li><strong>Rows</strong> such as <span class="ui">Continue watching</span>, recommendations and <span class="ui">New releases</span>.</li>
-        <li><strong>Search</strong> — tap the magnifying glass in the top-right corner to search the whole catalog.</li>
+        <li><strong>Spotlight</strong>: a rotating, full-width feature at the top. Open the title or add it to <span class="ui">My list</span>.</li>
+        <li><strong>Category chips</strong>: switch between <span class="ui">For you</span>, <span class="ui">Movies</span>, <span class="ui">Series</span> and the other categories to change what the rows below show.</li>
+        <li><strong>Rows</strong> such as <span class="ui">Top 10 picks</span>, <span class="ui">Continue watching</span>, <span class="ui">Trending</span> and <span class="ui">New releases</span>, plus rows picked for you: <span class="ui">Recommended for you</span>, <span class="ui">Because you watched</span> a title, <span class="ui">Because you like</span> a genre, and <span class="ui">Something different</span>. Turn the personal rows off in <span class="ui">Settings → Recommendations</span>.</li>
+        <li><strong>Search</strong>: one search finds movies, series, people and movie collections. Filter movies and series by genre, year and rating.</li>
       </ul>
+      <p>New accounts are asked <span class="ui">What do you love watching?</span>. The genres you pick shape your recommendations and follow your account to your other devices.</p>
 
       <h2>Title details</h2>
-      <p>Opening a title shows its artwork, rating, <span class="ui">Synopsis</span>, <span class="ui">Genres</span> and <span class="ui">Cast</span>. For movies, tap <span class="ui">Play movie</span>. For series, pick a season, then <span class="ui">Choose episode and play</span>. Reelish then searches your enabled providers for a stream.</p>
-
-      <h2>Plugins</h2>
-      <p>The Plugins tab manages where streams come from. You can browse the community library, paste a provider manifest URL, see your active sources and turn individual providers on or off. See <a href="managing-providers.html">Managing Providers</a>.</p>
+      <p>Opening a title shows its artwork, rating, synopsis, genres and cast. For movies, tap <span class="ui">Play movie</span>; for series, pick a season and an episode. If you’ve started it, choose <span class="ui">Resume</span> or <span class="ui">Start over</span>. Reelish then searches your enabled providers for a stream. From the same page you can add the title to <span class="ui">My list</span> or a collection, <span class="ui">Share</span> it with friends, or start a Watch Party with <span class="ui">Watch together</span>.</p>
+      <p>Tap a cast member to see what they acted in and directed. A movie that belongs to a series of films links to its collection, shown in release order. Both have a <span class="ui">Follow</span> button so you hear when there’s something new.</p>
 
       <h2>Library</h2>
-      <p><span class="ui">My library</span> keeps everything you are watching and saving in one place. Use the <span class="ui">Everything</span>, <span class="ui">Continue</span> and <span class="ui">Favorites</span> filters to narrow it down.</p>
+      <p><span class="ui">My library</span> keeps everything you are watching and saving in one place. Use the <span class="ui">Everything</span>, <span class="ui">Continue</span>, <span class="ui">My list</span> and <span class="ui">Collections</span> filters to narrow it down.</p>
       <ul>
-        <li><span class="ui">Continue watching</span> — titles you paused, ready to resume where you left off.</li>
-        <li><span class="ui">Your favorites</span> — titles saved from their details page.</li>
-        <li><span class="ui">Recently watched</span> — your latest activity. You can remove items from your watch history.</li>
+        <li><span class="ui">Continue watching</span>: titles you paused, on any of your devices. Finished titles leave the row, and a series shows its next episode.</li>
+        <li><span class="ui">My list</span>: titles you saved for another night.</li>
+        <li><span class="ui">Collections</span>: your own lists and folders, plus smart collections that fill themselves. See <a href="library-and-collections.html">Library and Collections</a>.</li>
+        <li><span class="ui">Recently watched</span>: your latest activity. You can remove items from your watch history.</li>
       </ul>
+
+      <h2>Plugins</h2>
+      <p>The Plugins tab manages where streams come from. You can browse the community library, add a collection by link, see your active sources and turn individual providers on or off. See <a href="managing-providers.html">Managing Providers</a>.</p>
+
+      <h2>Profile</h2>
+      <p>Your profile shows your avatar, name, badges and your viewing at a glance (watched, in progress and on My list). From it you can open <span class="ui">Friends</span>, <span class="ui">Viewing statistics</span> and <span class="ui">Reelish Wrapped</span>, and change your <span class="ui">Profile card</span>, <span class="ui">Theme</span> and, on Android, <span class="ui">App icon</span>.</p>
 
       <h2>Settings</h2>
       <p>Settings is where you make Reelish work the way you like:</p>
       <ul>
-        <li><span class="ui">Appearance</span> — the accent color used for highlights and controls.</li>
-        <li><span class="ui">Playback</span> — player, stream selection, subtitles and P2P options.</li>
-        <li><span class="ui">Subtitle addons</span> — the subtitle sources searched while you watch.</li>
-        <li><span class="ui">About Reelish</span> — version, build details and update checks.</li>
-        <li>Credits, open-source licenses, the privacy policy and the terms of use.</li>
+        <li><span class="ui">Profile and account</span>: your display name and avatar, My list sync with Trakt, signing out and deleting your account.</li>
+        <li><span class="ui">Appearance</span>: the theme, accent color and, on Android, the app icon.</li>
+        <li><span class="ui">Notifications</span>: new episodes, updates to titles on My list, people and collections you follow, and how alerts arrive.</li>
+        <li><span class="ui">Recommendations</span>: the personal rows on Home.</li>
+        <li><span class="ui">Join a watch party</span>: enter a party code.</li>
+        <li><span class="ui">Playback</span>: player, stream selection, intro skipping, audio, subtitles and P2P options.</li>
+        <li><span class="ui">Subtitle addons</span>: the subtitle sources searched while you watch.</li>
+        <li><span class="ui">Help &amp; Support</span>: answers, troubleshooting, problem reports, release notes, <span class="ui">About Reelish</span> (version and updates), Reelish Supporters, and the privacy policy and terms of use.</li>
       </ul>
+    `,
+  },
+
+  {
+    slug: "library-and-collections",
+    category: "getting-started",
+    title: "Library and Collections",
+    description: "Continue watching on any device, save titles and group them your way.",
+    body: `
+      <p><span class="ui">My library</span> keeps what you’re watching and saving in one place. Your progress and collections are stored with your account, so they’re the same on your phone, TV and PC.</p>
+
+      <h2>Continue watching</h2>
+      <p>Stop on one device and pick up on another. Finished titles leave the row (a title counts as finished from 90%), and a series shows its next episode as <span class="ui">Up next</span>. On a title’s page, choose <span class="ui">Resume</span> or <span class="ui">Start over</span>.</p>
+
+      <h2>My list</h2>
+      <p>Tap <span class="ui">My list</span> on any title to save it for another night. To keep My list the same on every device, turn on <span class="ui">Sync My list with Trakt watchlist</span> in <span class="ui">Settings → Profile and account</span>. With it off, My list stays on the device you’re using. See <a href="signing-in-and-syncing.html">Signing In and Syncing</a>.</p>
+
+      <h2>Your own collections</h2>
+      <ol class="guide-steps">
+        <li>On any title’s page, tap <span class="ui">Collections…</span>.</li>
+        <li>Pick a collection, or create one, such as Weekend movies.</li>
+        <li>Find it in <span class="ui">My library</span> under the <span class="ui">Collections</span> filter.</li>
+      </ol>
+      <p>Group collections into folders with <span class="ui">New folder</span>. From a collection’s options you can <span class="ui">Edit collection</span>, <span class="ui">Move to folder</span>, <span class="ui">Choose cover</span>, reorder titles, or <span class="ui">Share with friends</span>. Every collection is private until you share it.</p>
+
+      <h2>Smart collections</h2>
+      <p>Three collections fill themselves: <span class="ui">Recently added</span>, <span class="ui">Not started</span> (saved titles you haven’t begun) and <span class="ui">Finished</span> (titles you watched to the end).</p>
+    `,
+  },
+
+  // ---------------------------------------------------------------- Account & Social
+  {
+    slug: "signing-in-and-syncing",
+    category: "account",
+    title: "Signing In and Syncing",
+    description: "Sign in with Trakt and keep Reelish the same on every device.",
+    body: `
+      <p>Reelish uses your <a href="https://trakt.tv/" target="_blank" rel="noopener noreferrer">Trakt</a> account to sign in. Reelish has no passwords of its own and never sees your Trakt password. If you don’t have a Trakt account, you can create one for free on Trakt’s sign-in page.</p>
+
+      <h2>Sign in on a phone, tablet or PC</h2>
+      <ol class="guide-steps">
+        <li>On <span class="ui">Sign in to Reelish</span>, tap <span class="ui">Continue with Trakt</span>.</li>
+        <li>Your browser opens Trakt’s page. Sign in and approve Reelish.</li>
+        <li>Come back to Reelish. The page updates by itself and shows <span class="ui">Signed in. Loading Reelish…</span>.</li>
+      </ol>
+      <p>If your browser didn’t open, tap <span class="ui">Open Trakt again</span>, or <span class="ui">Use a code instead</span>.</p>
+
+      <h2>Sign in on a TV, or with a code</h2>
+      <ol class="guide-steps">
+        <li>On a TV, choose <span class="ui">Sign in with Trakt</span>. Elsewhere, tap <span class="ui">Sign in with a code instead</span>.</li>
+        <li>On your phone or computer, go to the address shown and <span class="ui">Enter this code</span>.</li>
+        <li>Approve Reelish. The TV continues by itself.</li>
+      </ol>
+      <p>If the code runs out, tap <span class="ui">Get a new code</span>.</p>
+
+      <h2>What syncs between your devices</h2>
+      <ul>
+        <li><strong>Continue watching</strong>: where you left each movie and episode, and the next episode to watch.</li>
+        <li><strong>Collections</strong> and folders you create.</li>
+        <li><strong>Genres you love</strong> and whether personal rows are on.</li>
+        <li><strong>My list</strong>, if you turn on <span class="ui">Sync My list with Trakt watchlist</span> in <span class="ui">Settings → Profile and account</span>. It then stays in step with your Trakt watchlist.</li>
+        <li>Your Trakt avatar and username.</li>
+      </ul>
+      <p>A display name, avatar or photo you choose in Reelish stays on that device, and a photo is never uploaded. Favorites, settings and plugins stay on each device. Nothing about the providers or streams you use is sent.</p>
+
+      <h2>Sign out or delete your account</h2>
+      <p>Open <span class="ui">Settings → Profile and account</span>:</p>
+      <ul>
+        <li><span class="ui">Sign out</span> signs this device out. <span class="ui">Sign out everywhere</span> signs out all your devices.</li>
+        <li><span class="ui">Delete account</span> removes your account, viewing progress, collections, recommendation preferences and device sessions from the Reelish service, and asks Trakt to revoke Reelish’s access.</li>
+      </ul>
+      <p>See the <a href="../privacy.html">privacy policy</a> for exactly what’s stored and for how long.</p>
+    `,
+  },
+  {
+    slug: "watch-party",
+    category: "account",
+    title: "Watch Party",
+    description: "Watch a movie or episode in sync with friends, with reactions and chat.",
+    body: `
+      <p>A Watch Party plays a movie or episode in sync for up to five people, including the host. Everyone plays from their own sources, and when the host plays, pauses, seeks or moves to the next episode, everyone follows.</p>
+
+      <h2>Start a party</h2>
+      <ol class="guide-steps">
+        <li>Open a movie or series and choose <span class="ui">Watch together</span>. For a series, pick the episode.</li>
+        <li>Set the room: how many people, whether <span class="ui">Everyone can play and pause</span>, and whether to <span class="ui">Wait for everyone</span> before starting.</li>
+        <li>Tap <span class="ui">Create party</span> and share the 8-digit code with <span class="ui">Copy code</span>, or send an invite link with <span class="ui">Copy invitation</span>. On Android and Windows, the link opens Reelish with the code filled in.</li>
+      </ol>
+      <div class="guide-callout guide-callout-note">
+        <strong>Hosting is a Supporter perk</strong>
+        <p>Anyone signed in can join a party with a code. Hosting one is a thank-you to <a href="reelish-supporters.html">Reelish Supporters</a>, so a Supporter can invite friends who have never donated.</p>
+      </div>
+
+      <h2>Join a party</h2>
+      <ol class="guide-steps">
+        <li>Open <span class="ui">Settings → Join a watch party</span>, or on a phone use the button in the Home header.</li>
+        <li>Enter the 8-digit code, or tap <span class="ui">Paste code</span>. Pasting a whole invitation works too. On a TV, use the remote’s number pad.</li>
+        <li>Check the title, the host and how many people are in, then tap <span class="ui">Join party</span>.</li>
+      </ol>
+      <p>Each person needs a source for the title, so make sure your providers can play it.</p>
+
+      <h2>The waiting room</h2>
+      <p>The waiting room shows who has joined and whether their player is ready, with a count such as “2 of 3 ready”. The host can <span class="ui">Start watching</span> for everyone, <span class="ui">Make host</span> someone else, or <span class="ui">Remove from party</span>.</p>
+
+      <h2>Reactions and chat</h2>
+      <p>React and chat with everyone in the party, on top of the video or from the waiting room. Nothing is saved.</p>
+
+      <h2>Leaving and ending</h2>
+      <ul>
+        <li>If you <span class="ui">Leave</span>, someone else becomes the host and the party goes on. You can join again with the code while the party is open.</li>
+        <li>If the host chooses <span class="ui">End party</span>, everyone leaves and the code stops working.</li>
+        <li>If the host loses their connection and doesn’t return, hosting is handed over.</li>
+      </ul>
+      <div class="guide-callout guide-callout-tip">
+        <strong>During a party</strong>
+        <p>Speed stays at 1×, and intros and outros aren’t skipped, so everyone stays in step.</p>
+      </div>
+    `,
+  },
+  {
+    slug: "friends-and-messages",
+    category: "account",
+    title: "Friends and Messages",
+    description: "Add friends, send them titles to watch and message them privately.",
+    body: `
+      <p>Friends is off until you turn it on. Then you can add friends, send them movie and series recommendations, share your collections, and message them privately.</p>
+
+      <h2>Turn on Friends</h2>
+      <ol class="guide-steps">
+        <li>Open <span class="ui">Profile → Friends &amp; privacy</span> and tap <span class="ui">Turn on Friends</span>.</li>
+        <li>Choose a handle that friends will see. It isn’t your Trakt username, and you can change it once a week.</li>
+        <li>Optionally add a <span class="ui">Name friends see</span> and an avatar. Leave them empty to show only your handle.</li>
+      </ol>
+      <p>Your Trakt username, Trakt picture and any profile photo are never shown to other people.</p>
+
+      <h2>Add a friend</h2>
+      <ul>
+        <li>Share <span class="ui">Your friend code</span> so others can add you.</li>
+        <li>To add someone, choose <span class="ui">Add by code or @handle</span>, enter their friend code (or their handle, if they let people find them by it), then <span class="ui">Send request</span>.</li>
+        <li>Requests you receive show <span class="ui">Wants to be friends</span>. <span class="ui">Accept</span> or <span class="ui">Decline</span>; they aren’t told if you decline.</li>
+      </ul>
+
+      <h2>Send a title to a friend</h2>
+      <p>On a title’s page, tap <span class="ui">Share</span>, choose the friends who should see it, add a note if you like, and tap <span class="ui">Send</span>. Titles sent to you appear under <span class="ui">Recommendations</span> in Friends.</p>
+
+      <h2>Share collections and what you’re watching</h2>
+      <ul>
+        <li>From a collection’s options, choose <span class="ui">Share with friends</span>. <span class="ui">Make private</span> hides it again straight away.</li>
+        <li>Only if you turn on <span class="ui">Share what I’m watching</span> in <span class="ui">Friends &amp; privacy</span>, friends see what you’re playing now. It isn’t kept as a history and isn’t shared during a Watch Party.</li>
+      </ul>
+
+      <h2>Messages</h2>
+      <p>Open a friend from your friends list to start a private conversation. Only the two of you can read it. All your conversations are under <span class="ui">Messages</span> in Friends, and each message shows when it’s <span class="ui">Sent</span> and <span class="ui">Delivered</span>.</p>
+
+      <h2>Blocking, reporting and turning Friends off</h2>
+      <p>You can remove a friend, block someone, or report them; they aren’t told who reported them. Blocked people are listed under <span class="ui">Blocked people</span>. Turning Friends off deletes your handle, friends, requests and what you’ve shared, all at once.</p>
+    `,
+  },
+  {
+    slug: "notifications",
+    category: "account",
+    title: "Notifications",
+    description: "New episodes, title updates, people you follow, and when alerts arrive.",
+    body: `
+      <p>Reelish can tell you when there’s something new to watch. Notifications are available on Android phones and tablets and on Windows. Tapping an alert takes you straight to the title, person or collection it’s about.</p>
+
+      <h2>Choose what you hear about</h2>
+      <p>Open <span class="ui">Settings → Notifications</span> and turn on <span class="ui">Allow notifications</span>, then pick:</p>
+      <ul>
+        <li><strong>New episodes</strong>: <span class="ui">Series on My list</span>, <span class="ui">Series you are watching</span> and <span class="ui">Popular series</span>.</li>
+        <li><span class="ui">My list updates</span>: a new season announced or dated, a movie dated, or a title released.</li>
+        <li><span class="ui">People you follow</span> and <span class="ui">Collections you follow</span>: new films and series.</li>
+        <li><span class="ui">Unfinished series</span>: a reminder about a series you left.</li>
+        <li><span class="ui">Messages from friends</span>: who sent you a message, never what it says.</li>
+        <li><span class="ui">Reelish Wrapped</span>: once in January, when your recap of the year is out.</li>
+      </ul>
+      <p>On Android, Reelish checks every few hours, even when it’s closed. On Windows, it checks while Reelish is open.</p>
+
+      <h2>Follow people and collections</h2>
+      <p>Tap <span class="ui">Follow</span> on a person’s page or on a movie collection’s page. Manage everyone you follow in <span class="ui">Settings → Notifications</span>, and tap <span class="ui">Unfollow</span> to stop.</p>
+
+      <h2>How alerts arrive</h2>
+      <ul>
+        <li><span class="ui">As they happen</span>: each check shows what it found.</li>
+        <li><span class="ui">Daily summary</span> or <span class="ui">Weekly summary</span>: everything found waits for one summary.</li>
+        <li><span class="ui">Quiet hours</span>: nothing is shown overnight; what’s found waits until after.</li>
+      </ul>
+    `,
+  },
+  {
+    slug: "reelish-wrapped",
+    category: "account",
+    title: "Reelish Wrapped and Viewing Statistics",
+    description: "Your year on Reelish as a story, and your viewing at a glance.",
+    body: `
+      <p>Reelish counts what you watch so you can look back on it. Only you can see these numbers.</p>
+
+      <h2>Reelish Wrapped</h2>
+      <p>Wrapped tells your year on Reelish as a story: what you finished, your watch time, your top genres and actors, and your viewing personality. It’s counted from what you watched on Reelish on any of your devices.</p>
+      <ol class="guide-steps">
+        <li>Open <span class="ui">Profile → Reelish Wrapped</span> on your phone, TV or PC.</li>
+        <li>Choose a year under <span class="ui">Your years</span> and tap <span class="ui">Open your recap</span>.</li>
+      </ol>
+      <p>Each year’s recap opens on 1 January. If you’d like, Reelish can notify you when it’s ready; see <a href="notifications.html">Notifications</a>.</p>
+
+      <h2>Share your Wrapped</h2>
+      <p>Turn any slide into a card in story, portrait or square format.</p>
+      <ul>
+        <li><strong>Android phones and tablets:</strong> share it from the share sheet, or save it to <code>Pictures/Reelish</code> (saving needs Android 10 or later).</li>
+        <li><strong>Windows:</strong> save it to your <code>Pictures\\Reelish</code> folder, including when OneDrive keeps your Pictures.</li>
+      </ul>
+
+      <h2>Viewing statistics</h2>
+      <p>Open <span class="ui">Profile → Viewing statistics</span> to see what you’ve watched lately: movies and episodes finished, series watched, your top genres and the last six months. They’re worked out on your device and never leave it.</p>
+    `,
+  },
+  {
+    slug: "reelish-supporters",
+    category: "account",
+    title: "Reelish Supporters",
+    description: "Support Reelish with a donation, and the extras Supporters receive.",
+    body: `
+      <p>Supporting Reelish is completely optional. Donations help pay for development and server costs, and as a thank-you, Supporters receive a few extras. Everything else in Reelish stays available to everyone.</p>
+
+      <h2>Become a Supporter</h2>
+      <ol class="guide-steps">
+        <li>Open <span class="ui">Settings → Help &amp; Support → Reelish Supporters</span>.</li>
+        <li>Copy your supporter code.</li>
+        <li>Donate on Buy Me a Coffee and paste the code into your message.</li>
+      </ol>
+      <p>When the donation goes through, your account receives the Supporter Badge, which never expires. Buy Me a Coffee handles the payment, and Reelish never sees your card. If the badge doesn’t appear, you can ask for a review by email from <span class="ui">Help &amp; Support</span>.</p>
+
+      <h2>What Supporters receive</h2>
+      <ul>
+        <li><strong>Hosting Watch Parties</strong>, and inviting anyone to join. See <a href="watch-party.html">Watch Party</a>.</li>
+        <li><strong>App themes</strong> that change the colors of every screen: Velvet Cinema, Aurora, Ember, Arctic, Ivory Studio (a light theme), Obsidian Gold and Rosé Noir.</li>
+        <li><strong>Avatar frames</strong> in Elegant, Cinematic and Special Edition styles, shown next to your name in Watch Party.</li>
+        <li><strong>Profile card</strong> extras: cinematic backgrounds, gentle animated effects and any color you like.</li>
+        <li><strong>Every app icon</strong> on Android phones and tablets.</li>
+        <li>A place on the supporters list, only if you turn on <span class="ui">Show me on the supporters list</span>, under a name you choose.</li>
+      </ul>
+      <div class="guide-callout guide-callout-tip">
+        <strong>Try before you support</strong>
+        <p>Anyone can preview the themes in <span class="ui">Settings → Appearance</span> and the avatar frames in <span class="ui">Profile → Avatar frame</span>. Every accent color, including a custom one, stays free for everyone.</p>
+      </div>
     `,
   },
 
@@ -160,11 +417,12 @@ const guides = [
 
       <h2>First launch</h2>
       <ol class="guide-steps">
-        <li>Reelish shows <span class="ui">Before you start</span> with the privacy policy and terms of use.</li>
-        <li>Read both documents to the end.</li>
-        <li>Tap <span class="ui">Agree and continue</span>.</li>
+        <li>Reelish shows <span class="ui">Before you start</span> with the privacy policy and terms of use. Read both to the end, then tap <span class="ui">Agree and continue</span>.</li>
+        <li>On <span class="ui">Sign in to Reelish</span>, tap <span class="ui">Continue with Trakt</span> and approve Reelish on Trakt’s page in your browser, or choose <span class="ui">Sign in with a code instead</span>. See <a href="signing-in-and-syncing.html">Signing In and Syncing</a>.</li>
+        <li>Pick a few genres you enjoy on <span class="ui">What do you love watching?</span>, or tap <span class="ui">Skip for now</span>.</li>
+        <li>On Android, Reelish asks once whether you’d like to share usage statistics and crash reports. Both are optional and off unless you choose <span class="ui">Share</span>; you can change them later in Settings.</li>
       </ol>
-      <p>You’ll land on Home, where the catalog is ready to browse. To actually play something, add a provider first — see <a href="adding-plugin-repositories.html">Adding Plugin Repositories</a>.</p>
+      <p>You’ll land on Home, where the catalog is ready to browse. To actually play something, add a provider first. See <a href="adding-plugin-repositories.html">Adding Plugin Collections</a>.</p>
 
       <h2>Upgrading from v1.5.0 or earlier</h2>
       <div class="guide-callout guide-callout-warning">
@@ -188,7 +446,12 @@ const guides = [
         <li>Keep Reelish open until the download finishes.</li>
         <li>Android’s package installer opens. Confirm the update.</li>
       </ol>
-      <p>To check yourself, open <span class="ui">Settings → About Reelish</span> and tap <span class="ui">Check for updates</span>. If you’re current, you’ll see <span class="ui">Reelish is up to date.</span></p>
+      <p>To check yourself, open <span class="ui">Settings → Help &amp; Support → About Reelish</span> and tap <span class="ui">Check for updates</span>. If you’re current, you’ll see <span class="ui">Reelish is up to date.</span></p>
+      <p>If Reelish can’t open Android’s installer, you can save the verified update to your Downloads folder and install it from a file manager instead (Android 10 and later).</p>
+      <div class="guide-callout guide-callout-note">
+        <strong>On Windows</strong>
+        <p>Installed copies of Reelish download the new installer, check it, and run it for you. Portable copies download a ZIP for you to extract.</p>
+      </div>
 
       <h2>Allowing Reelish to install updates</h2>
       <p>The first time you update from inside the app, Android asks for permission. When you see <span class="ui">Allow Reelish to install updates</span>:</p>
@@ -222,49 +485,49 @@ const guides = [
       <h2>Providers and repositories</h2>
       <ul>
         <li>A <strong>provider</strong> is a script that, given a movie or episode, returns stream links for it. Reelish asks your enabled providers for sources each time you press play.</li>
-        <li>A <strong>repository</strong> is a collection of providers described by a <code>manifest.json</code> file. You install a repository once, then turn its individual providers on or off.</li>
+        <li>A <strong>collection</strong> (also called a repository) is a set of providers described by a <code>manifest.json</code> file. You install a collection once, then turn its individual providers on or off.</li>
       </ul>
       <p>Providers don’t change the catalog. Titles, artwork and details always come from TMDB; providers only answer “where can this be played?”.</p>
 
       <h2>How providers run</h2>
-      <p>Provider scripts run on your device in a constrained JavaScript runtime and can make network requests to their sources. Repositories and your enabled-provider choices are saved locally.</p>
+      <p>Provider scripts run on your device in a constrained JavaScript runtime and can make network requests to their sources. Collections and your enabled-provider choices are saved locally.</p>
       <div class="guide-callout guide-callout-warning">
         <strong>Only install what you trust</strong>
-        <p>Providers are third-party code and services. Reelish doesn’t supply or host streams, and community listings are not verified or endorsed by Reelish. Install repositories only from publishers you trust.</p>
+        <p>Providers are third-party code and services. Reelish doesn’t supply or host streams, and community listings are not verified or endorsed by Reelish. Install collections only from publishers you trust.</p>
       </div>
 
       <h2>Code updates need your approval</h2>
-      <p>If a repository adds a provider or changes a provider’s code, that provider is paused and marked <span class="ui">Needs attention</span> until you review it in <span class="ui">Plugins</span> and tap <span class="ui">Allow update</span>. This way, new code never runs without your say-so.</p>
+      <p>Updates are downloaded and held for your review before anything changes. If a collection adds a provider or changes a provider’s code, that provider is paused and marked <span class="ui">Needs attention</span> until you review it in <span class="ui">Plugins</span> and tap <span class="ui">Allow update</span>. This way, new code never runs without your say-so.</p>
 
       <h2>The community library</h2>
-      <p><span class="ui">Reelish Plugins</span> is a built-in library of community provider repositories, curated by a community-maintained catalog. You can search it, filter by language and content type, and install a repository from its details page. The catalog is refreshed at most every six hours (or when you pull to refresh), and a copy is bundled with each release for offline use.</p>
+      <p><span class="ui">Reelish Plugins</span> is a built-in library of community plugin collections, from a community-maintained catalog. Filter it by <span class="ui">All</span>, <span class="ui">Not installed</span> or <span class="ui">Installed</span>, choose a language and sort order, and install a plugin straight from its card. Each card shows the plugin’s version and when it was last updated. The catalog is refreshed at most every six hours (or when you pull to refresh), and a copy is bundled with each release for offline use.</p>
 
       <h2>Torrent sources</h2>
-      <p>On Android, compatible providers can return torrent sources for P2P playback. This only works when <span class="ui">P2P streaming</span> is turned on in <span class="ui">Settings → Playback</span>, and availability depends on each provider.</p>
+      <p>On Android and Windows, compatible providers can return torrent sources for P2P playback. This only works when <span class="ui">P2P streaming</span> is turned on in <span class="ui">Settings → Playback</span>, and availability depends on each provider.</p>
     `,
   },
   {
     slug: "adding-plugin-repositories",
     category: "plugins",
-    title: "Adding Plugin Repositories",
+    title: "Adding Plugin Collections",
     description: "Connect compatible content providers to Reelish.",
     body: `
-      <p>There are two ways to add a provider repository: pick one from the built-in community library, or paste a manifest URL you already have.</p>
+      <p>There are two ways to add a plugin collection (a provider repository): pick one from the built-in community library, or add one by link if you already have its manifest URL.</p>
 
       <h2>From the community library</h2>
       <ol class="guide-steps">
         <li>Open the <span class="ui">Plugins</span> tab and tap <span class="ui">Browse Reelish Plugins</span>.</li>
-        <li>Search, or filter by language and content type. Sections such as <span class="ui">Featured plugins</span> and <span class="ui">Recently updated</span> help you find popular choices.</li>
-        <li>Tap a repository to open its details: author, description, languages, sources, last update and verification status.</li>
-        <li>Tap <span class="ui">Install plugin</span>. When it shows <span class="ui">Installed</span>, go back to Plugins.</li>
+        <li>Search, or filter by <span class="ui">All</span>, <span class="ui">Not installed</span> or <span class="ui">Installed</span> and by language. Sections such as <span class="ui">Featured plugins</span> and <span class="ui">Recently updated</span> help you find popular choices.</li>
+        <li>Tap <span class="ui">Install plugin</span> on its card, or open it first to see the author, description, languages, sources and last update.</li>
+        <li>When it shows <span class="ui">Installed</span>, go back to Plugins.</li>
       </ol>
 
-      <h2>From a manifest URL</h2>
+      <h2>By link</h2>
       <ol class="guide-steps">
-        <li>Copy the repository’s manifest URL. It usually ends in <code>manifest.json</code>; a GitHub repository or file link also works.</li>
-        <li>In <span class="ui">Plugins</span>, tap the link button (<span class="ui">Paste a manifest URL</span>).</li>
+        <li>Copy the collection’s manifest URL. It usually ends in <code>manifest.json</code>; a GitHub repository or file link also works.</li>
+        <li>In <span class="ui">Plugins</span>, tap <span class="ui">Add by link</span>.</li>
         <li>Paste the address into <span class="ui">Provider manifest URL</span>, or tap <span class="ui">Paste from clipboard</span>.</li>
-        <li>Tap <span class="ui">Install provider</span> and wait for <span class="ui">Checking manifest…</span> to finish.</li>
+        <li>Tap <span class="ui">Add collection</span> and wait for <span class="ui">Checking manifest…</span> to finish.</li>
       </ol>
 
       <div class="guide-callout guide-callout-note">
@@ -273,7 +536,7 @@ const guides = [
       </div>
 
       <h2>After installing</h2>
-      <p>The new repository appears under <span class="ui">Your repositories</span>. Expand it and turn on the providers you want to use — see <a href="managing-providers.html">Managing Providers</a>. If you have trouble installing, see <a href="plugin-loading-problems.html">Plugin Loading Problems</a>.</p>
+      <p>The new collection appears under <span class="ui">Your collections</span>. Open it and turn on the providers you want to use. See <a href="managing-providers.html">Managing Providers</a>. If you have trouble installing, see <a href="plugin-loading-problems.html">Plugin Loading Problems</a>.</p>
     `,
   },
   {
@@ -285,23 +548,26 @@ const guides = [
       <p>The <span class="ui">Plugins</span> tab is the control center for every source Reelish can search when you press play.</p>
 
       <h2>Your sources at a glance</h2>
-      <p>The <span class="ui">Your sources</span> card at the top shows how many providers are active, how many providers you have in total and how many repositories are installed.</p>
+      <p>The <span class="ui">Your sources</span> card at the top shows how many providers are active, how many providers you have in total and how many collections are installed.</p>
 
       <h2>Turn providers on or off</h2>
       <ol class="guide-steps">
-        <li>Under <span class="ui">Your repositories</span>, tap a repository to expand it.</li>
+        <li>Under <span class="ui">Your collections</span>, open a collection.</li>
         <li>Use the switch next to each provider to enable or disable it.</li>
       </ol>
       <p>Only enabled providers are searched. Fewer, reliable providers usually means faster results.</p>
 
-      <h2>Approve provider updates</h2>
-      <p>When a repository adds a provider or changes a provider’s code, Reelish pauses it and shows <span class="ui">Needs attention</span>. Review the change and tap <span class="ui">Allow update</span> only if you trust the repository.</p>
+      <h2>Each provider’s page</h2>
+      <p>Every installed collection and provider has its own page. A provider’s page shows its collection, version, languages and formats, whether it works on this device, and its last error if a search failed. Use <span class="ui">Search this provider</span> to include it or leave it out when you press play.</p>
 
-      <h2>Refresh or remove a repository</h2>
+      <h2>Approve provider updates</h2>
+      <p>Updates are downloaded and held for your review. When a collection adds a provider or changes a provider’s code, Reelish pauses it and shows <span class="ui">Needs attention</span>. Review the change and tap <span class="ui">Allow update</span> only if you trust the collection.</p>
+
+      <h2>Refresh or remove a collection</h2>
       <ul>
-        <li>Tap <span class="ui">Refresh repositories</span> to fetch the latest manifests.</li>
-        <li>To uninstall, tap the trash icon on the repository and confirm <span class="ui">Remove repository?</span>. Its providers are removed from Reelish.</li>
-        <li>If a repository fails to load, you’ll be offered <span class="ui">Retry</span> or <span class="ui">Remove</span> — nothing is uninstalled unless you choose to.</li>
+        <li>Tap <span class="ui">Refresh collections</span> to fetch the latest manifests.</li>
+        <li>To uninstall, choose <span class="ui">Remove collection</span> and confirm <span class="ui">Remove collection?</span>. Its providers are removed from Reelish.</li>
+        <li>If a collection fails to load, you’ll be offered <span class="ui">Retry</span> or <span class="ui">Remove</span>. Nothing is uninstalled unless you choose to.</li>
       </ul>
 
       <h2>Choose which providers auto-play can use</h2>
@@ -317,15 +583,15 @@ const guides = [
       <p>Most plugin problems come down to providers being switched off, paused, slow or unavailable. Work through the sections below.</p>
 
       <h2>“All providers are switched off”</h2>
-      <p>Reelish only searches enabled providers. Open <span class="ui">Plugins</span>, expand a repository under <span class="ui">Your repositories</span> and turn on at least one provider.</p>
+      <p>Reelish only searches enabled providers. Open <span class="ui">Plugins</span>, open a collection under <span class="ui">Your collections</span> and turn on at least one provider.</p>
 
       <h2>A provider is marked “Needs attention”</h2>
-      <p>The repository added a provider or changed a provider’s code, so it’s paused until you review it. Tap <span class="ui">Allow update</span> if you trust the repository, or leave it paused.</p>
+      <p>The collection added a provider or changed a provider’s code, so it’s paused until you review it. Tap <span class="ui">Allow update</span> if you trust the collection, or leave it paused. The provider’s own page shows why it needs attention and its last error.</p>
 
       <h2>“The enabled providers returned no streams for this title”</h2>
       <ul>
         <li>The title may simply not be available from your providers. Try another title to confirm they work.</li>
-        <li>Enable additional providers, or add another repository.</li>
+        <li>Enable additional providers, or add another collection.</li>
         <li>Check <span class="ui">Settings → Playback → Allowed plugins</span> — auto stream selection only uses the providers listed there.</li>
       </ul>
 
@@ -336,7 +602,7 @@ const guides = [
       <p>While <span class="ui">Searching providers…</span> is shown, you can tap <span class="ui">Cancel</span> at any time. Disabling providers you don’t use makes searches faster.</p>
 
       <h2>Still not working?</h2>
-      <p>If a repository won’t install or load at all, see <a href="plugin-loading-problems.html">Plugin Loading Problems</a>. Provider issues are best reported to the repository’s author, since Reelish doesn’t maintain third-party providers.</p>
+      <p>If a collection won’t install or load at all, see <a href="plugin-loading-problems.html">Plugin Loading Problems</a>. Provider issues are best reported to the collection’s author, since Reelish doesn’t maintain third-party providers.</p>
     `,
   },
 
@@ -368,7 +634,7 @@ const guides = [
       <p>With <span class="ui">Reuse last link</span> on, Reelish first tries the stream that last worked for that title, as long as it’s still within <span class="ui">Last link cache duration</span>. If links from a provider expire quickly, shorten the duration or turn this off.</p>
 
       <h2>Torrent sources</h2>
-      <p>Sources labeled <span class="ui">Torrent</span> only appear on Android when <span class="ui">P2P streaming</span> is on and a provider supports them. They can take longer to start than direct streams.</p>
+      <p>Sources labeled <span class="ui">Torrent</span> only appear on Android and Windows when <span class="ui">P2P streaming</span> is on and a provider supports them. They can take longer to start than direct streams.</p>
     `,
   },
   {
@@ -380,14 +646,18 @@ const guides = [
       <p>You can adjust playback while watching from the player, and set your defaults in <span class="ui">Settings → Playback</span>.</p>
 
       <h2>In the player</h2>
-      <p>Tap the screen, then the settings icon to open <span class="ui">Playback settings</span>:</p>
+      <p>Tap the screen, then the settings icon to open <span class="ui">Playback settings</span>. Each section shows what’s in use, and picking an option applies it straight away:</p>
       <ul>
-        <li><span class="ui">Speed</span> — from 0.5× to 2×.</li>
-        <li><span class="ui">Aspect ratio</span> — <span class="ui">Fit</span> shows the whole picture, <span class="ui">Fill</span> crops to fill the screen, <span class="ui">Stretch</span> stretches the picture to the screen’s shape.</li>
-        <li><span class="ui">Video quality</span> and <span class="ui">Audio track</span> — when the stream offers choices.</li>
-        <li><span class="ui">Subtitles</span>, <span class="ui">Subtitle delay</span> and <span class="ui">Subtitle position</span> — see <a href="subtitle-customization.html">Subtitle Customization</a>.</li>
-        <li><span class="ui">Switch to …</span> — reopens the stream in the other player engine. Try this if the picture stays black while audio plays.</li>
+        <li><span class="ui">Speed</span>: from 0.5× to 2×. During a Watch Party, speed stays at 1×.</li>
+        <li><span class="ui">Quality</span>: only the qualities this stream actually offers, or <span class="ui">Auto</span> to adjust to your connection.</li>
+        <li><span class="ui">Audio &amp; language</span>: tracks are named by their language, such as Japanese or English, with details like Commentary or 5.1 to tell similar tracks apart. The language you pick stays for the rest of the session, even if the player reconnects or moves to another source.</li>
+        <li><span class="ui">Subtitles</span>: the track, <span class="ui">Subtitle timing</span> and position. See <a href="subtitle-customization.html">Subtitle Customization</a>.</li>
+        <li><span class="ui">Picture</span>: the <span class="ui">Aspect ratio</span>. <span class="ui">Fit</span> shows the whole picture, <span class="ui">Fill</span> fills the screen and may cut the edges, <span class="ui">Stretch</span> stretches the picture to the screen’s shape.</li>
+        <li><span class="ui">Switch to …</span>: reopens the stream in the other player engine. Try this if the picture stays black while audio plays.</li>
       </ul>
+
+      <h2>Skip intros and outros</h2>
+      <p>Intros skip automatically, and a <span class="ui">Skip outro</span> button appears at the end credits, using community timestamps from IntroDB. Nothing is skipped when an episode’s timestamps aren’t known. Change this in <span class="ui">Settings → Playback</span> under <span class="ui">Intro &amp; outro</span>; turning both off sends nothing to IntroDB. Skipping isn’t used in a Watch Party.</p>
 
       <h2>Player controls and gestures</h2>
       <ul>
@@ -395,8 +665,13 @@ const guides = [
         <li>Swipe up or down to adjust brightness or volume.</li>
         <li>Press and hold the video to temporarily speed it up.</li>
         <li><span class="ui">Lock controls</span> prevents accidental touches; tap to unlock.</li>
-        <li><span class="ui">Picture in picture</span>, <span class="ui">Lock to landscape</span> and, for series, <span class="ui">Episodes</span> and <span class="ui">Next episode</span>.</li>
+        <li><span class="ui">Picture in picture</span> on Android phones and tablets: leave the app and the video keeps playing in a small window. Also <span class="ui">Lock to landscape</span> and, for series, <span class="ui">Episodes</span> and <span class="ui">Next episode</span>.</li>
+        <li>When a title starts, a small card shows its age rating, and content notes when a rating board has published them.</li>
       </ul>
+      <div class="guide-callout guide-callout-note">
+        <strong>On Windows</strong>
+        <p>Click the video to play or pause, and double-click to enter or leave fullscreen. Use the speaker button for volume, or <kbd>M</kbd> to mute. Hover over the timeline to preview the time you’ll jump to. The screen doesn’t sleep while a video plays.</p>
+      </div>
 
       <h2>Your defaults</h2>
       <p>In <span class="ui">Settings → Playback</span>:</p>
@@ -405,6 +680,8 @@ const guides = [
         <li><span class="ui">Touch gestures</span>, <span class="ui">Hold to speed</span> and the <span class="ui">Hold speed</span> it uses.</li>
         <li><span class="ui">Show loading status</span> and <span class="ui">Pause overlay</span>, which shows title artwork and details when paused.</li>
         <li><span class="ui">Auto-play next episode</span> and the <span class="ui">Next episode threshold</span> at which it’s offered.</li>
+        <li><span class="ui">Preferred audio language</span> and a <span class="ui">Secondary audio language</span> to fall back on.</li>
+        <li><span class="ui">Intros</span> and <span class="ui">Outros</span> under <span class="ui">Intro &amp; outro</span>.</li>
       </ul>
     `,
   },
@@ -420,9 +697,10 @@ const guides = [
       <ol class="guide-steps">
         <li>Tap the screen, then the subtitles button.</li>
         <li>Pick a track from <span class="ui">In video</span>, <span class="ui">From provider</span> or <span class="ui">Subtitle addons</span>.</li>
-        <li>If subtitles are out of sync, open <span class="ui">Playback settings → Subtitle delay</span> and move them <span class="ui">Earlier</span> or <span class="ui">Later</span>.</li>
+        <li>If subtitles are out of sync, open <span class="ui">Playback settings → Subtitles → Subtitle timing</span>. Step them <span class="ui">Earlier</span> if they appear late, or <span class="ui">Later</span> if they come early, then tap <span class="ui">Apply</span> once.</li>
         <li>Use <span class="ui">Subtitle position</span> to raise or lower them, then tap <span class="ui">Done</span>.</li>
       </ol>
+      <p>The subtitle list shows which subtitles are on, including <span class="ui">Off</span>.</p>
 
       <h2>Appearance</h2>
       <p>In <span class="ui">Settings → Playback</span>, the <span class="ui">Subtitle rendering</span> section controls how external SRT and WebVTT subtitles look:</p>
@@ -462,7 +740,10 @@ const guides = [
       <p>Open <span class="ui">Playback settings</span> and choose <span class="ui">Switch to …</span> to reopen the stream on the other player engine. This also helps with “The video renderer produced no picture”.</p>
 
       <h2>“This device could not decode the video format”</h2>
-      <p>Your device can’t decode this stream, often high-resolution HEVC. Try <span class="ui">Switch to …</span>, choose a lower <span class="ui">Video quality</span>, or pick a different source.</p>
+      <p>Your device can’t decode this stream, often high-resolution HEVC. Try <span class="ui">Switch to …</span>, choose a lower <span class="ui">Quality</span>, or pick a different source.</p>
+
+      <h2>The audio language won’t change</h2>
+      <p>Some streams can’t switch audio tracks. On Windows, Reelish notices, goes back to the language that was playing and tells you this stream can’t change its audio. Try another source that offers the language you want.</p>
 
       <h2>“The stream took too long to start” or “Could not connect to the stream host”</h2>
       <ul>
@@ -501,7 +782,7 @@ const guides = [
           <tr><td>That link is an add-on manifest, not a provider manifest.</td><td>Stremio add-ons aren’t providers. Subtitle addons belong in <span class="ui">Settings → Subtitle addons</span>.</td></tr>
           <tr><td>The link did not return a provider manifest.</td><td>Copy the manifest URL again from the repository’s page.</td></tr>
           <tr><td>The repository manifest contains no valid providers.</td><td>The repository is empty or broken. Contact its author.</td></tr>
-          <tr><td>This provider repository is already installed.</td><td>Nothing to do — find it under <span class="ui">Your repositories</span>.</td></tr>
+          <tr><td>This provider repository is already installed.</td><td>Nothing to do — find it under <span class="ui">Your collections</span>.</td></tr>
           <tr><td>Too many plugin redirects.</td><td>The link redirects too many times. Use the final manifest address.</td></tr>
         </tbody>
       </table>
@@ -545,7 +826,7 @@ const guides = [
       <ul>
         <li>“Could not save the update. Free up storage space and try again.”</li>
         <li>“The download stalled” / “The download was interrupted” — check your connection and retry.</li>
-        <li>“GitHub is limiting downloads right now” — wait a little and try again from <span class="ui">Settings → About Reelish</span>.</li>
+        <li>“GitHub is limiting downloads right now” — wait a little and try again from <span class="ui">Settings → Help &amp; Support → About Reelish</span>.</li>
       </ul>
     `,
   },
@@ -561,10 +842,34 @@ const guides = [
       <table class="guide-table">
         <thead><tr><th>Message</th><th>Fix</th></tr></thead>
         <tbody>
-          <tr><td>Could not load titles from TMDB. Check your connection and retry.</td><td>Check your connection, then tap <span class="ui">Retry</span>.</td></tr>
-          <tr><td>TMDB is rate limiting requests. Wait a moment and retry.</td><td>Wait a few seconds before retrying.</td></tr>
+          <tr><td>Could not load titles. Check your connection and retry.</td><td>Check your connection, then tap <span class="ui">Retry</span>.</td></tr>
+          <tr><td>The catalog is busy right now. Wait a moment and retry.</td><td>Wait a few seconds before retrying.</td></tr>
         </tbody>
       </table>
+
+      <h2>Sign-in</h2>
+      <table class="guide-table">
+        <thead><tr><th>Message</th><th>Fix</th></tr></thead>
+        <tbody>
+          <tr><td>That code expired.</td><td>Tap <span class="ui">Get a new code</span> and enter the new one on Trakt.</td></tr>
+          <tr><td>Sign-in was declined on Trakt.</td><td>Tap <span class="ui">Try again</span> and approve Reelish on Trakt’s page.</td></tr>
+          <tr><td>Sign-in is not available right now.</td><td>Trakt may be busy. Try again in a few minutes.</td></tr>
+          <tr><td>Your browser didn’t open</td><td>Tap <span class="ui">Open Trakt again</span>, or <span class="ui">Use a code instead</span>.</td></tr>
+          <tr><td>Your session could not be verified. Sign out and in again.</td><td>Sign out in <span class="ui">Settings → Profile and account</span>, then sign in again.</td></tr>
+        </tbody>
+      </table>
+
+      <h2>Watch Party</h2>
+      <table class="guide-table">
+        <thead><tr><th>Message</th><th>Fix</th></tr></thead>
+        <tbody>
+          <tr><td>No party has that code. Check it and try again.</td><td>Ask the host for the code again; it stops working when the party ends.</td></tr>
+          <tr><td>This party is full.</td><td>A party holds up to five people, including the host.</td></tr>
+          <tr><td>Hosting a Watch Party is for Reelish Supporters.</td><td>Join a friend’s party with a code, or see <a href="reelish-supporters.html">Reelish Supporters</a>.</td></tr>
+          <tr><td>Too many tries. Wait a minute and try again.</td><td>Wait a minute before entering the code again.</td></tr>
+        </tbody>
+      </table>
+      <p>More detail in <a href="watch-party.html">Watch Party</a>.</p>
 
       <h2>Providers</h2>
       <table class="guide-table">
@@ -583,7 +888,7 @@ const guides = [
         <thead><tr><th>Message</th><th>Fix</th></tr></thead>
         <tbody>
           <tr><td>Unable to play this source</td><td>Tap <span class="ui">Try another source</span>.</td></tr>
-          <tr><td>This device could not decode the video format.</td><td>Use <span class="ui">Switch to …</span> or a lower quality.</td></tr>
+          <tr><td>This device could not decode the video format.</td><td>Use <span class="ui">Switch to …</span> or a lower <span class="ui">Quality</span>.</td></tr>
           <tr><td>The stream took too long to start.</td><td>Check your connection or pick another source.</td></tr>
           <tr><td>Provider returned an expired or invalid source.</td><td>Play again to get a fresh link.</td></tr>
         </tbody>
@@ -604,7 +909,7 @@ const guides = [
       <table class="guide-table">
         <thead><tr><th>Message</th><th>Fix</th></tr></thead>
         <tbody>
-          <tr><td>Unable to check for updates</td><td>Check your connection and retry from <span class="ui">Settings → About Reelish</span>.</td></tr>
+          <tr><td>Unable to check for updates</td><td>Check your connection and retry from <span class="ui">Settings → Help &amp; Support → About Reelish</span>.</td></tr>
           <tr><td>The downloaded update failed its integrity check.</td><td>Retry the download.</td></tr>
           <tr><td>Allow Reelish to install updates</td><td>Tap <span class="ui">Open settings</span> and allow installs from Reelish.</td></tr>
         </tbody>

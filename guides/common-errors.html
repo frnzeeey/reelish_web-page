@@ -74,7 +74,7 @@
               <span class="guide-article-category"><svg aria-hidden="true" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" /><path d="M9.5 9a2.5 2.5 0 0 1 4.9.8c0 1.7-2.4 2.2-2.4 3.7M12 17h.01" /></svg> Troubleshooting</span>
               <h1 id="guide-title">Common Errors</h1>
               <p class="guide-article-lead">Quick reference for frequent error messages.</p>
-              <p class="guide-article-meta">1 min read</p>
+              <p class="guide-article-meta">2 min read</p>
             </header>
 
             <div class="guide-prose">
@@ -84,10 +84,34 @@
       <table class="guide-table">
         <thead><tr><th>Message</th><th>Fix</th></tr></thead>
         <tbody>
-          <tr><td>Could not load titles from TMDB. Check your connection and retry.</td><td>Check your connection, then tap <span class="ui">Retry</span>.</td></tr>
-          <tr><td>TMDB is rate limiting requests. Wait a moment and retry.</td><td>Wait a few seconds before retrying.</td></tr>
+          <tr><td>Could not load titles. Check your connection and retry.</td><td>Check your connection, then tap <span class="ui">Retry</span>.</td></tr>
+          <tr><td>The catalog is busy right now. Wait a moment and retry.</td><td>Wait a few seconds before retrying.</td></tr>
         </tbody>
       </table>
+
+      <h2 id="sign-in">Sign-in</h2>
+      <table class="guide-table">
+        <thead><tr><th>Message</th><th>Fix</th></tr></thead>
+        <tbody>
+          <tr><td>That code expired.</td><td>Tap <span class="ui">Get a new code</span> and enter the new one on Trakt.</td></tr>
+          <tr><td>Sign-in was declined on Trakt.</td><td>Tap <span class="ui">Try again</span> and approve Reelish on Trakt’s page.</td></tr>
+          <tr><td>Sign-in is not available right now.</td><td>Trakt may be busy. Try again in a few minutes.</td></tr>
+          <tr><td>Your browser didn’t open</td><td>Tap <span class="ui">Open Trakt again</span>, or <span class="ui">Use a code instead</span>.</td></tr>
+          <tr><td>Your session could not be verified. Sign out and in again.</td><td>Sign out in <span class="ui">Settings → Profile and account</span>, then sign in again.</td></tr>
+        </tbody>
+      </table>
+
+      <h2 id="watch-party">Watch Party</h2>
+      <table class="guide-table">
+        <thead><tr><th>Message</th><th>Fix</th></tr></thead>
+        <tbody>
+          <tr><td>No party has that code. Check it and try again.</td><td>Ask the host for the code again; it stops working when the party ends.</td></tr>
+          <tr><td>This party is full.</td><td>A party holds up to five people, including the host.</td></tr>
+          <tr><td>Hosting a Watch Party is for Reelish Supporters.</td><td>Join a friend’s party with a code, or see <a href="reelish-supporters.html">Reelish Supporters</a>.</td></tr>
+          <tr><td>Too many tries. Wait a minute and try again.</td><td>Wait a minute before entering the code again.</td></tr>
+        </tbody>
+      </table>
+      <p>More detail in <a href="watch-party.html">Watch Party</a>.</p>
 
       <h2 id="providers">Providers</h2>
       <table class="guide-table">
@@ -106,7 +130,7 @@
         <thead><tr><th>Message</th><th>Fix</th></tr></thead>
         <tbody>
           <tr><td>Unable to play this source</td><td>Tap <span class="ui">Try another source</span>.</td></tr>
-          <tr><td>This device could not decode the video format.</td><td>Use <span class="ui">Switch to …</span> or a lower quality.</td></tr>
+          <tr><td>This device could not decode the video format.</td><td>Use <span class="ui">Switch to …</span> or a lower <span class="ui">Quality</span>.</td></tr>
           <tr><td>The stream took too long to start.</td><td>Check your connection or pick another source.</td></tr>
           <tr><td>Provider returned an expired or invalid source.</td><td>Play again to get a fresh link.</td></tr>
         </tbody>
@@ -127,7 +151,7 @@
       <table class="guide-table">
         <thead><tr><th>Message</th><th>Fix</th></tr></thead>
         <tbody>
-          <tr><td>Unable to check for updates</td><td>Check your connection and retry from <span class="ui">Settings → About Reelish</span>.</td></tr>
+          <tr><td>Unable to check for updates</td><td>Check your connection and retry from <span class="ui">Settings → Help &amp; Support → About Reelish</span>.</td></tr>
           <tr><td>The downloaded update failed its integrity check.</td><td>Retry the download.</td></tr>
           <tr><td>Allow Reelish to install updates</td><td>Tap <span class="ui">Open settings</span> and allow installs from Reelish.</td></tr>
         </tbody>
@@ -159,6 +183,8 @@
               <h2>On this page</h2>
               <ol>
                 <li><a href="#catalog">Catalog</a></li>
+                <li><a href="#sign-in">Sign-in</a></li>
+                <li><a href="#watch-party">Watch Party</a></li>
                 <li><a href="#providers">Providers</a></li>
                 <li><a href="#playback">Playback</a></li>
                 <li><a href="#subtitles">Subtitles</a></li>

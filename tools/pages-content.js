@@ -13,7 +13,9 @@
 //     <strong>Title</strong><p>…</p></div>
 //   <table class="guide-table">  reference tables
 
-const LEGAL_UPDATED = "October 8, 2026";
+// Dates match the in-app documents: the terms and notices carry the app's
+// effective date; the privacy policy has its own (see the privacy page).
+const LEGAL_UPDATED = "October 16, 2026";
 const CONTACT_EMAIL = "frnzgularez@gmail.com";
 const emailLink = `<a href="mailto:${CONTACT_EMAIL}">${CONTACT_EMAIL}</a>`;
 
@@ -41,11 +43,20 @@ const pages = [
         <li><a href="guides/installation-issues.html">Installation Issues</a>: when Android blocks or rejects the APK.</li>
       </ul>
 
+      <h2>Get help inside the app</h2>
+      <p>Open <span class="ui">Settings → Help &amp; Support</span>. It has answers to common questions, step-by-step <span class="ui">Troubleshooting</span> for playback, sources, subtitles and updates, and ways to reach the developer without leaving Reelish:</p>
+      <ul>
+        <li><span class="ui">Report a problem</span>: tell the developer what went wrong. You see exactly what the report contains before you send it.</li>
+        <li><span class="ui">Send feedback</span>: ideas, suggestions and questions.</li>
+        <li><span class="ui">Email support</span>: opens your email app. On a TV without one, the address is copied for you.</li>
+        <li><span class="ui">Open error log</span> (Windows): a log of app errors that stays on your computer.</li>
+      </ul>
+
       <h2>Report a bug or ask a question</h2>
-      <p>Open an issue on the <a href="https://github.com/frnzeeey/reelish/issues" target="_blank" rel="noopener noreferrer">GitHub issue tracker</a>. To help get it fixed quickly, include:</p>
+      <p>You can also open an issue on the <a href="https://github.com/frnzeeey/reelish/issues" target="_blank" rel="noopener noreferrer">GitHub issue tracker</a>. To help get it fixed quickly, include:</p>
       <ol class="guide-steps">
-        <li>Your Reelish version, from <span class="ui">Settings → About Reelish</span>.</li>
-        <li>Your device model and Android version.</li>
+        <li>Your Reelish version, from <span class="ui">Settings → Help &amp; Support → About Reelish</span>.</li>
+        <li>Your device model and its Android or Windows version.</li>
         <li>What you did, what you expected, and what happened instead, including the exact error message.</li>
       </ol>
       <div class="guide-callout guide-callout-warning">
@@ -63,7 +74,7 @@ const pages = [
       <p>Reelish doesn’t host any media; see the <a href="disclaimer.html">content disclaimer</a>. For a copyright or other legal notice, email the developer at ${emailLink} and include enough information to identify the material and the right asserted. Don’t include sensitive personal information in a public issue.</p>
 
       <h2>Support the project</h2>
-      <p>Reelish is free and built in spare time. If it’s useful to you, you can <a href="https://buymeacoffee.com/frnzegl" target="_blank" rel="noopener noreferrer">buy the developer a coffee</a>, star the <a href="https://github.com/frnzeeey/reelish" target="_blank" rel="noopener noreferrer">repository</a>, or report bugs you find.</p>
+      <p>Reelish is free and built in spare time. If it’s useful to you, you can <a href="https://buymeacoffee.com/frnzegl" target="_blank" rel="noopener noreferrer">buy the developer a coffee</a>, star the <a href="https://github.com/frnzeeey/reelish" target="_blank" rel="noopener noreferrer">repository</a>, or report bugs you find. Donating through the app also makes you a Reelish Supporter, with a few extras as a thank-you; see <a href="guides/reelish-supporters.html">Reelish Supporters</a>.</p>
     `,
   },
   {
@@ -73,26 +84,31 @@ const pages = [
     description: "Quick answers about what Reelish is, how it works, and how your data is handled.",
     body: `
       <h2>General</h2>
-      <p><strong>What is Reelish?</strong><br />An open-source Android app for discovering movies and TV series and watching them through providers you choose. It combines a TMDB-powered catalog, a personal library and a built-in video player.</p>
-      <p><strong>Is Reelish free?</strong><br />Yes. Reelish is free and open source, with no account, subscription, or in-app purchases.</p>
+      <p><strong>What is Reelish?</strong><br />An open-source app for Android, Android TV, Google TV and Windows for discovering movies and TV series and watching them through providers you choose. It combines a TMDB-powered catalog, a personal library that follows you across your devices, a built-in video player, and ways to watch with friends.</p>
+      <p><strong>Is Reelish free?</strong><br />Yes. Reelish is free and open source, with no subscription or in-app purchases. You can choose to donate and become a Reelish Supporter, which adds a few extras such as hosting a Watch Party, app themes and avatar frames. Everything else stays available to everyone. See <a href="guides/reelish-supporters.html">Reelish Supporters</a>.</p>
       <p><strong>Does Reelish host movies or shows?</strong><br />No. Reelish doesn’t host, store, upload or distribute any media. Streams come from independent third-party providers you choose to install. See the <a href="disclaimer.html">content disclaimer</a>.</p>
       <p><strong>Which devices are supported?</strong><br />Reelish is distributed as a single Android APK that works on phones, tablets, Android TV and Google TV. The same APK installs on all of them, and on a TV it uses a layout built for the big screen and a remote. Reelish is also available for Windows 10 and 11 (64-bit) as an installer: run <code>Reelish-Setup-x64.exe</code>, and Reelish then updates itself from inside the app.</p>
 
       <h2>Installing and updating</h2>
       <p><strong>Where do I download Reelish?</strong><br />Only from the project’s <a href="https://github.com/frnzeeey/reelish/releases" target="_blank" rel="noopener noreferrer">GitHub Releases</a> page, or from any Download button on this site, which points there. APKs from other sites may be outdated or modified. See <a href="guides/downloading-the-apk.html">Downloading the APK</a>.</p>
       <p><strong>Why does Android warn me when I install it?</strong><br />Android asks for confirmation for apps installed outside an app store, and Play Protect may show a warning. That’s expected for APKs. Only continue if you downloaded from GitHub Releases. See <a href="guides/installing-on-android.html">Installing on Android</a>.</p>
-      <p><strong>How do I update?</strong><br />Reelish checks GitHub for new releases and offers to download the update. You confirm the install in Android’s package installer. See <a href="guides/updating-reelish.html">Updating Reelish</a>.</p>
+      <p><strong>How do I update?</strong><br />Reelish checks GitHub for new releases and offers to download the update. On Android you confirm the install in Android’s package installer; on Windows, Reelish checks the installer and runs it for you. See <a href="guides/updating-reelish.html">Updating Reelish</a>.</p>
 
       <h2>Plugins and playback</h2>
-      <p><strong>Why can I browse titles but not play them?</strong><br />Reelish ships without any streaming sources. Add a provider repository from the <span class="ui">Plugins</span> tab first. See <a href="guides/adding-plugin-repositories.html">Adding Plugin Repositories</a>.</p>
+      <p><strong>Why can I browse titles but not play them?</strong><br />Reelish ships without any streaming sources. Add a plugin collection from the <span class="ui">Plugins</span> tab first. See <a href="guides/adding-plugin-repositories.html">Adding Plugin Collections</a>.</p>
       <p><strong>Are plugins safe?</strong><br />Providers are third-party code. They run in a constrained JavaScript runtime, and new or changed provider code is paused until you approve it. Community listings aren’t verified or endorsed by Reelish, so install only repositories from publishers you trust. See <a href="guides/understanding-third-party-plugins.html">Understanding Third-Party Plugins</a>.</p>
       <p><strong>Does Reelish support subtitles?</strong><br />Yes. The player supports external SRT and WebVTT subtitles, can search OpenSubtitles, and lets you customize subtitle appearance and languages. See <a href="guides/subtitle-customization.html">Subtitle Customization</a>.</p>
-      <p><strong>What about torrent sources?</strong><br />On Android, compatible providers can return torrent sources for P2P playback once <span class="ui">P2P streaming</span> is turned on in <span class="ui">Settings → Playback</span>. P2P playback may share your network address with other peers and may upload pieces of a file.</p>
+      <p><strong>What about torrent sources?</strong><br />On Android and Windows, compatible providers can return torrent sources for P2P playback once <span class="ui">P2P streaming</span> is turned on in <span class="ui">Settings → Playback</span>. P2P playback may share your network address with other peers and may upload pieces of a file.</p>
+      <p><strong>Can Reelish skip intros?</strong><br />Yes. Intros skip automatically and a <span class="ui">Skip outro</span> button appears when the community database IntroDB has timestamps for the episode. Nothing is skipped when they aren’t known. Change this in <span class="ui">Settings → Playback</span> under <span class="ui">Intro &amp; outro</span>.</p>
+
+      <h2>Watching with friends</h2>
+      <p><strong>Can I watch with friends?</strong><br />Yes. A Watch Party plays a movie or episode in sync for up to five people, each from their own sources, with reactions and chat. Anyone signed in can join with a code; hosting a party is a Supporter perk. See <a href="guides/watch-party.html">Watch Party</a>.</p>
+      <p><strong>How do Friends and Messages work?</strong><br />Friends is off until you turn it on in <span class="ui">Profile → Friends &amp; privacy</span>. Then you can add friends by friend code or handle, send them titles to watch, share collections, and send private messages. See <a href="guides/friends-and-messages.html">Friends and Messages</a>.</p>
 
       <h2>Privacy and data</h2>
-      <p><strong>Do I need an account?</strong><br />No. Reelish has no accounts and no developer-operated account service.</p>
-      <p><strong>What data does Reelish collect?</strong><br />Your favorites, history, playback progress, settings and provider choices stay on your device. The app doesn’t include its own advertising or analytics. Services you use, such as TMDB, providers, stream hosts and subtitle services, receive the requests needed for the features you use. See the <a href="privacy.html">privacy policy</a>.</p>
-      <p><strong>How do I delete my data?</strong><br />Remove favorites and history in <span class="ui">Library</span>, remove add-ons in <span class="ui">Plugins</span>, or uninstall the app to erase all app data.</p>
+      <p><strong>Do I need an account?</strong><br />Yes. You sign in with a free Trakt account, on Trakt’s own page in your browser or with a code from a TV. Reelish has no passwords of its own and never sees your Trakt password. See <a href="guides/signing-in-and-syncing.html">Signing In and Syncing</a>.</p>
+      <p><strong>What data does Reelish collect?</strong><br />To keep your viewing progress, collections and genre choices the same on every device, the Reelish service stores them with your account. Friends data is stored only if you turn Friends on. Usage statistics and crash reports are sent only on Android, and only if you agree. The app has no advertising, and video never passes through the Reelish service. Favorites, settings and provider choices stay on your device. See the <a href="privacy.html">privacy policy</a> for the full details.</p>
+      <p><strong>How do I delete my data?</strong><br />Delete your account in <span class="ui">Settings → Profile and account</span>. This removes your account, viewing progress, collections, recommendation preferences and device sessions from the Reelish service, and asks Trakt to revoke Reelish’s access. To clear what’s on a device, remove items in <span class="ui">Library</span>, remove add-ons in <span class="ui">Plugins</span>, or uninstall the app.</p>
     `,
   },
   {
@@ -164,12 +180,13 @@ const pages = [
       <ul>
         <li><strong>Catalog and playback are kept separate.</strong> TMDB answers “what should I watch?”, and the providers you install answer “where can this be played?”. The catalog stays useful even when provider availability changes.</li>
         <li><strong>Untrusted code runs in a sandbox.</strong> Provider scripts run in a resource-limited QuickJS runtime with no direct file or credential access, and network destinations are checked before requests are sent.</li>
-        <li><strong>Your library stays on your device.</strong> Favorites, history, progress and preferences are stored locally. No account or backend is required.</li>
+        <li><strong>Pick up on any device.</strong> You sign in with Trakt, and the Reelish service keeps your viewing progress, collections and favorite genres the same on your phone, TV and PC. Video never passes through it, and nothing about the providers you use is sent.</li>
+        <li><strong>Better together.</strong> Watch Party keeps everyone’s player in sync, and Friends lets you share titles, collections and messages. Both are opt-in.</li>
         <li><strong>Open source.</strong> Reelish is built with Flutter and Dart, and the code is on <a href="https://github.com/frnzeeey/reelish" target="_blank" rel="noopener noreferrer">GitHub</a>.</li>
       </ul>
 
       <h2>Who makes it</h2>
-      <p>Reelish is designed and developed by <strong>Franze Kenneth Lobos</strong>, who works on everything from the interface and catalog services to provider integration and the video player. It’s an independent project and isn’t affiliated with TMDB, Stremio, CloudStream or OpenSubtitles.</p>
+      <p>Reelish is designed and developed by <strong>Franze Kenneth Lobos</strong>, who works on everything from the interface and catalog services to provider integration and the video player. It’s an independent project and isn’t affiliated with TMDB, Trakt, Stremio, CloudStream, OpenSubtitles or IntroDB.</p>
       <div class="about-creator">
         <img class="about-creator-avatar" src="assets/profile/Asset%201.png" alt="Franze Kenneth Lobos" width="96" height="96" loading="lazy" />
         <div class="about-creator-body">
@@ -196,30 +213,55 @@ const pages = [
     slug: "privacy",
     group: "legal",
     title: "Privacy Policy",
-    description: "What information stays on your device and what is shared with the services you use.",
-    updated: "October 24, 2026", // review form added to "This website"
+    description: "What the Reelish service stores for your account, what stays on your device, and what is shared with the services you use.",
+    updated: "November 15, 2026", // app policy of November 13, 2026, plus website advertising
     body: `
       <p>This is the same privacy policy shown in the Reelish app before first use. A section on this website is added at the end.</p>
 
       <h2>Who this applies to</h2>
-      <p>This policy describes the Reelish app. The app does not ask you to create an account and has no app-operated account service. Your device and the services you choose to use still process data as described below.</p>
+      <p>This policy describes the Reelish app and the Reelish API, the online service the app uses for accounts, the catalog and watch parties. To browse the catalog you sign in with a Trakt account; Reelish has no passwords of its own. Your device and the services you choose to use also process data as described below.</p>
+
+      <h2>Your Reelish account</h2>
+      <p>You sign in on Trakt’s own page in your browser, or by entering a code on Trakt’s website from a TV. Reelish never sees your Trakt password. When you sign in, the Reelish API stores your Trakt account ID and username; your Trakt access tokens, encrypted, so the service can reach Trakt for you; and, for each signed-in device, a general label (such as “Android phone” or “Windows”), when it signed in and was last used, and session tokens kept only in hashed form. The service does not ask for your email address, contacts, payment details or precise location. Trakt’s own privacy policy applies to your Trakt account.</p>
+
+      <h2>Viewing progress across your devices</h2>
+      <p>So you can stop on one device and continue on another, the Reelish API stores, for your account, where you left each movie and episode you play: its TMDB number, the position and length, the next episode once one is finished, whether you removed it from Continue watching, and the title, year and TMDB artwork addresses its card shows. Each entry also holds a random identifier made by the app for each device (not a hardware identifier) and when the change was made. Nothing about the stream or provider you used is sent. Entries unchanged for over a year are deleted, and all of them when you delete your account.</p>
+
+      <h2>Your collections across your devices</h2>
+      <p>So your collections are the same on each device, the Reelish API stores, for your account, the folders and collections you make (their names, descriptions, order and chosen cover) and the titles in each: TMDB number, title, year, TMDB artwork addresses and when it was added. Each entry also holds the random device identifier described above and when the change was made. A deletion is kept as a short mark, with no name or title, for a year so your other devices remove the item too, then deleted. Everything is deleted when you delete your account.</p>
+
+      <h2>Recommendation preferences</h2>
+      <p>So recommendations follow you to each device, the Reelish API stores, for your account, the genres you pick, whether you answered or skipped the genre question, and whether personalised rows are on, with the random device identifier described above and when the change was made. What you watch and your feedback on recommendations are worked out on each device and not sent for this. They are deleted when you delete your account.</p>
+
+      <h2>Friends</h2>
+      <p>Friends is off until you turn it on in Profile &gt; Friends &amp; privacy. Then the Reelish API stores, for your account, the handle you choose, a random friend code, and, only if you set them, a name and one of the built-in avatars for friends to see, along with your Friends privacy settings. It also stores your friendships, friend requests waiting for an answer (deleted after 30 days) and the people you blocked. When you share a title, the friends you choose receive its title, year, TMDB artwork address and your note, kept for 180 days or until they remove it; it stays with them if you stop being friends, and blocking removes it. A collection you share with friends (every collection is private until you do) shows them its name, description and titles; making it private again, removing a friend, blocking or turning Friends off hides it at once. Only if you turn on "Share what I'm watching", the title you are playing (and its season and episode) is sent when it starts, for your friends to see; it is removed when you stop, expires on its own within hours even if the app closes unexpectedly, is never kept as a history, and is not sent during a Watch Party. Others can find you only by your exact friend code, or your exact handle if you allow it, and see only your handle and what you chose to share. A report you make about someone is kept with bug reports for up to 180 days, with the reported account and without your account id. Your Trakt username, Trakt picture and any profile photo are never shown to other people. Turning Friends off deletes all of this at once; your handle is then held for 30 days, with nothing else, so nobody else can take it and appear to be you, then released. Everything is deleted when you delete your account.</p>
 
       <h2>Information kept on your device</h2>
-      <p>The app stores your favorites, recently played titles and resume positions, playback preferences, installed add-on repository addresses and settings, a short-lived cache of selected stream sources, and a copy of the plugin library catalog. These are stored in the app’s private device storage. The app does not currently include its own advertising or analytics service.</p>
-      <p>You can remove favorites and history in Library, remove add-ons in Plugins, clear the torrent cache in Playback settings, or erase app data by uninstalling the app. Device backups and operating-system behavior are controlled by your platform provider.</p>
+      <p>The app stores your favorites, recently played titles and resume positions, playback and notification preferences, your profile display name and avatar choice, installed add-on repository addresses and settings, a short-lived cache of selected stream sources, and a copy of the plugin library catalog in the app’s private storage, and your sign-in session in the device’s secure storage. A profile photo you choose stays on the device and is never uploaded. The app has no advertising. Usage statistics are sent only if you agree (see Usage statistics). You can remove favorites and history in Library, remove add-ons in Plugins, clear the torrent cache in Playback settings, or erase app data by uninstalling the app. Device backups and operating-system behavior are controlled by your platform provider.</p>
 
       <h2>Information sent when you use network features</h2>
-      <p>When you browse, search or open titles, the app sends title identifiers and related requests to The Movie Database (TMDB) to retrieve catalog, artwork and details. Subtitle searches send a title or episode identifier to the OpenSubtitles v3 service.</p>
-      <p>Opening the plugin library downloads its catalog from the app’s GitHub repository and loads provider logos from the addresses listed in the catalog; those hosts can receive your IP address and request data, but no title or account information is sent. If you install an add-on, the app contacts the repository and service addresses configured for it. Add-ons receive the title and episode identifiers needed for your request and may send them to their own servers.</p>
-      <p>Direct streams, subtitle files and torrent/P2P playback connect to the selected source or peers; those operators can receive your IP address and request data. Android may contact GitHub to check for app updates and download an APK when you choose an update. Android uses its package installer after you confirm the installation.</p>
+      <p>When you browse, search or open titles, the app sends title identifiers and related requests to the Reelish API, which retrieves catalog data and details from The Movie Database (TMDB) for you; TMDB receives those requests from the service, not from your device. Artwork loads directly from TMDB’s image servers. If you turn on My list sync, the service reads and changes your Trakt watchlist for you. If you turn on new-episode alerts, the app sends the TMDB identifiers of series on My list or in progress to the service to check for new episodes; they are not stored. In a watch party, the title, the playback position and play or pause state, and each participant’s display name, chosen preset avatar (never a photo) and player status are shared through the service with the people in that party. Subtitle searches send a title or episode identifier to the OpenSubtitles v3 service. Intro and outro skipping sends an episode’s IMDb and episode numbers to IntroDB; turn both off in Settings &gt; Playback to send nothing. Opening the plugin library downloads its catalog from the app’s GitHub repository and loads provider logos from the addresses listed in it; those hosts can receive your IP address and request data, but no title or account information. If you install an add-on, the app contacts the repository and service addresses configured for it. Add-ons receive the title and episode identifiers needed for your request and may send them to their own servers. Direct streams, subtitle files and torrent/P2P playback connect to the selected source or peers; those operators can receive your IP address and request data. Video never passes through the Reelish API. Android and Windows may contact GitHub to check for app updates. When you choose an update, Android downloads an APK and uses its package installer after you confirm; installed Windows copies download the installer and run it after checking it, and portable copies download a ZIP for you to extract.</p>
+
+      <h2>Problem reports and feedback</h2>
+      <p>When you send a report or feedback from Help &amp; Support, the Reelish API stores what you wrote (title, category, details and optional steps), the device type you chose, and, unless you turn it off, the app version, build, operating system and version, interface, language and time. You see all of it before sending. It does not include your account name, history, providers or logs; the report is linked to a one-way code derived from your account so a person can send a limited number per day and so deleting your account deletes your reports. Reports are deleted after 180 days. Do not include personal information you do not want stored.</p>
+
+      <h2>Usage statistics (Android only, optional)</h2>
+      <p>On Android phones, Android TV and Google TV, Reelish asks once whether you want to share usage statistics, and sends none until you agree. If you do, Google Analytics for Firebase receives which pages and features you use, whether a search found results (not what you searched for), and for each playback session the movie or episode’s public TMDB number, how long it took to start, buffering, the kind of error if it failed, and roughly how much was watched. It never receives your account, Trakt name, display name, search text, add-on or provider names, stream addresses or tokens. Google also records standard app information such as device model, operating-system version, app version, approximate country and an app-instance identifier; the advertising identifier, the Android ID and ad personalization are turned off. Google keeps this data under its own policies and Reelish’s retention setting. You can turn sharing off in Settings at any time; doing so also clears the analytics data and identifier stored on the device. Windows sends no usage statistics.</p>
+
+      <h2>Crash reports (Android only, optional)</h2>
+      <p>On Android phones, Android TV and Google TV, Reelish asks separately whether you want to share crash reports, and sends none until you agree. If you do, Firebase Crashlytics receives what went wrong: the type of error and where in the app’s code it happened, a short description with addresses, tokens and codes removed, which page was open, whether a video or watch party was active and in which state, and recent app events that led up to it. If you also share usage statistics, those events can appear with the report. Google also records standard details such as device model, operating-system version, app version, free memory and storage, and an installation identifier. Reports never include your account, Trakt name, display name, search text, add-on or provider names, stream addresses, tokens or watch party codes. Google keeps reports for 90 days. You can turn sharing off in Settings at any time; doing so also deletes reports not yet sent.</p>
+
+      <h2>Error log (Windows)</h2>
+      <p>On Windows, Reelish keeps a small log of app errors on your computer to help with troubleshooting. It is limited in size, has addresses, tokens and codes removed, and is never sent anywhere. You can open it from Help &amp; Support.</p>
+
+      <h2>Supporting Reelish (optional)</h2>
+      <p>Donations are made on Buy Me a Coffee, which handles your payment and your details under its own policies; Reelish never sees your card. When you donate, Buy Me a Coffee tells the Reelish API that a donation succeeded. If your message contains your supporter code, your account receives the Supporter Badge. Reelish keeps only a one-way reference to the donation, its date and whether it was refunded, and not the amount, your name, your email address or your message. Your badge and the date you became a supporter are stored with your account and are deleted with it. A refunded donation no longer counts. You appear on the supporters list only if you turn that on, under a name you choose, which anyone using Reelish can see; you can turn it off at any time. If you ask for a review by email, the email is used only to check your donation.</p>
 
       <h2>Third-party services and add-ons</h2>
-      <p>TMDB, OpenSubtitles, add-on publishers, media hosts, torrent peers, GitHub, and your device platform operate independently. Their privacy practices, logs, retention and locations are governed by their own policies. The app cannot control what an add-on publisher does with data it receives. Install only add-ons you trust.</p>
-      <p>No payment, account credentials, contacts, precise location or advertising identifier is requested by the app’s own features.</p>
+      <p>Trakt, TMDB, Cloudflare (which hosts the Reelish API), Google (usage statistics and crash reports, only if you agree), Buy Me a Coffee (only if you donate), OpenSubtitles, IntroDB, add-on publishers, media hosts, torrent peers, GitHub, and your device platform operate independently. Their privacy practices, logs, retention and locations are governed by their own policies. Cloudflare processes your IP address and request data to deliver the Reelish API. The app cannot control what an add-on publisher does with data it receives. Install only add-ons you trust. No payment, contacts, precise location or advertising identifier is requested by the app’s own features.</p>
 
       <h2>Retention and choices</h2>
-      <p>On-device library entries and preferences remain until you remove them or erase app data. Catalog results may be cached in memory for the current session. Third-party services may retain request data under their own policies.</p>
-      <p>Because the app has no account or developer-operated profile database, it has no server-side account data to delete. For data held by a third party, contact that service or add-on publisher directly. Applicable privacy rights depend on your location; email the developer at ${emailLink} for requests concerning the app.</p>
+      <p>Your account data stays on the Reelish API until you delete your account. You can sign out of one device or of all devices, and delete your account in Settings &gt; Profile and account; deleting it asks Trakt to revoke Reelish’s access and removes your account, your viewing progress, collections and recommendation preferences, your encrypted Trakt tokens and your device sessions, including those already signed out. A minimal security log, holding an internal account number, the kind of event (such as a sign-in or a sign-out) and its time, but no username, title or viewing information, is kept for 12 months to detect misuse, including after an account is deleted, and then erased. A watch party’s room is deleted when the party ends, and after 12 hours at most. Operational logs of the service record which address was requested and when, which can include a title identifier but not your account name, and are kept by the hosting provider for a limited period. On-device library entries and preferences remain until you remove them or erase app data. Third-party services may retain request data under their own policies; for data they hold, contact that service or add-on publisher directly. Applicable privacy rights depend on your location; email the developer at ${emailLink} for requests concerning the app or the Reelish API.</p>
 
       <h2>Children and changes</h2>
       <p>The app is not designed as a service for children. A parent or guardian who believes a child has provided personal information to a third-party service should contact that service and the app publisher. This policy may change when app features or legal requirements change; the updated version and date will appear here.</p>
@@ -300,18 +342,27 @@ const pages = [
     group: "legal",
     title: "TMDB Attribution",
     description: "Credits for the catalog data, services and community catalog behind Reelish.",
-    updated: LEGAL_UPDATED,
+    updated: "November 15, 2026", // Trakt, IntroDB and avatar artwork credits added
     body: `
       <h2>The Movie Database (TMDB)</h2>
       <p><strong>This product uses the TMDB API but is not endorsed or certified by TMDB.</strong></p>
       <p>Movie and TV show information, including titles, descriptions, artwork, ratings, and related metadata, may be provided by <a href="https://www.themoviedb.org/" target="_blank" rel="noopener noreferrer">The Movie Database (TMDB)</a>.</p>
       <p>TMDB trademarks and content remain with their respective owners; see TMDB’s terms and attribution requirements before redistributing any material.</p>
 
+      <h2>Trakt</h2>
+      <p><strong>Powered by Trakt.</strong> Sign-in, My list sync and new episode checks use <a href="https://trakt.tv/" target="_blank" rel="noopener noreferrer">Trakt</a>. Reelish is independent and is not sponsored by, endorsed by or affiliated with Trakt.</p>
+
+      <h2>IntroDB</h2>
+      <p>Intro and outro timestamps come from <a href="https://introdb.app/" target="_blank" rel="noopener noreferrer">IntroDB</a> (introdb.app), a community database of submitted timestamps. Reelish does not verify them beyond checking that they fit the episode playing. Reelish is not affiliated with IntroDB.</p>
+
       <h2>Third-party services</h2>
       <ul>
         <li><strong>OpenSubtitles v3</strong>: preinstalled Stremio subtitle addon used to search for subtitles. Reelish is not affiliated with OpenSubtitles.</li>
         <li><strong>GitHub</strong>: hosts Reelish releases for update checks and the plugin library catalog.</li>
       </ul>
+
+      <h2>Artwork</h2>
+      <p>Profile avatars are illustrations by <a href="https://www.figma.com/@angelina888" target="_blank" rel="noopener noreferrer">angelina888 on Figma</a>.</p>
 
       <h2>Plugin library</h2>
       <p>The plugin library lists provider repositories from a community-maintained catalog curated by wolf knight. Repository names, descriptions, logos and manifests belong to their authors, who build and maintain each provider independently of Reelish. A listing is not an endorsement or a verification of a provider.</p>
@@ -325,9 +376,9 @@ const pages = [
     group: "legal",
     title: "Third-Party Licenses",
     description: "Open-source software and fonts used in Reelish, and the licenses they’re used under.",
-    updated: LEGAL_UPDATED,
+    updated: "November 15, 2026", // package list matched to the app's pubspec.yaml at v1.36.1
     body: `
-      <p>Reelish is built with Flutter and open-source packages. Each component remains subject to its own license. The full license text for every package and font is available in the app under <span class="ui">Settings → Credits → Open-source licenses</span>.</p>
+      <p>Reelish is built with Flutter and open-source packages. Each component remains subject to its own license. The full license text for every package and font is available in the app under <span class="ui">Settings → Help &amp; Support → About Reelish → Credits &amp; attribution → Open-source licenses</span>.</p>
 
       <h2>Framework</h2>
       <table class="guide-table">
@@ -344,16 +395,20 @@ const pages = [
           <tr><td>http</td><td>Network requests</td><td>BSD&nbsp;3&#8209;Clause</td></tr>
           <tr><td>crypto</td><td>Checksums and hashing</td><td>BSD&nbsp;3&#8209;Clause</td></tr>
           <tr><td>shared_preferences</td><td>On-device library and settings</td><td>BSD&nbsp;3&#8209;Clause</td></tr>
-          <tr><td>path_provider</td><td>App storage and cache paths</td><td>BSD&nbsp;3&#8209;Clause</td></tr>
+          <tr><td>path_provider, path_provider_windows</td><td>App storage, cache and Pictures folder paths</td><td>BSD&nbsp;3&#8209;Clause</td></tr>
+          <tr><td>flutter_secure_storage</td><td>Keeping your sign-in session in secure storage</td><td>BSD&nbsp;3&#8209;Clause</td></tr>
+          <tr><td>image_picker</td><td>Choosing a profile photo</td><td>BSD&nbsp;3&#8209;Clause</td></tr>
+          <tr><td>flutter_local_notifications</td><td>Notifications</td><td>BSD&nbsp;3&#8209;Clause</td></tr>
+          <tr><td>workmanager</td><td>Background checks for new episodes on Android</td><td>MIT</td></tr>
+          <tr><td>flutter_cache_manager</td><td>Keeping artwork on your device</td><td>MIT</td></tr>
           <tr><td>url_launcher</td><td>Opening external links</td><td>BSD&nbsp;3&#8209;Clause</td></tr>
           <tr><td>package_info_plus</td><td>App version information</td><td>BSD&nbsp;3&#8209;Clause</td></tr>
           <tr><td>video_player, video_player_android</td><td>Video playback</td><td>BSD&nbsp;3&#8209;Clause</td></tr>
-          <tr><td>media_kit, media_kit_video, media_kit_libs_android_video</td><td>Playback engine</td><td>MIT</td></tr>
+          <tr><td>media_kit, media_kit_video, media_kit_libs_android_video, media_kit_libs_windows_video</td><td>Playback engine on Android and Windows</td><td>MIT</td></tr>
           <tr><td>video_player_media_kit</td><td>Playback engine adapter</td><td>MIT</td></tr>
           <tr><td>flutter_js</td><td>Running provider scripts (QuickJS)</td><td>MIT</td></tr>
-          <tr><td>flutter_go_torrent_streamer</td><td>Torrent/P2P playback on Android</td><td>MIT</td></tr>
+          <tr><td>flutter_go_torrent_streamer</td><td>Torrent/P2P playback</td><td>MIT</td></tr>
           <tr><td>anacrolix/torrent</td><td>BitTorrent engine used by the torrent streamer</td><td>MPL 2.0</td></tr>
-          <tr><td>material_symbols_icons</td><td>Icons</td><td>Apache 2.0</td></tr>
         </tbody>
       </table>
       <div class="guide-callout guide-callout-note">
@@ -366,6 +421,7 @@ const pages = [
         <thead><tr><th>Component</th><th>Used for</th><th>License</th></tr></thead>
         <tbody>
           <tr><td>Montserrat</td><td>App and website typeface</td><td>SIL Open Font License 1.1</td></tr>
+          <tr><td>Bebas Neue</td><td>App display typeface</td><td>SIL Open Font License 1.1</td></tr>
           <tr><td>Material Symbols</td><td>Website icons</td><td>Apache 2.0</td></tr>
         </tbody>
       </table>

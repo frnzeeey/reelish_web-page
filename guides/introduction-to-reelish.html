@@ -74,36 +74,38 @@
               <span class="guide-article-category"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M12 7v13M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3Z" /></svg> Getting Started</span>
               <h1 id="guide-title">Introduction to Reelish</h1>
               <p class="guide-article-lead">An overview of what Reelish is and how it works.</p>
-              <p class="guide-article-meta">1 min read</p>
+              <p class="guide-article-meta">2 min read</p>
             </header>
 
             <div class="guide-prose">
-              <p>Reelish is an open-source Android app for discovering movies and TV series and watching them with the providers you choose. It combines a polished catalog, a personal library and a built-in video player in one place.</p>
+              <p>Reelish is an open-source app for discovering movies and TV series and watching them with the providers you choose. It runs on Android phones and tablets, Android TV, Google TV and Windows, and combines a polished catalog, a personal library that follows you across your devices, a built-in video player and ways to watch with friends.</p>
 
       <h2 id="how-reelish-works">How Reelish works</h2>
       <p>Reelish splits the job of “finding something to watch” and “playing it” into separate pieces:</p>
       <ul>
-        <li><strong>The catalog comes from TMDB.</strong> Titles, artwork, synopses, genres, cast and recommendations are loaded from The Movie Database.</li>
-        <li><strong>Streams come from providers you install.</strong> When you press play, Reelish asks your enabled providers for playable sources for that title. Providers don’t add titles to the catalog — they only answer “where can this be played?”.</li>
-        <li><strong>Playback happens in the built-in player.</strong> It supports direct HTTP(S) streams, external subtitles, playback speed, aspect ratio and more. On Android, compatible providers can also return torrent sources for P2P playback.</li>
+        <li><strong>The catalog comes from TMDB.</strong> Titles, artwork, synopses, genres, cast and people are loaded from The Movie Database through the Reelish service.</li>
+        <li><strong>Your account comes from Trakt.</strong> You sign in with a free Trakt account, and your viewing progress, collections and favorite genres stay the same on every device you use.</li>
+        <li><strong>Streams come from providers you install.</strong> When you press play, Reelish asks your enabled providers for playable sources for that title. Providers don’t add titles to the catalog; they only answer “where can this be played?”.</li>
+        <li><strong>Playback happens in the built-in player.</strong> It supports direct HTTP(S) streams, external subtitles, audio languages, intro skipping and more. On Android and Windows, compatible providers can also return torrent sources for P2P playback.</li>
       </ul>
 
       <h2 id="what-reelish-doesn-t-do">What Reelish doesn’t do</h2>
-      <p>Reelish does not host, store or distribute any media. Providers are third-party code published by independent authors, and the sources they return are operated by others. Install repositories only from publishers you trust.</p>
+      <p>Reelish does not host, store or distribute any media, and video never passes through the Reelish service. Providers are third-party code published by independent authors, and the sources they return are operated by others. Install plugin collections only from publishers you trust.</p>
       <div class="guide-callout guide-callout-note">
-        <strong>Your data stays on your device</strong>
-        <p>Favorites, watch history, playback progress, settings and provider choices are stored locally. TMDB, provider publishers, stream hosts and subtitle services only receive the requests needed for the features you use.</p>
+        <strong>What leaves your device</strong>
+        <p>Your viewing progress, collections and genre choices are stored with your account so they sync. Favorites, settings and provider choices stay on the device, and nothing about the providers or streams you use is sent. See the <a href="../privacy.html">privacy policy</a> for the details.</p>
       </div>
 
       <h2 id="what-you-need">What you need</h2>
       <ul>
-        <li>An Android phone or tablet.</li>
-        <li>The latest <code>reelish.apk</code> from GitHub Releases.</li>
-        <li>At least one provider repository, added from the <span class="ui">Plugins</span> tab.</li>
+        <li>An Android phone, tablet, Android TV or Google TV device, or a Windows 10 or 11 PC (64-bit).</li>
+        <li>The latest release from GitHub Releases.</li>
+        <li>A free <a href="https://trakt.tv/" target="_blank" rel="noopener noreferrer">Trakt</a> account to sign in.</li>
+        <li>At least one plugin collection, added from the <span class="ui">Plugins</span> tab.</li>
       </ul>
 
       <h2 id="where-to-go-next">Where to go next</h2>
-      <p>Start with <a href="downloading-the-apk.html">Downloading the APK</a> and <a href="installing-on-android.html">Installing on Android</a>, then read <a href="understanding-third-party-plugins.html">Understanding Third-Party Plugins</a> before you add your first provider.</p>
+      <p>Start with <a href="downloading-the-apk.html">Downloading the APK</a> and <a href="installing-on-android.html">Installing on Android</a>, then <a href="signing-in-and-syncing.html">Signing In and Syncing</a>. Read <a href="understanding-third-party-plugins.html">Understanding Third-Party Plugins</a> before you add your first provider.</p>
             </div>
 
             <aside class="guide-help" aria-label="Need more help?">
@@ -141,6 +143,7 @@
               <ul>
                 <li><a href="introduction-to-reelish.html" aria-current="page">Introduction to Reelish</a></li>
                 <li><a href="navigating-the-app.html">Navigating the App</a></li>
+                <li><a href="library-and-collections.html">Library and Collections</a></li>
               </ul>
             </nav>
           </aside>

@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#0b0b10" />
     <meta name="description" content="Connect compatible content providers to Reelish." />
-    <title>Adding Plugin Repositories — Reelish Guides</title>
+    <title>Adding Plugin Collections — Reelish Guides</title>
     <link rel="icon" type="image/png" href="../assets/icons/reelish_icon.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -66,34 +66,34 @@
               <ol>
                 <li><a href="../guide.html">Guides</a></li>
                 <li><a href="../guide.html#group-plugins">Plugins</a></li>
-                <li aria-current="page">Adding Plugin Repositories</li>
+                <li aria-current="page">Adding Plugin Collections</li>
               </ol>
             </nav>
 
             <header class="guide-article-head">
               <span class="guide-article-category"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M19.4 7.9c0 .3.1.6.3.9l1.6 1.6a2.4 2.4 0 0 1 0 3.4l-1.6 1.6a1 1 0 0 1-.8.3c-.5-.1-.8-.5-1-.9a2.5 2.5 0 1 0-3.2 3.2c.4.2.9.5.9 1a1 1 0 0 1-.3.8l-1.6 1.6a2.4 2.4 0 0 1-3.4 0l-1.6-1.6a1 1 0 0 0-.9-.3c-.5.1-.8.5-1 1a2.5 2.5 0 1 1-3.2-3.3c.5-.2.9-.5 1-1a1 1 0 0 0-.3-.9l-1.6-1.6a2.4 2.4 0 0 1 0-3.4l1.5-1.5c.2-.2.6-.4.9-.3.5.1.9.5 1.1 1a2.5 2.5 0 1 0 3.3-3.3c-.5-.2-.9-.6-1-1.1 0-.3 0-.7.3-.9l1.5-1.5a2.4 2.4 0 0 1 3.4 0l1.6 1.6c.2.2.6.3.9.3.5-.1.8-.5 1-1a2.5 2.5 0 1 1 3.2 3.2c-.4.2-.9.5-.9 1Z" /></svg> Plugins</span>
-              <h1 id="guide-title">Adding Plugin Repositories</h1>
+              <h1 id="guide-title">Adding Plugin Collections</h1>
               <p class="guide-article-lead">Connect compatible content providers to Reelish.</p>
               <p class="guide-article-meta">1 min read</p>
             </header>
 
             <div class="guide-prose">
-              <p>There are two ways to add a provider repository: pick one from the built-in community library, or paste a manifest URL you already have.</p>
+              <p>There are two ways to add a plugin collection (a provider repository): pick one from the built-in community library, or add one by link if you already have its manifest URL.</p>
 
       <h2 id="from-the-community-library">From the community library</h2>
       <ol class="guide-steps">
         <li>Open the <span class="ui">Plugins</span> tab and tap <span class="ui">Browse Reelish Plugins</span>.</li>
-        <li>Search, or filter by language and content type. Sections such as <span class="ui">Featured plugins</span> and <span class="ui">Recently updated</span> help you find popular choices.</li>
-        <li>Tap a repository to open its details: author, description, languages, sources, last update and verification status.</li>
-        <li>Tap <span class="ui">Install plugin</span>. When it shows <span class="ui">Installed</span>, go back to Plugins.</li>
+        <li>Search, or filter by <span class="ui">All</span>, <span class="ui">Not installed</span> or <span class="ui">Installed</span> and by language. Sections such as <span class="ui">Featured plugins</span> and <span class="ui">Recently updated</span> help you find popular choices.</li>
+        <li>Tap <span class="ui">Install plugin</span> on its card, or open it first to see the author, description, languages, sources and last update.</li>
+        <li>When it shows <span class="ui">Installed</span>, go back to Plugins.</li>
       </ol>
 
-      <h2 id="from-a-manifest-url">From a manifest URL</h2>
+      <h2 id="by-link">By link</h2>
       <ol class="guide-steps">
-        <li>Copy the repository’s manifest URL. It usually ends in <code>manifest.json</code>; a GitHub repository or file link also works.</li>
-        <li>In <span class="ui">Plugins</span>, tap the link button (<span class="ui">Paste a manifest URL</span>).</li>
+        <li>Copy the collection’s manifest URL. It usually ends in <code>manifest.json</code>; a GitHub repository or file link also works.</li>
+        <li>In <span class="ui">Plugins</span>, tap <span class="ui">Add by link</span>.</li>
         <li>Paste the address into <span class="ui">Provider manifest URL</span>, or tap <span class="ui">Paste from clipboard</span>.</li>
-        <li>Tap <span class="ui">Install provider</span> and wait for <span class="ui">Checking manifest…</span> to finish.</li>
+        <li>Tap <span class="ui">Add collection</span> and wait for <span class="ui">Checking manifest…</span> to finish.</li>
       </ol>
 
       <div class="guide-callout guide-callout-note">
@@ -102,7 +102,7 @@
       </div>
 
       <h2 id="after-installing">After installing</h2>
-      <p>The new repository appears under <span class="ui">Your repositories</span>. Expand it and turn on the providers you want to use — see <a href="managing-providers.html">Managing Providers</a>. If you have trouble installing, see <a href="plugin-loading-problems.html">Plugin Loading Problems</a>.</p>
+      <p>The new collection appears under <span class="ui">Your collections</span>. Open it and turn on the providers you want to use. See <a href="managing-providers.html">Managing Providers</a>. If you have trouble installing, see <a href="plugin-loading-problems.html">Plugin Loading Problems</a>.</p>
             </div>
 
             <aside class="guide-help" aria-label="Need more help?">
@@ -133,7 +133,7 @@
               <h2>On this page</h2>
               <ol>
                 <li><a href="#from-the-community-library">From the community library</a></li>
-                <li><a href="#from-a-manifest-url">From a manifest URL</a></li>
+                <li><a href="#by-link">By link</a></li>
                 <li><a href="#after-installing">After installing</a></li>
               </ol>
             </nav>
@@ -141,7 +141,7 @@
               <h2><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M19.4 7.9c0 .3.1.6.3.9l1.6 1.6a2.4 2.4 0 0 1 0 3.4l-1.6 1.6a1 1 0 0 1-.8.3c-.5-.1-.8-.5-1-.9a2.5 2.5 0 1 0-3.2 3.2c.4.2.9.5.9 1a1 1 0 0 1-.3.8l-1.6 1.6a2.4 2.4 0 0 1-3.4 0l-1.6-1.6a1 1 0 0 0-.9-.3c-.5.1-.8.5-1 1a2.5 2.5 0 1 1-3.2-3.3c.5-.2.9-.5 1-1a1 1 0 0 0-.3-.9l-1.6-1.6a2.4 2.4 0 0 1 0-3.4l1.5-1.5c.2-.2.6-.4.9-.3.5.1.9.5 1.1 1a2.5 2.5 0 1 0 3.3-3.3c-.5-.2-.9-.6-1-1.1 0-.3 0-.7.3-.9l1.5-1.5a2.4 2.4 0 0 1 3.4 0l1.6 1.6c.2.2.6.3.9.3.5-.1.8-.5 1-1a2.5 2.5 0 1 1 3.2 3.2c-.4.2-.9.5-.9 1Z" /></svg> Plugins</h2>
               <ul>
                 <li><a href="understanding-third-party-plugins.html">Understanding Third-Party Plugins</a></li>
-                <li><a href="adding-plugin-repositories.html" aria-current="page">Adding Plugin Repositories</a></li>
+                <li><a href="adding-plugin-repositories.html" aria-current="page">Adding Plugin Collections</a></li>
                 <li><a href="managing-providers.html">Managing Providers</a></li>
                 <li><a href="troubleshooting-plugins.html">Troubleshooting Plugins</a></li>
               </ul>

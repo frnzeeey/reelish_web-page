@@ -74,21 +74,25 @@
               <span class="guide-article-category"><svg aria-hidden="true" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" /><path d="m10 8.5 5.5 3.5-5.5 3.5v-7Z" /></svg> Playback</span>
               <h1 id="guide-title">Playback Settings</h1>
               <p class="guide-article-lead">Customize speed, scaling, and more.</p>
-              <p class="guide-article-meta">1 min read</p>
+              <p class="guide-article-meta">2 min read</p>
             </header>
 
             <div class="guide-prose">
               <p>You can adjust playback while watching from the player, and set your defaults in <span class="ui">Settings → Playback</span>.</p>
 
       <h2 id="in-the-player">In the player</h2>
-      <p>Tap the screen, then the settings icon to open <span class="ui">Playback settings</span>:</p>
+      <p>Tap the screen, then the settings icon to open <span class="ui">Playback settings</span>. Each section shows what’s in use, and picking an option applies it straight away:</p>
       <ul>
-        <li><span class="ui">Speed</span> — from 0.5× to 2×.</li>
-        <li><span class="ui">Aspect ratio</span> — <span class="ui">Fit</span> shows the whole picture, <span class="ui">Fill</span> crops to fill the screen, <span class="ui">Stretch</span> stretches the picture to the screen’s shape.</li>
-        <li><span class="ui">Video quality</span> and <span class="ui">Audio track</span> — when the stream offers choices.</li>
-        <li><span class="ui">Subtitles</span>, <span class="ui">Subtitle delay</span> and <span class="ui">Subtitle position</span> — see <a href="subtitle-customization.html">Subtitle Customization</a>.</li>
-        <li><span class="ui">Switch to …</span> — reopens the stream in the other player engine. Try this if the picture stays black while audio plays.</li>
+        <li><span class="ui">Speed</span>: from 0.5× to 2×. During a Watch Party, speed stays at 1×.</li>
+        <li><span class="ui">Quality</span>: only the qualities this stream actually offers, or <span class="ui">Auto</span> to adjust to your connection.</li>
+        <li><span class="ui">Audio &amp; language</span>: tracks are named by their language, such as Japanese or English, with details like Commentary or 5.1 to tell similar tracks apart. The language you pick stays for the rest of the session, even if the player reconnects or moves to another source.</li>
+        <li><span class="ui">Subtitles</span>: the track, <span class="ui">Subtitle timing</span> and position. See <a href="subtitle-customization.html">Subtitle Customization</a>.</li>
+        <li><span class="ui">Picture</span>: the <span class="ui">Aspect ratio</span>. <span class="ui">Fit</span> shows the whole picture, <span class="ui">Fill</span> fills the screen and may cut the edges, <span class="ui">Stretch</span> stretches the picture to the screen’s shape.</li>
+        <li><span class="ui">Switch to …</span>: reopens the stream in the other player engine. Try this if the picture stays black while audio plays.</li>
       </ul>
+
+      <h2 id="skip-intros-and-outros">Skip intros and outros</h2>
+      <p>Intros skip automatically, and a <span class="ui">Skip outro</span> button appears at the end credits, using community timestamps from IntroDB. Nothing is skipped when an episode’s timestamps aren’t known. Change this in <span class="ui">Settings → Playback</span> under <span class="ui">Intro &amp; outro</span>; turning both off sends nothing to IntroDB. Skipping isn’t used in a Watch Party.</p>
 
       <h2 id="player-controls-and-gestures">Player controls and gestures</h2>
       <ul>
@@ -96,8 +100,13 @@
         <li>Swipe up or down to adjust brightness or volume.</li>
         <li>Press and hold the video to temporarily speed it up.</li>
         <li><span class="ui">Lock controls</span> prevents accidental touches; tap to unlock.</li>
-        <li><span class="ui">Picture in picture</span>, <span class="ui">Lock to landscape</span> and, for series, <span class="ui">Episodes</span> and <span class="ui">Next episode</span>.</li>
+        <li><span class="ui">Picture in picture</span> on Android phones and tablets: leave the app and the video keeps playing in a small window. Also <span class="ui">Lock to landscape</span> and, for series, <span class="ui">Episodes</span> and <span class="ui">Next episode</span>.</li>
+        <li>When a title starts, a small card shows its age rating, and content notes when a rating board has published them.</li>
       </ul>
+      <div class="guide-callout guide-callout-note">
+        <strong>On Windows</strong>
+        <p>Click the video to play or pause, and double-click to enter or leave fullscreen. Use the speaker button for volume, or <kbd>M</kbd> to mute. Hover over the timeline to preview the time you’ll jump to. The screen doesn’t sleep while a video plays.</p>
+      </div>
 
       <h2 id="your-defaults">Your defaults</h2>
       <p>In <span class="ui">Settings → Playback</span>:</p>
@@ -106,6 +115,8 @@
         <li><span class="ui">Touch gestures</span>, <span class="ui">Hold to speed</span> and the <span class="ui">Hold speed</span> it uses.</li>
         <li><span class="ui">Show loading status</span> and <span class="ui">Pause overlay</span>, which shows title artwork and details when paused.</li>
         <li><span class="ui">Auto-play next episode</span> and the <span class="ui">Next episode threshold</span> at which it’s offered.</li>
+        <li><span class="ui">Preferred audio language</span> and a <span class="ui">Secondary audio language</span> to fall back on.</li>
+        <li><span class="ui">Intros</span> and <span class="ui">Outros</span> under <span class="ui">Intro &amp; outro</span>.</li>
       </ul>
             </div>
 
@@ -137,6 +148,7 @@
               <h2>On this page</h2>
               <ol>
                 <li><a href="#in-the-player">In the player</a></li>
+                <li><a href="#skip-intros-and-outros">Skip intros and outros</a></li>
                 <li><a href="#player-controls-and-gestures">Player controls and gestures</a></li>
                 <li><a href="#your-defaults">Your defaults</a></li>
               </ol>

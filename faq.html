@@ -79,26 +79,31 @@
 
             <div class="guide-prose">
               <h2 id="general">General</h2>
-      <p><strong>What is Reelish?</strong><br />An open-source Android app for discovering movies and TV series and watching them through providers you choose. It combines a TMDB-powered catalog, a personal library and a built-in video player.</p>
-      <p><strong>Is Reelish free?</strong><br />Yes. Reelish is free and open source, with no account, subscription, or in-app purchases.</p>
+      <p><strong>What is Reelish?</strong><br />An open-source app for Android, Android TV, Google TV and Windows for discovering movies and TV series and watching them through providers you choose. It combines a TMDB-powered catalog, a personal library that follows you across your devices, a built-in video player, and ways to watch with friends.</p>
+      <p><strong>Is Reelish free?</strong><br />Yes. Reelish is free and open source, with no subscription or in-app purchases. You can choose to donate and become a Reelish Supporter, which adds a few extras such as hosting a Watch Party, app themes and avatar frames. Everything else stays available to everyone. See <a href="guides/reelish-supporters.html">Reelish Supporters</a>.</p>
       <p><strong>Does Reelish host movies or shows?</strong><br />No. Reelish doesn’t host, store, upload or distribute any media. Streams come from independent third-party providers you choose to install. See the <a href="disclaimer.html">content disclaimer</a>.</p>
       <p><strong>Which devices are supported?</strong><br />Reelish is distributed as a single Android APK that works on phones, tablets, Android TV and Google TV. The same APK installs on all of them, and on a TV it uses a layout built for the big screen and a remote. Reelish is also available for Windows 10 and 11 (64-bit) as an installer: run <code>Reelish-Setup-x64.exe</code>, and Reelish then updates itself from inside the app.</p>
 
       <h2 id="installing-and-updating">Installing and updating</h2>
       <p><strong>Where do I download Reelish?</strong><br />Only from the project’s <a href="https://github.com/frnzeeey/reelish/releases" target="_blank" rel="noopener noreferrer">GitHub Releases</a> page, or from any Download button on this site, which points there. APKs from other sites may be outdated or modified. See <a href="guides/downloading-the-apk.html">Downloading the APK</a>.</p>
       <p><strong>Why does Android warn me when I install it?</strong><br />Android asks for confirmation for apps installed outside an app store, and Play Protect may show a warning. That’s expected for APKs. Only continue if you downloaded from GitHub Releases. See <a href="guides/installing-on-android.html">Installing on Android</a>.</p>
-      <p><strong>How do I update?</strong><br />Reelish checks GitHub for new releases and offers to download the update. You confirm the install in Android’s package installer. See <a href="guides/updating-reelish.html">Updating Reelish</a>.</p>
+      <p><strong>How do I update?</strong><br />Reelish checks GitHub for new releases and offers to download the update. On Android you confirm the install in Android’s package installer; on Windows, Reelish checks the installer and runs it for you. See <a href="guides/updating-reelish.html">Updating Reelish</a>.</p>
 
       <h2 id="plugins-and-playback">Plugins and playback</h2>
-      <p><strong>Why can I browse titles but not play them?</strong><br />Reelish ships without any streaming sources. Add a provider repository from the <span class="ui">Plugins</span> tab first. See <a href="guides/adding-plugin-repositories.html">Adding Plugin Repositories</a>.</p>
+      <p><strong>Why can I browse titles but not play them?</strong><br />Reelish ships without any streaming sources. Add a plugin collection from the <span class="ui">Plugins</span> tab first. See <a href="guides/adding-plugin-repositories.html">Adding Plugin Collections</a>.</p>
       <p><strong>Are plugins safe?</strong><br />Providers are third-party code. They run in a constrained JavaScript runtime, and new or changed provider code is paused until you approve it. Community listings aren’t verified or endorsed by Reelish, so install only repositories from publishers you trust. See <a href="guides/understanding-third-party-plugins.html">Understanding Third-Party Plugins</a>.</p>
       <p><strong>Does Reelish support subtitles?</strong><br />Yes. The player supports external SRT and WebVTT subtitles, can search OpenSubtitles, and lets you customize subtitle appearance and languages. See <a href="guides/subtitle-customization.html">Subtitle Customization</a>.</p>
-      <p><strong>What about torrent sources?</strong><br />On Android, compatible providers can return torrent sources for P2P playback once <span class="ui">P2P streaming</span> is turned on in <span class="ui">Settings → Playback</span>. P2P playback may share your network address with other peers and may upload pieces of a file.</p>
+      <p><strong>What about torrent sources?</strong><br />On Android and Windows, compatible providers can return torrent sources for P2P playback once <span class="ui">P2P streaming</span> is turned on in <span class="ui">Settings → Playback</span>. P2P playback may share your network address with other peers and may upload pieces of a file.</p>
+      <p><strong>Can Reelish skip intros?</strong><br />Yes. Intros skip automatically and a <span class="ui">Skip outro</span> button appears when the community database IntroDB has timestamps for the episode. Nothing is skipped when they aren’t known. Change this in <span class="ui">Settings → Playback</span> under <span class="ui">Intro &amp; outro</span>.</p>
+
+      <h2 id="watching-with-friends">Watching with friends</h2>
+      <p><strong>Can I watch with friends?</strong><br />Yes. A Watch Party plays a movie or episode in sync for up to five people, each from their own sources, with reactions and chat. Anyone signed in can join with a code; hosting a party is a Supporter perk. See <a href="guides/watch-party.html">Watch Party</a>.</p>
+      <p><strong>How do Friends and Messages work?</strong><br />Friends is off until you turn it on in <span class="ui">Profile → Friends &amp; privacy</span>. Then you can add friends by friend code or handle, send them titles to watch, share collections, and send private messages. See <a href="guides/friends-and-messages.html">Friends and Messages</a>.</p>
 
       <h2 id="privacy-and-data">Privacy and data</h2>
-      <p><strong>Do I need an account?</strong><br />No. Reelish has no accounts and no developer-operated account service.</p>
-      <p><strong>What data does Reelish collect?</strong><br />Your favorites, history, playback progress, settings and provider choices stay on your device. The app doesn’t include its own advertising or analytics. Services you use, such as TMDB, providers, stream hosts and subtitle services, receive the requests needed for the features you use. See the <a href="privacy.html">privacy policy</a>.</p>
-      <p><strong>How do I delete my data?</strong><br />Remove favorites and history in <span class="ui">Library</span>, remove add-ons in <span class="ui">Plugins</span>, or uninstall the app to erase all app data.</p>
+      <p><strong>Do I need an account?</strong><br />Yes. You sign in with a free Trakt account, on Trakt’s own page in your browser or with a code from a TV. Reelish has no passwords of its own and never sees your Trakt password. See <a href="guides/signing-in-and-syncing.html">Signing In and Syncing</a>.</p>
+      <p><strong>What data does Reelish collect?</strong><br />To keep your viewing progress, collections and genre choices the same on every device, the Reelish service stores them with your account. Friends data is stored only if you turn Friends on. Usage statistics and crash reports are sent only on Android, and only if you agree. The app has no advertising, and video never passes through the Reelish service. Favorites, settings and provider choices stay on your device. See the <a href="privacy.html">privacy policy</a> for the full details.</p>
+      <p><strong>How do I delete my data?</strong><br />Delete your account in <span class="ui">Settings → Profile and account</span>. This removes your account, viewing progress, collections, recommendation preferences and device sessions from the Reelish service, and asks Trakt to revoke Reelish’s access. To clear what’s on a device, remove items in <span class="ui">Library</span>, remove add-ons in <span class="ui">Plugins</span>, or uninstall the app.</p>
             </div>
 
             <aside class="guide-help" aria-label="Questions?">
@@ -120,6 +125,7 @@
                 <li><a href="#general">General</a></li>
                 <li><a href="#installing-and-updating">Installing and updating</a></li>
                 <li><a href="#plugins-and-playback">Plugins and playback</a></li>
+                <li><a href="#watching-with-friends">Watching with friends</a></li>
                 <li><a href="#privacy-and-data">Privacy and data</a></li>
               </ol>
             </nav>
