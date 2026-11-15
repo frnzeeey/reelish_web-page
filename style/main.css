@@ -546,10 +546,12 @@ p {
   font-size: 12px;
   font-weight: 700;
   letter-spacing: 0.06em;
+  line-height: 1.4;
   text-transform: uppercase;
 }
 
 .eyebrow-dot {
+  flex: none;
   width: 7px;
   height: 7px;
   border-radius: 50%;
@@ -4255,6 +4257,11 @@ h1 span {
     margin-inline: auto;
   }
 
+  .eyebrow {
+    max-width: 100%;
+    text-align: left;
+  }
+
   .hero-actions,
   .hero-meta {
     justify-content: center;
@@ -4658,4 +4665,14 @@ h1 span {
 
 .footer-bottom a:hover {
   color: var(--text);
+}
+
+/* Keep the hero announcement badge on one line on phones */
+@media (max-width: 480px) {
+  .eyebrow {
+    gap: 8px;
+    padding-inline: 9px 12px;
+    font-size: 11px;
+    letter-spacing: 0.03em;
+  }
 }
