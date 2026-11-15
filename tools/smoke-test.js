@@ -238,6 +238,11 @@ async function main() {
   const origin = `http://localhost:${server.address().port}`;
   const browser = await launch();
   const context = await browser.newContext({ viewport: { width: 1280, height: 900 } });
+  // Answer Google AdSense requests with an empty stub so runs stay offline and
+  // deterministic. The CSP is still enforced: the browser checks it before a
+  // request reaches this route, so a blocked ad script still fails the test.
+  await context.route(/^https:\/\/([a-z0-9-]+\.)*(googlesyndication\.com|doubleclick\.net|adtrafficquality\.google)\//, (route) =>
+    route.fulfill({ status: 200, contentType: "application/javascript", body: "" }));
 
   const pages = [
     ...fs.readdirSync(siteDir).filter((name) => name.endsWith(".html")),

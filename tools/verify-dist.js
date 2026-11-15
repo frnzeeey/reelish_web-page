@@ -3,7 +3,7 @@
 //
 //   node tools/verify-dist.js
 //
-// - only page, image, script, stylesheet and _headers files are present
+// - only page, image, script, stylesheet, _headers and ads.txt files are present
 // - no source maps or sourceMappingURL references
 // - every local href / src in every page points at a file in dist/
 // - the script parses, and each page loads the hashed script and stylesheet
@@ -57,7 +57,7 @@ const rel = (file) => path.relative(distDir, file).split(path.sep).join("/");
 // Only intended production files.
 for (const file of files) {
   const name = rel(file);
-  if (name === "_headers") continue;
+  if (name === "_headers" || name === "ads.txt") continue;
   if (!allowedExtensions.has(path.extname(name).toLowerCase())) fail(`unexpected file in dist/: ${name}`);
   if (/^(tools|node_modules|\.git)\//.test(name)) fail(`private folder published: ${name}`);
 }

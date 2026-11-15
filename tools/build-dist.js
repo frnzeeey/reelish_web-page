@@ -58,7 +58,7 @@ const pageGlobs = [
   { dir: "guides", match: (name) => name.endsWith(".html") },
 ];
 const assetDir = "assets";
-const staticFiles = ["_headers"];
+const staticFiles = ["_headers", "ads.txt"];
 
 const hash = (content) => crypto.createHash("sha256").update(content).digest("hex").slice(0, 10);
 const kb = (bytes) => `${(bytes / 1024).toFixed(1)} KB`;
