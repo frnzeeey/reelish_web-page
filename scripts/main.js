@@ -410,11 +410,11 @@ const showcaseScreen = document.querySelector("#showcase-screen");
 const showcaseTitle = document.querySelector(".showcase-slide-title");
 const showcaseDots = document.querySelector(".showcase-dots");
 const showcaseSlides = [
-  { title: "Home Screen", src: "assets/app-showcase/1.png" },
-  { title: "Movie Details", src: "assets/app-showcase/2.png" },
-  { title: "Plugins", src: "assets/app-showcase/3.png" },
-  { title: "My Library", src: "assets/app-showcase/4.png" },
-  { title: "Settings", src: "assets/app-showcase/5.png" },
+  { title: "Home Screen", src: "assets/app-showcase/1.webp" },
+  { title: "Movie Details", src: "assets/app-showcase/2.webp" },
+  { title: "Plugins", src: "assets/app-showcase/3.webp" },
+  { title: "My Library", src: "assets/app-showcase/4.webp" },
+  { title: "Settings", src: "assets/app-showcase/5.webp" },
 ];
 let activeShowcaseSlide = 0;
 
