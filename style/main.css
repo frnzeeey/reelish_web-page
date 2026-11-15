@@ -665,20 +665,18 @@ h1 span {
   transform: rotate(28deg);
 }
 
-/* The source image is a square canvas with the phone in the middle;
-   the clip-path trims the transparent padding and hard frame corners,
-   and translate re-centres the phone (it sits slightly up-left in the PNG). */
+/* The source image is the phone mockup itself (frame edge to edge, with
+   transparent rounded corners), so it is centred and sized to the art
+   area's height; the drop shadow follows the frame's shape. */
 .phone-preview {
   position: absolute;
   z-index: 1;
   top: 50%;
   left: 50%;
   width: auto;
-  height: clamp(600px, 68vw, 845px);
-  translate: -46% -45.25%;
+  height: 96%;
+  translate: -50% -50%;
   max-width: none;
-  object-fit: contain;
-  clip-path: inset(11% 28% 16% 28% round 8%);
   filter: drop-shadow(0 30px 44px rgba(0, 0, 0, 0.5));
   animation: float 7s ease-in-out infinite;
 }
@@ -4266,10 +4264,6 @@ h1 span {
     height: clamp(440px, 80vw, 600px);
   }
 
-  .phone-preview {
-    height: clamp(580px, 105vw, 790px);
-  }
-
   .playback-layout,
   .tv-layout {
     grid-template-columns: 1fr;
@@ -4337,10 +4331,6 @@ h1 span {
 
   .hero-art {
     height: clamp(380px, 110vw, 480px);
-  }
-
-  .phone-preview {
-    height: clamp(500px, 145vw, 630px);
   }
 
   .floating-note {
