@@ -66,7 +66,8 @@ const guides = [
       <h2>Home</h2>
       <p>Home is where discovery happens.</p>
       <ul>
-        <li><strong>Spotlight</strong>: a rotating, full-width feature at the top. Open the title or add it to <span class="ui">My list</span>.</li>
+        <li><strong>Reelish Spotlight</strong>: a rotating feature at the top, on phones and Windows. Swipe through it, open the title or add it to <span class="ui">My list</span>. Choose how it moves in <span class="ui">Settings → Appearance → Spotlight Experience</span>.</li>
+        <li><strong>Join party and Search</strong>: on phones, at the top of Home next to your avatar.</li>
         <li><strong>Category chips</strong>: switch between <span class="ui">For you</span>, <span class="ui">Movies</span>, <span class="ui">Series</span> and the other categories to change what the rows below show.</li>
         <li><strong>Rows</strong> such as <span class="ui">Top 10 picks</span>, <span class="ui">Continue watching</span>, <span class="ui">Trending</span> and <span class="ui">New releases</span>, plus rows picked for you: <span class="ui">Recommended for you</span>, <span class="ui">Because you watched</span> a title, <span class="ui">Because you like</span> a genre, and <span class="ui">Something different</span>. Turn the personal rows off in <span class="ui">Settings → Recommendations</span>.</li>
         <li><strong>Search</strong>: one search finds movies, series, people and movie collections. Filter movies and series by genre, year and rating.</li>
@@ -96,7 +97,7 @@ const guides = [
       <p>Settings is where you make Reelish work the way you like:</p>
       <ul>
         <li><span class="ui">Profile and account</span>: your display name and avatar, My list sync with Trakt, signing out and deleting your account.</li>
-        <li><span class="ui">Appearance</span>: the theme, accent color and, on Android, the app icon.</li>
+        <li><span class="ui">Appearance</span>: the theme, accent color, the Spotlight animation (<span class="ui">Spotlight Experience</span>) and, on Android, the app icon.</li>
         <li><span class="ui">Notifications</span>: new episodes, updates to titles on My list, people and collections you follow, and how alerts arrive.</li>
         <li><span class="ui">Recommendations</span>: the personal rows on Home.</li>
         <li><span class="ui">Join a watch party</span>: enter a party code.</li>
@@ -258,6 +259,22 @@ const guides = [
       <h2>Messages</h2>
       <p>Open a friend from your friends list to start a private conversation. Only the two of you can read it. All your conversations are under <span class="ui">Messages</span> in Friends, and each message shows when it’s <span class="ui">Sent</span> and <span class="ui">Delivered</span>.</p>
 
+      <h2>Delete or unsend a message</h2>
+      <p>Long-press a message on a phone, right-click it on Windows, or select it with the remote on a TV, then choose:</p>
+      <ul>
+        <li><span class="ui">Delete for you</span>: removes it from your devices only. Your friend still has it.</li>
+        <li><span class="ui">Unsend for everyone</span>: for your own messages, removes it for both of you.</li>
+      </ul>
+
+      <h2>Conversation options</h2>
+      <p>From a conversation’s options you can:</p>
+      <ul>
+        <li><span class="ui">Set nickname</span>: a name only you see for that friend. <span class="ui">Remove nickname</span> brings back their handle.</li>
+        <li><span class="ui">Mute conversation</span>: messages still arrive, but don’t alert you or count as new.</li>
+        <li><span class="ui">Delete conversation</span>: clears it from your devices. Your friend keeps their copy.</li>
+      </ul>
+      <p>These choices follow your account to your other devices.</p>
+
       <h2>Blocking, reporting and turning Friends off</h2>
       <p>You can remove a friend, block someone, or report them; they aren’t told who reported them. Blocked people are listed under <span class="ui">Blocked people</span>. Turning Friends off deletes your handle, friends, requests and what you’ve shared, all at once.</p>
     `,
@@ -342,6 +359,7 @@ const guides = [
         <li><strong>App themes</strong> that change the colors of every screen: Velvet Cinema, Aurora, Ember, Arctic, Ivory Studio (a light theme), Obsidian Gold and Rosé Noir.</li>
         <li><strong>Avatar frames</strong> in Elegant, Cinematic and Special Edition styles, shown next to your name in Watch Party.</li>
         <li><strong>Profile card</strong> extras: cinematic backgrounds, gentle animated effects and any color you like.</li>
+        <li><strong>Spotlight animations</strong>: Classic Cover Flow, Spotlight Reveal, Floating Atmosphere and Stacked Motion, in <span class="ui">Settings → Appearance → Spotlight Experience</span>. Cinematic Depth and Minimal Motion stay free for everyone.</li>
         <li><strong>Every app icon</strong> on Android phones and tablets.</li>
         <li>A place on the supporters list, only if you turn on <span class="ui">Show me on the supporters list</span>, under a name you choose.</li>
       </ul>
